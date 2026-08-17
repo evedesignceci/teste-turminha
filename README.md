@@ -120,7 +120,7 @@
 
     .char-details-box { margin: 0 16px; background: linear-gradient(135deg, #EFF6FF 0%, #FFFFFF 100%); border: 2.5px solid var(--primary); border-radius: var(--radius-lg); padding: 18px; text-align: center; }
 
-    /* JOGOS & SUBNAV (AMOSTRAS VIP INCLUSAS) */
+    /* JOGOS & SUBNAV */
     .games-subnav { display: flex; justify-content: center; gap: 6px; background: #E0F2FE; padding: 6px; border-radius: var(--radius-md); margin-bottom: 14px; flex-wrap: wrap; }
     .subnav-btn { padding: 10px 12px; border: none; border-radius: 10px; font-weight: 800; font-size: 12px; cursor: pointer; background: #FFF; color: var(--primary-dark); box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
     .subnav-btn.active { background: var(--primary); color: #FFF; }
@@ -518,7 +518,7 @@
       </section>
     </main>
 
-    <!-- PÁGINA JOGOS (COM AMOSTRAS VIP UNIFICADAS) -->
+    <!-- PÁGINA JOGOS -->
     <main id="pagina-jogos" class="page-content">
       <div class="age-group-section">
         <h3 class="age-title">
@@ -531,7 +531,7 @@
           <span id="medalha-status">⭐ Iniciante da Turminha</span>
         </div>
 
-        <!-- TEMPORIZADOR GERAL (LIMITADO A 2 MIN NO GRÁTIS) -->
+        <!-- TEMPORIZADOR GERAL -->
         <div class="interactive-card" style="border-color: #BAE6FD; margin-bottom: 16px; background: #F0F9FF;">
           <h4 style="color: var(--tea-blue); font-weight: 900; font-size: 14px; margin-bottom: 4px;">⏳ Temporizador de Uso</h4>
           <p style="font-size: 11px; color: #475569; font-weight: 600; margin-bottom: 8px;">Defina um limite de tempo (Grátis: até 2 min | VIP: até 30 min).</p>
@@ -548,7 +548,6 @@
           <button id="subtab-letras" class="subnav-btn" onclick="mudarSubJogo('letras')">🔤 Letras</button>
           <button id="subtab-memoria" class="subnav-btn" onclick="mudarSubJogo('memoria')">🧠 Memória</button>
           <button id="subtab-quiz" class="subnav-btn" onclick="mudarSubJogo('quiz')">❓ Quiz</button>
-          <!-- Amostras VIP aparecem na aba de jogos com indicação -->
           <button id="subtab-vip-historia" class="subnav-btn vip-preview-btn" onclick="mudarSubJogo('vip-historia')">🔒 📖 Histórias VIP</button>
           <button id="subtab-vip-cor" class="subnav-btn vip-preview-btn" onclick="mudarSubJogo('vip-cor')">🔒 🎨 Cores VIP</button>
         </nav>
@@ -631,7 +630,7 @@
         <div id="game-vip-historia" class="game-section-page interactive-card">
           <h4 style="font-weight: 800; margin-bottom: 10px; font-size: 18px; color: #92400E;">📖 Desafio das Histórias (Amostra VIP)</h4>
           <div id="avisoVipBlocoHistoria" style="padding: 20px; text-align: center;">
-            <p style="font-size: 13px; color: #78350F; margin-bottom: 12px;">Este minijogo avançado é exclusivo para membros do Clube VIP. Torne-se assinante para liberar este e outros conteúdos!</p>
+            <p style="font-size: 13px; color: #78350F; margin-bottom: 12px;">Este minijogo avançado é exclusivo para membros do Clube VIP. Torne-se assinante para liberar!</p>
             <button onclick="mudarPagina('vip')" class="support-btn" style="background:#F59E0B; max-width:200px; margin:0 auto;">Quero Ser VIP ⭐</button>
           </div>
           <div id="conteudoVipHistoriaReal" style="display:none; width:100%;">
@@ -662,8 +661,8 @@
       <div class="age-group-section">
         
         <div id="tea-onboarding-box" class="tea-box" style="background: #FFF; border: 2.5px solid var(--tea-blue);">
-          <h3>🧩 Configure seu Espaço TEA</h3>
-          <p style="font-size: 13px; color: #334155; font-weight: 600; margin-bottom: 15px;">Personalize a experiência com o nome da criança e crie sua senha parental para o temporizador:</p>
+          <h3>🧩 Configure seu Espaço TEA & Senha Parental</h3>
+          <p style="font-size: 13px; color: #334155; font-weight: 600; margin-bottom: 15px;">Cadastre seu e-mail e defina a <strong>senha parental</strong> que será usada para destravar o site quando o temporizador acabar:</p>
           
           <div style="max-width: 400px; margin: 0 auto; text-align: left;">
             <label style="font-size: 11px; font-weight: 800; color: var(--tea-blue); display: block; margin-bottom: 4px;">Nome da Criança ou Responsável:</label>
@@ -672,10 +671,10 @@
             <label style="font-size: 11px; font-weight: 800; color: var(--tea-blue); display: block; margin-bottom: 4px;">E-mail de Contato:</label>
             <input type="email" id="tea-email" class="vip-input" placeholder="seu@email.com">
             
-            <label style="font-size: 11px; font-weight: 800; color: var(--tea-blue); display: block; margin-bottom: 4px;">Senha Parental (para destravar o tempo):</label>
-            <input type="password" id="tea-senha" class="vip-input" placeholder="Senha secreta">
+            <label style="font-size: 11px; font-weight: 800; color: var(--tea-blue); display: block; margin-bottom: 4px;">Senha Parental Secreta:</label>
+            <input type="password" id="tea-senha" class="vip-input" placeholder="Digite uma senha forte">
             
-            <button onclick="salvarOnboardingTea()" class="support-btn" style="background: var(--tea-blue); margin-top: 10px;">Salvar e Entrar no Espaço TEA 🚀</button>
+            <button onclick="salvarOnboardingTea()" class="support-btn" style="background: var(--tea-blue); margin-top: 10px;">Salvar Configuração Parental 🔒</button>
           </div>
         </div>
 
@@ -768,14 +767,12 @@
             <ul style="text-align: left; margin: 8px 0 8px 18px; font-weight: 600;">
               <li>📁 <strong>Drive Completo de Atividades Pedagógicas:</strong> Material exclusivo para imprimir em alta qualidade.</li>
               <li>🧩 <strong>Área Especial Pais & TEA (VIP):</strong> Pranchas de rotina visual e histórias sociais adaptadas.</li>
-              <li>💬 <strong>Prancha de Comunicação Editável (CAA):</strong> Adicione quantos cards e botões personalizados você quiser!</li>
-              <li>⏳ <strong>Temporizador Expandido (Até 30 min):</strong> Opções de 5, 10, 15 e 30 minutos com bloqueio de segurança.</li>
+              <li>💬 <strong>Prancha de Comunicação Editável (CAA):</strong> Adicione quantos cards e botões personalizados você quiser para a rotina diária!</li>
+              <li>⏳ <strong>Temporizador Expandido (Até 30 min):</strong> Opções de 5, 10, 15 e 30 minutos com bloqueio de segurança por senha parental.</li>
               <li>🔊 <strong>Configuração de Voz Global:</strong> Escolha o tipo exato de voz e a velocidade de leitura para todo o portal.</li>
-              <li>🎧 <strong>Caixa do Acalento Completa:</strong> Sons relaxantes para regulação sensorial.</li>
+              <li>🎧 <strong>Caixa do Acalento Completa:</strong> 5 sons relaxantes para regulação sensorial.</li>
               <li>🌟 <strong>Rotina de Super Força:</strong> Acompanhamento lúdico de vitaminas e medicamentos direto no app.</li>
               <li>🌟 <strong>Diploma de Super Fã Personalizável:</strong> Gere certificados exclusivos com o nome da criança.</li>
-              <li>🎬 <strong>Episódios Inéditos e Prévias VIP:</strong> Conteúdos liberados em primeira mão.</li>
-              <li>🎮 <strong>Minijogos Exclusivos VIP:</strong> Desafios de histórias, cores e memória avançada.</li>
             </ul>
           </div>
           
@@ -826,7 +823,6 @@
 
           <!-- SUB-ÁREA 1: DIVERSÃO VIP -->
           <div id="conteudo-vip-geral" class="vip-sub-area active-area">
-            
             <div class="certificado-container">
               <h3>Diploma de Super Fã</h3>
               <p style="font-size: 12px; color: #78350F; margin-bottom: 10px;">Digite o nome da criança para gerar o certificado oficial!</p>
@@ -850,23 +846,14 @@
               <p style="font-size: 12.5px; color: #1E40AF; margin-top: 4px; font-weight: 600;">Baixe Wallpapers de alta qualidade e Desenhos para Colorir!</p>
               <a href="https://drive.google.com/drive/folders/1gi1SjbtPXWuFBxhfMEuRpK2z4BFPXIBP?usp=drive_link" target="_blank" class="btn-drive">Acessar Pasta Oficial 📥</a>
             </div>
-
-            <div class="video-card">
-              <div class="video-header">
-                <h3>🎬 Episódios Secretos e Prévias VIP</h3>
-              </div>
-              <div class="video-wrapper">
-                <iframe src="https://www.youtube-nocookie.com/embed/videosseries?list=PLFR1LwoD9sys" allowfullscreen></iframe>
-              </div>
-            </div>
           </div>
 
-          <!-- SUB-ÁREA 2: ESPECIAL PAIS & TEA -->
+          <!-- SUB-ÁREA 2: ESPECIAL PAIS & TEA (CONFIGURAÇÃO DE ÁUDIO E VOZES) -->
           <div id="conteudo-vip-tea" class="vip-sub-area">
             
             <div class="vip-card-box" style="background: #EFF6FF; border-color: #93C5FD;">
-              <h4 style="color: #1E40AF; font-weight: 900; font-size: 15px; margin-bottom: 6px;">🔊 Configuração de Voz dos Cartões</h4>
-              <p style="font-size: 12px; color: #1E3A8A; font-weight: 600; margin-bottom: 12px;">Escolha o tom de voz e a velocidade de leitura para o site inteiro.</p>
+              <h4 style="color: #1E40AF; font-weight: 900; font-size: 15px; margin-bottom: 6px;">🔊 Configuração de Voz e Leitura Global</h4>
+              <p style="font-size: 12px; color: #1E3A8A; font-weight: 600; margin-bottom: 12px;">Escolha o tom de voz e a velocidade de narração para todo o portal.</p>
               
               <div style="display: flex; flex-direction: column; gap: 8px; text-align: left;">
                 <label style="font-size: 11px; font-weight: 800; color: #1E40AF;">Selecione a Voz Disponível:</label>
@@ -893,7 +880,7 @@
               <div id="caaGridVip" class="caa-grid"></div>
             </div>
 
-            <!-- CAIXA DO ACALENTO COMPLETA (SONS REAIS FUNCIONAIS) -->
+            <!-- CAIXA DO ACALENTO COMPLETA -->
             <div class="vip-card-box" style="background: #F8FAFC; border-color: #94A3B8;">
               <h4 style="color: #334155; margin-bottom: 6px; font-size: 15px; font-weight: 900;">🎧 Caixa do Acalento (Sons Relaxantes)</h4>
               <p style="font-size: 12px; color: #64748B; font-weight: 600;">Regulação sensorial para momentos de crise ou transição.</p>
@@ -1138,7 +1125,7 @@
       document.getElementById('tea-onboarding-box').style.display = 'none';
       document.getElementById('tea-conteudo-liberado').style.display = 'flex';
       carregarPersonagemDoDiaTEA();
-      lerTexto("Espaço TEA configurado com sucesso! Aproveitem.");
+      lerTexto("Configuração parental salva com sucesso!");
     }
 
     function verificarStatusOnboardingTea() {
@@ -1261,7 +1248,6 @@
           <button class="timer-btn" onclick="iniciarTemporizador(30)">30 Min</button>
         `;
       } else {
-        // Limitado estritamente a 2 min no modo grátis
         container.innerHTML = `
           <button class="timer-btn" onclick="iniciarTemporizador(1)">1 Min</button>
           <button class="timer-btn" onclick="iniciarTemporizador(2)">2 Min (Máx)</button>
@@ -1313,7 +1299,7 @@
         document.getElementById('senhaDesbloqueio').value = '';
         lerTexto("Tempo desbloqueado com sucesso!");
       } else {
-        alert("❌ Senha incorreta! Digite a senha parental cadastrada.");
+        alert("❌ Senha incorreta! Digite a senha parental cadastrada no Espaço TEA.");
       }
     }
 
@@ -1494,13 +1480,11 @@
         });
     }
 
-    // --- VERIFICAÇÃO DE STATUS VIP (LIBERA AMOSTRAS NA ABA DE JOGOS) ---
     function verificarStatusVip() {
       const isVip = localStorage.getItem('turminha_xexeu_vip_ativo') === 'true';
       const lockedView = document.getElementById('vip-locked-view');
       const unlockedView = document.getElementById('vip-unlocked-view');
 
-      // Amostras na aba de Jogos
       const avisoHistoria = document.getElementById('avisoVipBlocoHistoria');
       const conteudoHistoria = document.getElementById('conteudoVipHistoriaReal');
       const avisoCor = document.getElementById('avisoVipBlocoCor');
@@ -1606,7 +1590,6 @@
       });
     }
 
-    // --- JOGOS COM LOUSA PROPORCIONAL CORRIGIDA ---
     const canvas = document.getElementById('paintCanvas');
     const ctx = canvas ? canvas.getContext('2d') : null;
     let desenhando = false, corAtual = '#3B82F6', modoLousa = 'free', imagemPintarCarregada = null, tamanhoPincel = 6, escalaZoomGuia = 0.85;
