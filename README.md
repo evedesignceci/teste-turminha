@@ -56,7 +56,6 @@
       overflow-x: hidden;
     }
 
-    /* ANIMAÇÕES GERAIS (Vida e Movimento) */
     @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-8px); } 100% { transform: translateY(0px); } }
     @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
     @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
@@ -90,19 +89,22 @@
     .action-btn-pill:hover { background: #E0F2FE; transform: scale(1.03); }
     .action-btn-pill.muted { background: #FEE2E2; border-color: #EF4444; color: #991B1B; }
 
-    /* NAVEGAÇÃO */
+    /* NAVEGAÇÃO OTIMIZADA E ESPAÇADA */
     .page-nav {
-      display: flex; gap: 10px; background: #F0F9FF; padding: 8px;
+      display: flex; gap: 14px; background: #F0F9FF; padding: 12px;
       border-radius: var(--radius-lg); border: 2px solid #BAE6FD;
-      overflow-x: auto; scrollbar-width: none;
+      overflow-x: auto; scrollbar-width: thin; flex-wrap: nowrap;
     }
-    .page-nav::-webkit-scrollbar { display: none; }
+    @media (min-width: 1024px) {
+      .page-nav { flex-wrap: wrap; justify-content: center; }
+    }
     .nav-tab-btn {
-      flex: 1; min-width: 90px; padding: 12px 16px; border: none; border-radius: var(--radius-md);
-      font-weight: 800; font-size: 13.5px; cursor: pointer; background: transparent;
+      flex: 0 0 auto; padding: 12px 24px; border: none; border-radius: var(--radius-md);
+      font-weight: 800; font-size: 14px; cursor: pointer; background: transparent;
       color: var(--text-muted); display: flex; align-items: center; justify-content: center;
       gap: 6px; min-height: 54px; white-space: nowrap; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
+    @media (min-width: 1024px) { .nav-tab-btn { flex: 1 1 auto; } }
     .nav-tab-btn:hover { background: #E0F2FE; color: var(--primary); transform: translateY(-2px); }
     .nav-tab-btn.active { background: var(--primary); color: #FFFFFF; box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4); transform: translateY(-4px); }
     .nav-tab-btn.tea-tab { background: #E0F2FE; color: var(--tea-blue); border: 2px solid #7DD3FC; }
@@ -110,11 +112,10 @@
     .nav-tab-btn.vip-tab { background: #FEF3C7; color: #92400E; border: 2px solid #FCD34D; }
     .nav-tab-btn.vip-tab.active { background: linear-gradient(135deg, #F59E0B, #D97706); color: #FFF; border-color: transparent; }
 
-    /* CONTEÚDO E PÁGINAS */
     .page-content { display: none; flex-direction: column; gap: 24px; animation: fadeIn 0.3s ease; }
     .page-content.active-page { display: flex; }
 
-    /* SEÇÃO 1 & 2: INÍCIO */
+    /* SEÇÃO 1: INÍCIO E FAMÍLIAS */
     .banner-intro-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
     @media (min-width: 900px) { .banner-intro-grid { grid-template-columns: 1fr 1.2fr; align-items: stretch; } }
     
@@ -162,44 +163,41 @@
       transition: all 0.3s ease; position: relative; overflow: hidden;
     }
     .floating-char-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--primary); }
-    .floating-char-card::after { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 60%); opacity: 0; transition: opacity 0.3s; pointer-events: none; }
-    .floating-char-card:hover::after { opacity: 1; }
-    
     .floating-char-img { width: 90px; height: 90px; object-fit: contain; border-radius: 50%; background: #F0F9FF; padding: 6px; transition: transform 0.3s; }
     .floating-char-card:hover .floating-char-img { transform: scale(1.1) rotate(3deg); }
     
     .floating-char-name { font-size: 16px; font-weight: 900; color: var(--text-main); }
     .floating-char-tag { font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; }
-    .floating-char-desc { font-size: 12px; font-weight: 600; color: var(--text-muted); line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .floating-char-desc { font-size: 12px; font-weight: 600; color: var(--text-muted); line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
     .card-f1 { border-color: #F472B6; } .card-f1 .floating-char-tag { background: #FCE7F3; color: #DB2777; }
     .card-f2 { border-color: #60A5FA; } .card-f2 .floating-char-tag { background: #DBEAFE; color: #2563EB; }
     .card-avos { border-color: #FBBF24; } .card-avos .floating-char-tag { background: #FEF3C7; color: #D97706; }
     .card-especial { border-color: #A78BFA; } .card-especial .floating-char-tag { background: #EDE9FE; color: #7C3AED; }
 
-    /* SEÇÃO: VÍDEOS, MÚSICAS & ACALENTO (Integrados) */
+    /* SEÇÃO DE SUPORTE (INÍCIO E VIP) */
+    .support-form-box { background: #F0F9FF; border: 3px solid #BAE6FD; border-radius: var(--radius-lg); padding: 24px; text-align: left; }
+    .support-form-box h3 { color: var(--tea-blue); font-size: 20px; font-weight: 900; margin-bottom: 8px; }
+    .support-form-box p { font-size: 14px; font-weight: 600; color: #475569; margin-bottom: 16px; }
+    .support-input { width: 100%; padding: 14px; font-size: 14px; font-family: 'Poppins'; border: 2px solid #7DD3FC; border-radius: 12px; margin-bottom: 12px; outline: none; }
+    .support-input:focus { border-color: var(--primary); }
+
+    /* VÍDEOS, MÚSICAS & ACALENTO */
     .media-section-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
     @media (min-width: 900px) { .media-section-grid { grid-template-columns: 1fr 1fr; } }
-
     .video-card { background: #FFFFFF; border-radius: var(--radius-lg); padding: 20px; box-shadow: var(--shadow-sm); border: 2px solid #E2E8F0; text-align: center; }
     .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--radius-md); }
     .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-
     .spotify-wrapper { width: 100%; height: 352px; border-radius: 14px; overflow: hidden; border: 2px solid #1DB954; box-shadow: var(--shadow-sm); }
-
     .interactive-card { background: #F8FAFC; border-radius: var(--radius-md); padding: 20px; text-align: center; border: 2px solid #E2E8F0; width: 100%; }
     
     .media-card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin-top: 14px; }
-    .media-item-box {
-      background: #FFF; border: 2px solid #CBD5E1; border-radius: var(--radius-md); padding: 16px 12px;
-      display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; position: relative;
-      transition: all 0.2s;
-    }
+    .media-item-box { background: #FFF; border: 2px solid #CBD5E1; border-radius: var(--radius-md); padding: 16px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; position: relative; transition: all 0.2s; }
     .media-item-box:hover { transform: translateY(-4px); border-color: var(--primary); box-shadow: 0 6px 12px rgba(59,130,246,0.15); }
     .media-item-box.locked { background: #FFFBEB; border-color: #FCD34D; }
     .media-badge-vip { position: absolute; top: 8px; right: 8px; background: #F59E0B; color: #FFF; font-size: 10px; font-weight: 800; padding: 4px 8px; border-radius: 8px; }
 
-    /* SEÇÃO JOGOS */
+    /* JOGOS E LOUSA */
     .age-group-section { background: #FFFFFF; border-radius: var(--radius-lg); padding: 24px; border: 2px solid #E2E8F0; box-shadow: var(--shadow-sm); }
     .age-title { font-size: 22px; font-weight: 900; color: var(--primary-dark); margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; }
     
@@ -213,30 +211,29 @@
     .game-section-page.active-game-page { display: block; animation: fadeIn 0.3s; }
 
     /* LOUSA MÁGICA */
-    .brush-size-selector { display: flex; gap: 10px; justify-content: center; align-items: center; margin-bottom: 14px; flex-wrap: wrap; }
-    .btn-brush-size { background: #FFF; border: 2px solid #CBD5E1; border-radius: 12px; font-size: 13px; font-weight: 800; padding: 10px 16px; cursor: pointer; transition: all 0.2s; }
-    .btn-brush-size.active { border-color: var(--primary); background: #E0F2FE; color: var(--primary-dark); transform: scale(1.05); }
-    
     #paintCanvas { background: #FFF; border: 4px solid var(--primary); border-radius: var(--radius-lg); width: 100%; height: 350px; touch-action: none; cursor: crosshair; }
     @media (min-width: 1024px) { #paintCanvas { height: 480px; } }
 
     .palette { display: flex; gap: 12px; justify-content: center; align-items: center; margin-top: 16px; flex-wrap: wrap; }
-    .color-dot { width: 44px; height: 44px; border-radius: 50%; border: 3px solid #FFF; box-shadow: 0 4px 10px rgba(0,0,0,0.15); cursor: pointer; transition: transform 0.2s; }
+    .color-dot { width: 44px; height: 44px; border-radius: 50%; border: 3px solid #FFF; box-shadow: 0 4px 10px rgba(0,0,0,0.15); cursor: pointer; transition: transform 0.2s; display:flex; justify-content:center; align-items:center; }
     .color-dot:hover { transform: scale(1.15); }
 
-    .coloring-select-grid { display: flex; justify-content: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; max-height: 180px; overflow-y: auto; padding-bottom: 8px; }
-    .btn-color-draw { background: #FFF; border: 2px solid #CBD5E1; padding: 8px 14px; border-radius: 12px; font-weight: 800; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: all 0.2s; }
+    .coloring-select-grid { display: flex; justify-content: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; max-height: 200px; overflow-y: auto; padding-bottom: 8px; }
+    .btn-color-draw { background: #FFF; border: 2px solid #CBD5E1; padding: 10px 14px; border-radius: 12px; font-weight: 800; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: all 0.2s; }
     .btn-color-draw.selected { border-color: var(--primary); background: #E0F2FE; transform: scale(1.05); box-shadow: 0 4px 10px rgba(59,130,246,0.2); }
     .btn-color-draw img { width: 26px; height: 26px; object-fit: contain; }
 
     .game-btn-grid { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
-    .btn-choice {
-      background: var(--purple); color: #FFF; border: none; padding: 16px 24px; font-weight: 900; font-size: 18px;
-      border-radius: 14px; cursor: pointer; min-width: 64px; box-shadow: 0 4px 14px rgba(139, 92, 246, 0.3); transition: transform 0.15s ease;
-    }
+    .btn-choice { background: var(--purple); color: #FFF; border: none; padding: 16px 24px; font-weight: 900; font-size: 18px; border-radius: 14px; cursor: pointer; min-width: 64px; box-shadow: 0 4px 14px rgba(139, 92, 246, 0.3); transition: transform 0.15s ease; }
     .btn-choice:active { transform: scale(0.92); }
     .btn-choice.acertou { background: #10B981 !important; transform: scale(1.1); box-shadow: 0 0 20px rgba(16, 185, 129, 0.6); }
     .btn-choice.errou { background: #EF4444 !important; transform: scale(0.95) rotate(-3deg); }
+
+    .memory-board { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 14px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .memory-card { aspect-ratio: 1; background: var(--primary); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #FFF; font-weight: 900; font-size: 28px; cursor: pointer; transition: transform 0.2s; }
+    .memory-card:active { transform: scale(0.95); }
+    .memory-card.flipped { background: #FFF; border: 3px solid var(--primary); }
+    .memory-card img { width: 85%; height: 85%; object-fit: contain; }
 
     /* ESPAÇO TEA */
     .emotion-card-grid { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 12px; }
@@ -249,22 +246,16 @@
     .caa-btn:hover { background: #F0F9FF; transform: translateY(-4px); border-color: var(--tea-blue); box-shadow: 0 6px 12px rgba(2,132,199,0.1); }
     .caa-btn span { font-size: 34px; }
 
-    /* ROTINA (COM INPUT PARA GRÁTIS/VIP) */
+    /* ROTINA */
     .rotina-item { display: flex; justify-content: space-between; align-items: center; background: #FFF; border: 2px solid #E2E8F0; padding: 12px 16px; border-radius: 12px; margin-bottom: 10px; font-size: 14px; font-weight: 700; transition: all 0.3s; }
     .rotina-item:hover { border-color: #CBD5E1; transform: translateX(4px); }
     .rotina-item.concluido { background: #DCFCE7; border-color: #86EFAC; opacity: 0.85; }
     .rotina-item.concluido .rotina-texto { text-decoration: line-through; color: #166534; }
-    
     .rotina-add-box { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
     .rotina-add-box input { flex: 1; min-width: 200px; padding: 12px; border-radius: 10px; border: 2px solid #CBD5E1; font-family: 'Poppins'; font-weight: 600; outline: none; }
     .rotina-add-box input:focus { border-color: var(--primary); }
     .rotina-add-box button { background: var(--primary); color: #FFF; border: none; padding: 12px 20px; border-radius: 10px; font-weight: 800; cursor: pointer; transition: transform 0.2s; }
     .rotina-add-box button:hover { transform: scale(1.05); }
-
-    /* BIBLIOTECA (LIVROS EM BREVE) */
-    .book-card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 14px; }
-    .book-card { background: #FFF; border: 3px dashed #CBD5E1; border-radius: var(--radius-lg); padding: 30px 20px; text-align: center; cursor: default; transition: all 0.3s; opacity: 0.8; }
-    .book-card:hover { transform: translateY(-4px); opacity: 1; border-color: var(--primary); background: #F8FAFC; }
 
     /* ÁREA VIP */
     .vip-lock-container { background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%); border: 3px solid #FCD34D; border-radius: var(--radius-lg); padding: 24px; text-align: center; }
@@ -273,27 +264,29 @@
     @media (min-width: 768px) { .vip-grid-forms { grid-template-columns: 1fr 1fr; } }
     .vip-form-box { background: #FFF; padding: 20px; border-radius: var(--radius-md); border: 2px solid #FCD34D; text-align: left; transition: transform 0.3s; }
     .vip-form-box:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-    .vip-input { width: 100%; padding: 12px; font-size: 14px; border: 2px solid #E2E8F0; border-radius: 10px; margin-bottom: 12px; outline: none; }
+    .vip-input { width: 100%; padding: 12px; font-size: 14px; border: 2px solid #E2E8F0; border-radius: 10px; margin-bottom: 12px; outline: none; font-family: 'Poppins'; }
     .vip-input:focus { border-color: #F59E0B; }
-    .btn-vip-checkout { background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: #FFF; font-weight: 800; font-size: 15px; padding: 14px 18px; border-radius: 12px; border: none; cursor: pointer; width: 100%; text-decoration: none; display: block; text-align: center; transition: all 0.2s; }
+    .btn-vip-checkout { background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: #FFF; font-weight: 800; font-size: 15px; padding: 14px 18px; border-radius: 12px; border: none; cursor: pointer; width: 100%; display: block; text-align: center; transition: all 0.2s; }
     .btn-vip-checkout:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 6px 16px rgba(245, 158, 11, 0.4); }
 
-    /* MODAIS (PERSONAGEM, PARENTAL, PRIVACIDADE) */
+    /* MODAIS */
     .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(6px); z-index: 99999; justify-content: center; align-items: center; padding: 20px; }
     .modal-overlay.active { display: flex; animation: fadeIn 0.3s; }
     .modal-box { background: #FFF; border-radius: var(--radius-lg); padding: 24px; max-width: 450px; width: 100%; text-align: center; border: 4px solid var(--primary); position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
     .modal-close { position: absolute; top: 16px; right: 16px; background: #F1F5F9; border: none; width: 36px; height: 36px; border-radius: 50%; font-weight: bold; font-size: 16px; cursor: pointer; transition: background 0.2s; }
     .modal-close:hover { background: #E2E8F0; color: #EF4444; }
 
-    /* COOKIE BANNER */
+    /* TOAST E COOKIES */
     .cookie-banner { position: fixed; bottom: 0; left: 0; width: 100%; background: #1E293B; color: #FFF; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; z-index: 99998; animation: slideUp 0.5s ease forwards; font-size: 13px; font-weight: 600; box-shadow: 0 -4px 20px rgba(0,0,0,0.2); }
     .cookie-banner.hidden { display: none; }
     .btn-cookie { background: #10B981; color: #FFF; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 800; cursor: pointer; transition: transform 0.2s; }
     .btn-cookie:hover { transform: scale(1.05); }
 
-    /* TOAST VIP FLOATING */
     .floating-vip-badge { position: fixed; bottom: 24px; right: 24px; background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: #FFF; padding: 14px 24px; border-radius: 50px; font-size: 15px; font-weight: 900; box-shadow: 0 8px 24px rgba(245, 158, 11, 0.4); display: flex; align-items: center; gap: 8px; cursor: pointer; border: 2px solid #FDE68A; z-index: 999; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
     .floating-vip-badge:hover { transform: scale(1.1) translateY(-5px); }
+
+    #visualToast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%) translateY(100px); background: #0F172A; color: #FFF; padding: 12px 24px; border-radius: 30px; font-size: 14px; font-weight: 700; transition: transform 0.3s; z-index: 999999; pointer-events: none; opacity: 0; }
+    #visualToast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
     footer { text-align: center; padding: 30px 20px; font-size: 13px; color: var(--text-muted); font-weight: 600; margin-top: auto; display: flex; flex-direction: column; gap: 8px; }
     footer a { color: var(--primary); text-decoration: underline; cursor: pointer; }
@@ -307,8 +300,7 @@
     <button class="btn-cookie" onclick="aceitarCookies()">Entendi e Aceito!</button>
   </div>
 
-  <!-- AVISO TOAST -->
-  <div id="visualToast" style="position:fixed; bottom:80px; left:50%; transform:translateX(-50%) translateY(100px); background:#0F172A; color:#FFF; padding:12px 24px; border-radius:30px; font-size:14px; font-weight:700; transition:transform 0.3s; z-index:999999; pointer-events:none; opacity:0;">Aviso</div>
+  <div id="visualToast">Aviso</div>
 
   <!-- MODAL: FICHA DO PERSONAGEM -->
   <div id="modalFichaPersonagem" class="modal-overlay">
@@ -355,27 +347,28 @@
     </div>
   </div>
 
+  <!-- BOTÃO FLUTUANTE VIP -->
   <div class="floating-vip-badge float-anim" onclick="abrirAreaProtegida('vip')">
     <span style="font-size:18px;">⭐</span>
-    <span>Área VIP (R$ 6,00)</span>
+    <span>Seja VIP (R$ 6,00)</span>
   </div>
 
   <div class="app-container">
 
-    <!-- CABEÇALHO GERAL -->
+    <!-- CABEÇALHO -->
     <header class="content-wrapper">
-      <a href="https://www.youtube.com/@turminhaxe_xeu" target="_blank" title="YouTube da Turminha">
-        <img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786908275/TURMINHA_LOGO.png" alt="Logo Turminha do Xexéu" class="logo-img hover-float">
+      <a href="https://www.youtube.com/@turminhaxe_xeu" target="_blank">
+        <img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786908275/TURMINHA_LOGO.png" class="logo-img hover-float" alt="Logo">
       </a>
       <div class="header-actions">
         <button id="btnSensoryHeader" class="action-btn-pill" onclick="toggleSensoryMode()"><span>🌿</span> Modo Calmo</button>
         <button id="toggleAudioBtn" class="action-btn-pill" onclick="alternarAudioGlobal()"><span id="audioIcon">🔊</span> <span id="audioText">Voz</span></button>
-        <button class="action-btn-pill" onclick="abrirAreaProtegida('config')" title="Configurações"><span>⚙️</span></button>
-        <button class="action-btn-pill" onclick="mudarPagina('perfil')" title="Perfil da Criança"><span>👤</span></button>
+        <button class="action-btn-pill" onclick="abrirAreaProtegida('config')"><span>⚙️</span></button>
+        <button class="action-btn-pill" onclick="mudarPagina('perfil')"><span>👤</span></button>
       </div>
     </header>
 
-    <!-- NAVEGAÇÃO PRINCIPAL -->
+    <!-- NAVEGAÇÃO -->
     <nav class="page-nav content-wrapper">
       <button id="btn-tab-inicio" class="nav-tab-btn active" onclick="mudarPagina('inicio')">🏠 Início</button>
       <button id="btn-tab-videos" class="nav-tab-btn" onclick="mudarPagina('videos')">🎬 Vídeos e Músicas</button>
@@ -387,92 +380,90 @@
       <button id="btn-tab-vip" class="nav-tab-btn vip-tab" onclick="abrirAreaProtegida('vip')">⭐ Área VIP</button>
     </nav>
 
-    <!-- SEÇÃO 1: INÍCIO E FAMÍLIAS -->
+    <!-- PÁGINA 1: INÍCIO -->
     <main id="pagina-inicio" class="page-content active-page content-wrapper">
+      <div class="top-vip-announcement" onclick="abrirAreaProtegida('vip')">
+        <span>💡 Dica: Se o som estiver mudo, toque nos 3 pontinhos e escolha "Abrir no Chrome" ou "Abrir no Safari"!<br>⭐ Desbloqueie todo o Drive de Atividades e Ferramentas TEA por R$ 6,00/mês! Clique Aqui! 💖</span>
+      </div>
+
       <section class="banner-intro-grid">
-        <div class="banner-container">
-          <img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994339/BANNER_SITE_TURMINHA_DO_XEXEU.png" alt="Capa Turminha" class="banner-img">
-        </div>
+        <div class="banner-container"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994339/BANNER_SITE_TURMINHA_DO_XEXEU.png" class="banner-img"></div>
         <div class="intro-box hover-float">
-          <h2>
-            <span>✨ Educando com Alegria e Amor</span>
-            <button class="btn-audio-mini" onclick="lerTexto('Mais do que um nome divertido, a Turminha do Xexéu é o nosso jeito de honrar as raízes e a história da nossa família.')">🔊</button>
-          </h2>
+          <h2><span>✨ Educando com Alegria e Amor</span><button class="btn-audio-mini" onclick="lerTexto('Mais do que um nome divertido, a Turminha do Xexéu é o nosso jeito de honrar as raízes e a história da nossa família.')">🔊</button></h2>
           <p>Mais do que um nome divertido, a <strong>Turminha do Xexéu</strong> é o nosso jeito de honrar as raízes e a história da nossa família.</p>
-          <p>O nome <strong>Xexéu</strong> é uma homenagem que atravessa gerações. Ele honra a memória de <em>Mariano Xexéu</em> e celebra a vida de seu filho, <em>Pedro Mariano</em>, inspiração do querido <strong>Vovô Beto</strong>. A <strong>Vovó Hilda</strong> é inspirada na inesquecível <em>Astrogilda Grispym</em>, representando o amor sem fim.</p>
+          <p>O nome <strong>Xexéu</strong> é uma homenagem que atravessa gerações. Ele honra a memória de Mariano Xexéu e celebra a vida de seu filho, Pedro Mariano, grande inspiração para o nosso querido Vovô Beto.</p>
+          <p>A Vovó Hilda é inspirada na inesquecível Astrogilda Grispym, representando o amor que não conhece o tempo.</p>
         </div>
       </section>
 
       <section class="social-round-section">
         <a href="https://www.youtube.com/@turminhaxe_xeu" target="_blank" class="social-round-btn"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786908275/YT.png" alt="YouTube"></a>
-        <a href="https://music.youtube.com/channel/UC8KOg4IH-h0YNrpKlfIl2Vw" target="_blank" class="social-round-btn"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786908275/YT_MUSIC.png" alt="YT Music"></a>
-        <a href="https://www.instagram.com/turminhaxe_xeu/" target="_blank" class="social-round-btn"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786908273/INDTAGRAM.png" alt="Instagram"></a>
-        <a href="https://www.tiktok.com/@turminhaxe_xeu" target="_blank" class="social-round-btn"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786908275/TIKTOK.png" alt="TikTok"></a>
-        <a href="https://open.spotify.com/intl-pt/artist/6ykKQ3uP6Wl2REylKJAdJ6" target="_blank" class="social-round-btn"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786908274/SPOTIFY.png" alt="Spotify"></a>
-        <a href="https://www.facebook.com/profile.php?id=61585431586796" target="_blank" class="social-round-btn"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786908273/FACEBOOK.png" alt="Facebook"></a>
-        <a href="https://www.threads.net/@turminhaxe_xeu" target="_blank" class="social-round-btn"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786908274/THRENDS.png" alt="Threads"></a>
-        <a href="https://br.pinterest.com/turminhaxe_xeu" target="_blank" class="social-round-btn"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786908274/PINTEREST.png" alt="Pinterest"></a>
+        <a href="https://music.youtube.com/channel/UC8KOg4IH-h0YNrpKlfIl2Vw" target="_blank" class="social-round-btn"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786908275/YT_MUSIC.png"></a>
+        <a href="https://www.instagram.com/turminhaxe_xeu/" target="_blank" class="social-round-btn"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786908273/INDTAGRAM.png"></a>
+        <a href="https://www.tiktok.com/@turminhaxe_xeu" target="_blank" class="social-round-btn"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786908275/TIKTOK.png"></a>
+        <a href="https://open.spotify.com/intl-pt/artist/6ykKQ3uP6Wl2REylKJAdJ6?si=QqrYhcP2REaiUA9LFtjT4g" target="_blank" class="social-round-btn"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786908274/SPOTIFY.png"></a>
+        <a href="https://www.facebook.com/profile.php?id=61585431586796" target="_blank" class="social-round-btn"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786908273/FACEBOOK.png"></a>
+        <a href="https://www.threads.net/@turminhaxe_xeu" target="_blank" class="social-round-btn"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786908274/THRENDS.png"></a>
+        <a href="https://br.pinterest.com/turminhaxe_xeu" target="_blank" class="social-round-btn"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786908274/PINTEREST.png"></a>
       </section>
 
       <section class="section-family-container">
         <div>
-          <h3 class="family-group-title"><span>✨ Símbolos Oficiais</span></h3>
+          <h3 class="family-group-title"><span>✨ O Símbolo e Mascote</span><button class="btn-audio-mini" onclick="lerTexto('Toque nos personagens para ouvir!')">🔊</button></h3>
           <div class="floating-cards-grid">
-            <div class="floating-char-card card-especial" onclick="abrirFichaPersonagem('Xexéu')">
-              <img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994886/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_XEXEU.png" class="floating-char-img">
-              <span class="floating-char-name">Xexéu</span><span class="floating-char-tag">Mascote Oficial</span>
-              <p class="floating-char-desc">Pássaro azul de boina amarela.</p>
-            </div>
-            <div class="floating-char-card card-especial" onclick="abrirFichaPersonagem('Capilé')">
-              <img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994882/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_CAPILE.png" class="floating-char-img">
-              <span class="floating-char-name">Capilé</span><span class="floating-char-tag">O Companheiro</span>
-              <p class="floating-char-desc">Cachorrinho de coleira azul.</p>
-            </div>
+            <div class="floating-char-card card-especial" onclick="abrirFichaPersonagem('Xexéu')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994886/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_XEXEU.png" class="floating-char-img"><span class="floating-char-name">Xexéu</span><span class="floating-char-tag">Mascote Oficial</span><p class="floating-char-desc">Inspirado no pássaro xexéu e no nome do bisavô Mariano Xexéu.</p></div>
+            <div class="floating-char-card card-especial" onclick="abrirFichaPersonagem('Capilé')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994882/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_CAPILE.png" class="floating-char-img"><span class="floating-char-name">Capilé</span><span class="floating-char-tag">O Companheiro</span><p class="floating-char-desc">Cachorrinho de orelhas grandes e coleira azul-celeste!</p></div>
           </div>
         </div>
 
         <div>
-          <h3 class="family-group-title"><span>💖 Casa da Maya e do Theo</span></h3>
+          <h3 class="family-group-title"><span>💖 A Casa da Maya e do Theo</span><button class="btn-audio-mini" onclick="lerTexto('A Casa da Maya e do Theo.')">🔊</button></h3>
           <div class="floating-cards-grid">
-            <div class="floating-char-card card-f1" onclick="abrirFichaPersonagem('Maya')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994884/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_MAYA.png" class="floating-char-img"><span class="floating-char-name">Maya</span></div>
-            <div class="floating-char-card card-f1" onclick="abrirFichaPersonagem('Theo')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994885/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_THEO.png" class="floating-char-img"><span class="floating-char-name">Theo</span></div>
-            <div class="floating-char-card card-f1" onclick="abrirFichaPersonagem('Nina')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994885/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_NINA.png" class="floating-char-img"><span class="floating-char-name">Nina</span></div>
-            <div class="floating-char-card card-f1" onclick="abrirFichaPersonagem('Iza')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994883/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_IZA.png" class="floating-char-img"><span class="floating-char-name">Iza</span></div>
+            <div class="floating-char-card card-f1" onclick="abrirFichaPersonagem('Maya')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994884/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_MAYA.png" class="floating-char-img"><span class="floating-char-name">Maya</span><span class="floating-char-tag">Mãe & Guia</span><p class="floating-char-desc">Mãe dedicada da Iza e da Nina. Extremamente organizada e atenciosa.</p></div>
+            <div class="floating-char-card card-f1" onclick="abrirFichaPersonagem('Theo')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994885/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_THEO.png" class="floating-char-img"><span class="floating-char-name">Theo</span><span class="floating-char-tag">Pai Protetor</span><p class="floating-char-desc">Pai da Iza e da Nina. Calmo, observador e com um sorriso tranquilo.</p></div>
+            <div class="floating-char-card card-f1" onclick="abrirFichaPersonagem('Nina')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994885/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_NINA.png" class="floating-char-img"><span class="floating-char-name">Nina</span><span class="floating-char-tag">Super Esperta</span><p class="floating-char-desc">Super esperta, tem cabelos cacheados e adora aprender!</p></div>
+            <div class="floating-char-card card-f1" onclick="abrirFichaPersonagem('Iza')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994883/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_IZA.png" class="floating-char-img"><span class="floating-char-name">Iza</span><span class="floating-char-tag">A Vaidosa</span><p class="floating-char-desc">Vestidinho rosa, cabelos ondulados e um jeitinho charmoso.</p></div>
           </div>
         </div>
 
         <div>
-          <h3 class="family-group-title"><span>⚡ Casa do Sam e da Lia</span></h3>
+          <h3 class="family-group-title"><span>⚡ A Casa do Sam e da Lia</span><button class="btn-audio-mini" onclick="lerTexto('A Casa do Sam e da Lia.')">🔊</button></h3>
           <div class="floating-cards-grid">
-            <div class="floating-char-card card-f2" onclick="abrirFichaPersonagem('Sam')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994885/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_SAM.png" class="floating-char-img"><span class="floating-char-name">Sam</span></div>
-            <div class="floating-char-card card-f2" onclick="abrirFichaPersonagem('Lia')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994884/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_LIA.png" class="floating-char-img"><span class="floating-char-name">Lia</span></div>
-            <div class="floating-char-card card-f2" onclick="abrirFichaPersonagem('Joca')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994883/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_JOCA.png" class="floating-char-img"><span class="floating-char-name">Joca</span></div>
-            <div class="floating-char-card card-f2" onclick="abrirFichaPersonagem('Leo')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994883/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_LEO.png" class="floating-char-img"><span class="floating-char-name">Leo</span></div>
+            <div class="floating-char-card card-f2" onclick="abrirFichaPersonagem('Sam')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994885/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_SAM.png" class="floating-char-img"><span class="floating-char-name">Sam</span><span class="floating-char-tag">Pai Inventor</span><p class="floating-char-desc">Paizão ruivo do Joca e do Leo. Adora construir brinquedos.</p></div>
+            <div class="floating-char-card card-f2" onclick="abrirFichaPersonagem('Lia')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994884/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_LIA.png" class="floating-char-img"><span class="floating-char-name">Lia</span><span class="floating-char-tag">Mãe Alegria</span><p class="floating-char-desc">Mãe do Joca e do Leo. Estilosa, traz energia contagiante.</p></div>
+            <div class="floating-char-card card-f2" onclick="abrirFichaPersonagem('Joca')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994883/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_JOCA.png" class="floating-char-img"><span class="floating-char-name">Joca</span><span class="floating-char-tag">O Divertido</span><p class="floating-char-desc">Menino de camiseta verde! Engraçado e super companheiro.</p></div>
+            <div class="floating-char-card card-f2" onclick="abrirFichaPersonagem('Leo')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994883/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_LEO.png" class="floating-char-img"><span class="floating-char-name">Leo</span><span class="floating-char-tag">Explorador Focado</span><p class="floating-char-desc">Amante de detalhes e focado em suas descobertas.</p></div>
           </div>
         </div>
 
         <div>
-          <h3 class="family-group-title"><span>👵👴 Os Avós</span></h3>
+          <h3 class="family-group-title"><span>👵👴 Os Avós</span><button class="btn-audio-mini" onclick="lerTexto('Os queridos Avós.')">🔊</button></h3>
           <div class="floating-cards-grid">
-            <div class="floating-char-card card-avos" onclick="abrirFichaPersonagem('Beto')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994886/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_VOVO_BETO.png" class="floating-char-img"><span class="floating-char-name">Vovô Beto</span></div>
-            <div class="floating-char-card card-avos" onclick="abrirFichaPersonagem('Hilda')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994886/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_VOVO_HILDA.png" class="floating-char-img"><span class="floating-char-name">Vovó Hilda</span></div>
+            <div class="floating-char-card card-avos" onclick="abrirFichaPersonagem('Beto')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994886/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_VOVO_BETO.png" class="floating-char-img"><span class="floating-char-name">Vovô Beto</span><span class="floating-char-tag">Vovô Coruja</span><p class="floating-char-desc">Usa óculos quadrados. Traz paciência, bom humor e energia.</p></div>
+            <div class="floating-char-card card-avos" onclick="abrirFichaPersonagem('Hilda')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994886/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_VOVO_HILDA.png" class="floating-char-img"><span class="floating-char-name">Vovó Hilda</span><span class="floating-char-tag">Vovó Acolhedora</span><p class="floating-char-desc">Usa óculos redondos. Guardando doçura, abraços e valores.</p></div>
           </div>
         </div>
       </section>
+
+      <!-- FORM DE SUPORTE (INÍCIO) -->
+      <section class="support-form-box">
+        <h3>📬 Precisa de Ajuda ou quer enviar uma Sugestão?</h3>
+        <p>Escreva para nós! Sua mensagem será enviada diretamente para <strong>turminhaxexeu@gmail.com</strong>.</p>
+        <input type="email" id="suporteEmailInicio" class="support-input" placeholder="Digite seu e-mail para retornarmos">
+        <textarea id="suporteMensagemInicio" class="support-input" placeholder="Escreva aqui sua dúvida, sugestão ou reclamação..." style="resize: vertical; min-height: 100px;"></textarea>
+        <button onclick="enviarSuporteReclamacao('Inicio')" id="btnEnviarSuporteInicio" style="background: var(--tea-blue); color: #FFF; border: none; padding: 14px 24px; border-radius: 12px; font-size: 16px; font-weight: 900; cursor: pointer; width: 100%; transition: transform 0.2s;">Enviar Mensagem ✉️</button>
+      </section>
     </main>
 
-    <!-- SEÇÃO 2: VÍDEOS E MÚSICAS -->
+    <!-- PÁGINA 2: VÍDEOS, MÚSICAS & SONS -->
     <main id="pagina-videos" class="page-content content-wrapper">
       <div class="media-section-grid">
-        <!-- VÍDEOS YOUTUBE -->
         <div class="video-card hover-float">
           <h3 style="font-size:20px; font-weight:900; color:var(--primary-dark); margin-bottom:16px;">📺 Episódios no YouTube</h3>
           <div class="video-wrapper">
             <iframe src="https://www.youtube-nocookie.com/embed/videosseries?list=PLh42qmbnReoE_pM4lig3DpJaNGWqoT9uJ" allowfullscreen></iframe>
           </div>
         </div>
-
-        <!-- MÚSICAS SPOTIFY -->
         <div class="video-card hover-float" style="border-color:#1DB954;">
           <h3 style="font-size:20px; font-weight:900; color:#1DB954; margin-bottom:16px;">🎧 Rádio da Turminha</h3>
           <div class="spotify-wrapper">
@@ -481,63 +472,36 @@
         </div>
       </div>
 
-      <!-- SONS RELAXANTES -->
       <div class="interactive-card">
         <h4 style="font-size:22px; font-weight:900; color:var(--tea-blue); margin-bottom:12px;">🌙 Sons e Acalento (Grátis & VIP)</h4>
         <p style="font-size:14px; font-weight:600; color:#475569;">Sons suaves para relaxar, focar ou dormir.</p>
         <div class="media-card-grid">
-          <div class="media-item-box" onclick="tocarSomReal('https://cdn.freesound.org/previews/237/237729_4284968-lq.mp3')">
-            <span style="font-size:36px;">🌧️</span><strong style="font-size:15px;">Chuva Suave</strong>
-            <span style="font-size:12px; color:#16A34A; font-weight:900;">GRÁTIS</span>
-          </div>
-          <div class="media-item-box" onclick="tocarSomReal('https://cdn.freesound.org/previews/322/322744_5121236-lq.mp3')">
-            <span style="font-size:36px;">🐦</span><strong style="font-size:15px;">Passarinhos</strong>
-            <span style="font-size:12px; color:#16A34A; font-weight:900;">GRÁTIS</span>
-          </div>
-          <div class="media-item-box locked" onclick="abrirAreaProtegida('vip')">
-            <span class="media-badge-vip">👑 VIP</span><span style="font-size:36px;">🌊</span>
-            <strong style="font-size:15px;">Ondas do Mar</strong><span style="font-size:12px; color:#D97706; font-weight:900;">Desbloquear</span>
-          </div>
-          <div class="media-item-box locked" onclick="abrirAreaProtegida('vip')">
-            <span class="media-badge-vip">👑 VIP</span><span style="font-size:36px;">🔥</span>
-            <strong style="font-size:15px;">Fogueira</strong><span style="font-size:12px; color:#D97706; font-weight:900;">Desbloquear</span>
-          </div>
-          <div class="media-item-box locked" onclick="abrirAreaProtegida('vip')">
-            <span class="media-badge-vip">👑 VIP</span><span style="font-size:36px;">🍃</span>
-            <strong style="font-size:15px;">Vento Suave</strong><span style="font-size:12px; color:#D97706; font-weight:900;">Desbloquear</span>
-          </div>
+          <div class="media-item-box" onclick="tocarSomReal('https://cdn.freesound.org/previews/237/237729_4284968-lq.mp3')"><span style="font-size:36px;">🌧️</span><strong style="font-size:15px;">Chuva Suave</strong><span style="font-size:12px; color:#16A34A; font-weight:900;">GRÁTIS</span></div>
+          <div class="media-item-box" onclick="tocarSomReal('https://cdn.freesound.org/previews/322/322744_5121236-lq.mp3')"><span style="font-size:36px;">🐦</span><strong style="font-size:15px;">Passarinhos</strong><span style="font-size:12px; color:#16A34A; font-weight:900;">GRÁTIS</span></div>
+          <div class="media-item-box locked" onclick="abrirAreaProtegida('vip')"><span class="media-badge-vip">👑 VIP</span><span style="font-size:36px;">🌊</span><strong style="font-size:15px;">Ondas do Mar</strong><span style="font-size:12px; color:#D97706; font-weight:900;">Desbloquear</span></div>
+          <div class="media-item-box locked" onclick="abrirAreaProtegida('vip')"><span class="media-badge-vip">👑 VIP</span><span style="font-size:36px;">🔥</span><strong style="font-size:15px;">Fogueira</strong><span style="font-size:12px; color:#D97706; font-weight:900;">Desbloquear</span></div>
+          <div class="media-item-box locked" onclick="abrirAreaProtegida('vip')"><span class="media-badge-vip">👑 VIP</span><span style="font-size:36px;">🍃</span><strong style="font-size:15px;">Vento Suave</strong><span style="font-size:12px; color:#D97706; font-weight:900;">Desbloquear</span></div>
         </div>
       </div>
     </main>
 
-    <!-- SEÇÃO 3: JOGOS -->
+    <!-- PÁGINA 3: JOGOS -->
     <main id="pagina-jogos" class="page-content content-wrapper">
       <div class="age-group-section">
         <h3 class="age-title"><span>🎮 Central de Jogos</span></h3>
         <nav class="games-subnav">
-          <button id="subtab-lousa" class="subnav-btn active" onclick="mudarSubJogo('lousa')">🎨 Lousa</button>
+          <button id="subtab-lousa" class="subnav-btn active" onclick="mudarSubJogo('lousa')">🎨 Lousa Mágica</button>
           <button id="subtab-contar" class="subnav-btn" onclick="mudarSubJogo('contar')">🔢 Contar</button>
           <button id="subtab-letras" class="subnav-btn" onclick="mudarSubJogo('letras')">🔤 Letras</button>
           <button id="subtab-memoria" class="subnav-btn" onclick="mudarSubJogo('memoria')">🧠 Memória</button>
           <button id="subtab-quiz" class="subnav-btn" onclick="mudarSubJogo('quiz')">❓ Quiz</button>
         </nav>
 
+        <!-- LOUSA MÁGICA -->
         <div id="game-lousa" class="game-section-page active-game-page interactive-card">
           <h4 style="font-weight: 900; margin-bottom: 12px; font-size: 20px;">🎨 Lousa Mágica & Colorir</h4>
-          <div class="coloring-select-grid">
-            <button class="btn-color-draw selected" onclick="carregarContornoPintar('https://res.cloudinary.com/oactqmgs/image/upload/v1786994876/DESENHOS_DA_LOUSA_XEXEU.png', this)"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994886/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_XEXEU.png"> Xexéu</button>
-            <button class="btn-color-draw" onclick="carregarContornoPintar('https://res.cloudinary.com/oactqmgs/image/upload/v1786994874/DESENHOS_DA_LOUSA_CAPILE.png', this)"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994882/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_CAPILE.png"> Capilé</button>
-            <button class="btn-color-draw" onclick="carregarContornoPintar('https://res.cloudinary.com/oactqmgs/image/upload/v1786994875/DESENHOS_DA_LOUSA_MAYA.png', this)"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994884/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_MAYA.png"> Maya</button>
-            <button class="btn-color-draw" onclick="carregarContornoPintar('https://res.cloudinary.com/oactqmgs/image/upload/v1786994877/DESENHOS_DA_LOUSA_THEO.png', this)"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994885/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_THEO.png"> Theo</button>
-            <button class="btn-color-draw" onclick="carregarContornoPintar('https://res.cloudinary.com/oactqmgs/image/upload/v1786994876/DESENHOS_DA_LOUSA_NINA.png', this)"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994885/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_NINA.png"> Nina</button>
-            <button class="btn-color-draw" onclick="carregarContornoPintar('https://res.cloudinary.com/oactqmgs/image/upload/v1786994873/DESENHOS_DA_LOUSA_IZA.png', this)"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994883/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_IZA.png"> Iza</button>
-            <button class="btn-color-draw" onclick="carregarContornoPintar('https://res.cloudinary.com/oactqmgs/image/upload/v1786994876/DESENHOS_DA_LOUSA_SAM.png', this)"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994885/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_SAM.png"> Sam</button>
-            <button class="btn-color-draw" onclick="carregarContornoPintar('https://res.cloudinary.com/oactqmgs/image/upload/v1786994875/DESENHOS_DA_LOUSA_LIA.png', this)"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994884/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_LIA.png"> Lia</button>
-            <button class="btn-color-draw" onclick="carregarContornoPintar('https://res.cloudinary.com/oactqmgs/image/upload/v1786994874/DESENHOS_DA_LOUSA_JOCA.png', this)"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994883/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_JOCA.png"> Joca</button>
-            <button class="btn-color-draw" onclick="carregarContornoPintar('https://res.cloudinary.com/oactqmgs/image/upload/v1786994875/DESENHOS_DA_LOUSA_LEO.png', this)"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994883/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_LEO.png"> Leo</button>
-            <button class="btn-color-draw" onclick="carregarContornoPintar('https://res.cloudinary.com/oactqmgs/image/upload/v1786994876/DESENHOS_DA_LOUSA_VOVO_BETO.png', this)"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994886/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_VOVO_BETO.png"> Beto</button>
-            <button class="btn-color-draw" onclick="carregarContornoPintar('https://res.cloudinary.com/oactqmgs/image/upload/v1786994877/DESENHOS_DA_LOUSA_VOVO_HILDA.png', this)"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994886/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_VOVO_HILDA.png"> Hilda</button>
-          </div>
+          <div id="coloringSelectGrid" class="coloring-select-grid"></div>
+          
           <div class="brush-size-selector">
             <button class="btn-brush-size active" onclick="definirTamanhoPincel(4, this)">Fino ✏️</button>
             <button class="btn-brush-size" onclick="definirTamanhoPincel(8, this)">Médio 🖌️</button>
@@ -551,8 +515,11 @@
             <div class="color-dot" style="background: #F59E0B;" onclick="mudarCor('#F59E0B')"></div>
             <div class="color-dot" style="background: #8B5CF6;" onclick="mudarCor('#8B5CF6')"></div>
             <div class="color-dot" style="background: #000000;" onclick="mudarCor('#000000')"></div>
-            <button onclick="limparCanvas()" style="padding:10px 18px; font-weight:800; border-radius:12px; border:none; background:#FEE2E2; color:#DC2626; cursor:pointer;">Limpar 🗑️</button>
-            <button onclick="salvarFotoDesenho()" style="padding:10px 18px; font-weight:800; border-radius:12px; border:none; background:#D1FAE5; color:#065F46; cursor:pointer;">Salvar 📸</button>
+            <!-- BORRACHA -->
+            <div class="color-dot" style="background: #FFFFFF; border: 2px dashed #CBD5E1; display:flex; align-items:center; justify-content:center; font-size:18px;" onclick="mudarCor('#FFFFFF')" title="Borracha">🧽</div>
+            
+            <button onclick="limparCanvas()" style="padding:10px 18px; font-weight:800; border-radius:12px; border:none; background:#FEE2E2; color:#DC2626; cursor:pointer; font-size: 14px; margin-left:10px;">Limpar 🗑️</button>
+            <button onclick="salvarFotoDesenho()" style="padding:10px 18px; font-weight:800; border-radius:12px; border:none; background:#D1FAE5; color:#065F46; cursor:pointer; font-size: 14px;">Salvar 📸</button>
           </div>
         </div>
 
@@ -582,7 +549,7 @@
       </div>
     </main>
 
-    <!-- SEÇÃO 4: ESPAÇO TEA -->
+    <!-- PÁGINA 4: ESPAÇO TEA -->
     <main id="pagina-tea" class="page-content content-wrapper">
       <div class="age-group-section">
         <div class="tea-box hover-float">
@@ -617,47 +584,36 @@
       </div>
     </main>
 
-    <!-- SEÇÃO 5: LIVROS (EM BREVE) -->
+    <!-- PÁGINA 5: LIVROS -->
     <main id="pagina-livros" class="page-content content-wrapper">
       <div class="age-group-section">
         <h3 class="age-title">📚 Biblioteca da Turminha</h3>
         <p style="font-size:15px; font-weight:600; color:#475569; text-align:center;">As histórias mágicas da Turminha estão sendo escritas e ilustradas com muito amor!</p>
         <div class="book-card-grid">
-          <div class="book-card float-anim">
-            <span style="font-size:50px;">🚧</span><strong style="font-size:18px; display:block; margin:10px 0;">Em Breve</strong><span style="font-size:14px; color:#64748B;">História 1</span>
-          </div>
-          <div class="book-card float-anim" style="animation-delay: 1s;">
-            <span style="font-size:50px;">🚧</span><strong style="font-size:18px; display:block; margin:10px 0;">Em Breve</strong><span style="font-size:14px; color:#64748B;">História 2</span>
-          </div>
-          <div class="book-card float-anim" style="animation-delay: 2s;">
-            <span style="font-size:50px;">🚧</span><strong style="font-size:18px; display:block; margin:10px 0;">Em Breve</strong><span style="font-size:14px; color:#64748B;">História VIP</span>
-          </div>
+          <div class="book-card float-anim"><span style="font-size:50px;">🚧</span><strong style="font-size:18px; display:block; margin:10px 0;">Em Breve</strong><span style="font-size:14px; color:#64748B;">História 1</span></div>
+          <div class="book-card float-anim" style="animation-delay: 1s;"><span style="font-size:50px;">🚧</span><strong style="font-size:18px; display:block; margin:10px 0;">Em Breve</strong><span style="font-size:14px; color:#64748B;">História 2</span></div>
+          <div class="book-card float-anim" style="animation-delay: 2s;"><span style="font-size:50px;">🚧</span><strong style="font-size:18px; display:block; margin:10px 0;">Em Breve</strong><span style="font-size:14px; color:#64748B;">História VIP</span></div>
         </div>
       </div>
     </main>
 
-    <!-- SEÇÃO 6: ROTINA (EDITÁVEL GRÁTIS / VIP) -->
+    <!-- PÁGINA 6: ROTINA -->
     <main id="pagina-rotina" class="page-content content-wrapper">
       <div class="age-group-section">
         <h3 class="age-title">📅 Rotina & Cuidados (Crie a sua!)</h3>
-        
         <div class="interactive-card" style="text-align:left; margin-bottom:24px;">
           <h4 style="font-size:18px; font-weight:900; margin-bottom:12px;">Adicionar Tarefa na Rotina:</h4>
-          <p style="font-size:13px; color:#64748B; margin-bottom:12px;">Grátis: Até 3 tarefas | VIP: Ilimitado!</p>
-          
+          <p style="font-size:13px; color:#64748B; margin-bottom:12px;">Grátis: Até 3 tarefas simultâneas | VIP: Ilimitado!</p>
           <div class="rotina-add-box">
             <input type="text" id="rotina-nova-texto" placeholder="Ex: Hora do banho 🛁">
             <button onclick="adicionarRotinaPersonalizada()">Adicionar ➕</button>
           </div>
-
-          <div id="lista-rotinas-dinamica">
-            <!-- Renderizado via JS -->
-          </div>
+          <div id="lista-rotinas-dinamica"></div>
         </div>
       </div>
     </main>
 
-    <!-- SEÇÃO 7: CONQUISTAS -->
+    <!-- PÁGINA 7: CONQUISTAS -->
     <main id="pagina-conquistas" class="page-content content-wrapper">
       <div class="age-group-section">
         <h3 class="age-title">🏆 Minhas Conquistas</h3>
@@ -671,7 +627,6 @@
           <input type="text" id="nome-certificado-input" placeholder="Digite o nome da criança" style="padding:14px; border-radius:12px; border:2px solid #FCD34D; font-size:16px; font-weight:700; outline:none; margin-bottom:16px; width:100%; max-width:360px;">
           <br>
           <button onclick="gerarCertificadoGeral()" style="background:#D97706; color:#FFF; border:none; padding:14px 28px; border-radius:12px; font-size:16px; font-weight:900; cursor:pointer; transition:transform 0.2s;">Gerar Certificado ⭐</button>
-          
           <div id="boxCertificadoResultado" style="display:none; margin-top:24px; padding:20px; background:#FFF; border-radius:12px; border:2px solid #FCD34D;">
             <h3 style="color:#1D4ED8; font-size:28px; text-transform:uppercase;" id="txtNomeCertificado"></h3>
             <p style="font-weight:800; color:#B45309; font-size:16px;">É oficialmente Super Fã da Turminha do Xexéu! 🌟</p>
@@ -680,7 +635,7 @@
       </div>
     </main>
 
-    <!-- SEÇÃO 8: ÁREA VIP (PAIS & ASSINANTES) -->
+    <!-- PÁGINA 8: ÁREA VIP -->
     <main id="pagina-vip" class="page-content content-wrapper">
       <div class="age-group-section">
         <div class="vip-lock-container">
@@ -692,6 +647,7 @@
             <ul style="margin-left:24px; line-height:1.8; font-weight:600;">
               <li>📁 <strong>Drive Pedagógico:</strong> Arquivos em PDF de alta qualidade para imprimir e colorir em casa.</li>
               <li>📅 <strong>Rotina Ilimitada:</strong> Crie quantas tarefas visuais diárias quiser.</li>
+              <li>🎨 <strong>Lousa Completa:</strong> Desbloqueie todos os 12 personagens para colorir.</li>
               <li>🧩 <strong>CAA Editável Livre:</strong> Adicione seus próprios emojis e frases de comunicação livremente.</li>
               <li>🎵 <strong>Sons Exclusivos:</strong> Fogueira, Vento, Ondas e mais acalentos.</li>
             </ul>
@@ -702,21 +658,30 @@
               <h4 style="font-size:18px;">✨ Quero Assinar o VIP</h4>
               <input type="email" id="cad-email" class="vip-input" placeholder="Seu e-mail principal">
               <input type="password" id="cad-senha" class="vip-input" placeholder="Crie uma senha parental">
-              <a href="https://pay.kiwify.com.br/avOqrEg" target="_blank" class="btn-vip-checkout" onclick="salvarECadastrar()">Quero Ser VIP por R$ 6,00 💳</a>
+              <a href="javascript:void(0)" class="btn-vip-checkout" id="btnCheckoutVip" onclick="salvarECadastrar()">Quero Ser VIP por R$ 6,00 💳</a>
             </div>
 
             <div class="vip-form-box" style="border-color: #CBD5E1;">
               <h4 style="font-size:18px; color: #1E293B;">🔑 Já sou Assinante</h4>
               <input type="email" id="log-email" class="vip-input" placeholder="E-mail cadastrado">
               <input type="password" id="log-senha" class="vip-input" placeholder="Sua senha">
-              <button onclick="fazerLogin()" style="width:100%; padding:14px; background:#3B82F6; color:#FFF; border:none; border-radius:12px; font-weight:900; font-size:16px; cursor:pointer; transition:transform 0.2s;">Entrar no Painel</button>
+              <button onclick="fazerLogin()" id="btnLoginVip" style="width:100%; padding:14px; background:#3B82F6; color:#FFF; border:none; border-radius:12px; font-weight:900; font-size:16px; cursor:pointer; transition:transform 0.2s;">Entrar no Painel</button>
             </div>
           </div>
+        </div>
+
+        <!-- FORM DE SUPORTE (VIP) -->
+        <div class="support-form-box" style="margin-top: 24px;">
+          <h3>📬 Precisa de Ajuda ou quer enviar uma Sugestão?</h3>
+          <p>Escreva para nós! Sua mensagem será enviada diretamente para <strong>turminhaxexeu@gmail.com</strong>.</p>
+          <input type="email" id="suporteEmailVip" class="support-input" placeholder="Digite seu e-mail para retornarmos">
+          <textarea id="suporteMensagemVip" class="support-input" placeholder="Escreva aqui sua dúvida, sugestão ou reclamação..." style="resize: vertical; min-height: 100px;"></textarea>
+          <button onclick="enviarSuporteReclamacao('Vip')" id="btnEnviarSuporteVip" style="background: var(--tea-blue); color: #FFF; border: none; padding: 14px 24px; border-radius: 12px; font-size: 16px; font-weight: 900; cursor: pointer; width: 100%; transition: transform 0.2s;">Enviar Mensagem ✉️</button>
         </div>
       </div>
     </main>
 
-    <!-- SEÇÃO 9: CONFIG & PERFIL (OCULTAS NO MENU, ACESSADAS PELO HEADER) -->
+    <!-- PÁGINAS OCULTAS: CONFIG & PERFIL -->
     <main id="pagina-config" class="page-content content-wrapper">
       <div class="age-group-section">
         <h3 class="age-title">⚙️ Configurações do Portal</h3>
@@ -745,101 +710,148 @@
   </div>
 
   <script>
+    /* CONEXÃO COM GOOGLE APPS SCRIPT */
+    const URL_SCRIPT = "https://script.google.com/macros/s/AKfycbxtV9X0CNAFK69n7JGLBKyPaXCFERg4L4Y-jFw96xj18vueORUGlRtBXOJeJtBboQki/exec";
+    const SENHA_MESTRA = "65628467";
+
     let audioAtivo = true;
     let audioUnlocked = false;
     let pontosConquista = parseInt(localStorage.getItem('turminha_pontos') || '0');
+    let isUserVip = localStorage.getItem('turminha_vip_status') === 'ativo';
     let rotinasSalvas = JSON.parse(localStorage.getItem('turminha_rotina')) || [
       { id: 1, texto: "☀️ Escovar os dentes ao acordar", feito: false },
       { id: 2, texto: "🍎 Hora do lanche saudável", feito: false }
     ];
-    let isUserVip = localStorage.getItem('turminha_vip_status') === 'ativo';
-    
     let desafioResultadoEsperado = 0;
     let destinoAposGate = 'vip';
     let somAcalentoAtual = null;
 
-    const SENHA_MESTRA = "65628467";
-
-    /* PERSONAGENS E ASSETS */
     const PERSONAGENS = [
-      { nome: 'Xexéu', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994886/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_XEXEU.png', letra: 'X', tag: 'Mascote Oficial', quem: 'Pássaro azul de boina amarela e guardião alegre.', gosto: 'Cantar, voar e contar histórias.', frase: 'Educando com alegria!' },
-      { nome: 'Capilé', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994882/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_CAPILE.png', letra: 'C', tag: 'O Companheiro', quem: 'Cachorrinho fiel de orelhas grandes.', gosto: 'Correr e brincar.', frase: 'Sempre pronto para a brincadeira!' },
-      { nome: 'Maya', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994884/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_MAYA.png', letra: 'M', tag: 'Mãe & Guia', quem: 'Mãe dedicada e porto seguro.', gosto: 'Ler histórias em família.', frase: 'O amor transforma tudo.' },
-      { nome: 'Theo', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994885/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_THEO.png', letra: 'T', tag: 'Pai Protetor', quem: 'Pai calmo, paciente e atencioso.', gosto: 'Ensinar e dar abraços.', frase: 'Com calma aprendemos melhor.' },
-      { nome: 'Nina', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994885/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_NINA.png', letra: 'N', tag: 'Super Esperta', quem: 'Menina de cabelos cacheados e muito inteligente.', gosto: 'Descobrir coisas novas.', frase: 'Aprender é super divertido!' },
-      { nome: 'Iza', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994883/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_IZA.png', letra: 'I', tag: 'A Vaidosa', quem: 'Menina charmosa de vestido rosa.', gosto: 'Cantar e usar laços bonitos.', frase: 'Ser gentil é lindo!' },
-      { nome: 'Sam', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994885/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_SAM.png', letra: 'S', tag: 'Pai Inventor', quem: 'Paizão ruivo apaixonado por criar brinquedos.', gosto: 'Montar máquinas voadoras.', frase: 'Toda ideia é uma invenção!' },
-      { nome: 'Lia', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994884/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_LIA.png', letra: 'L', tag: 'Mãe Alegria', quem: 'Mãe cheia de ritmo e energia positiva.', gosto: 'Dançar e reunir a turma.', frase: 'A alegria é nosso superpoder!' },
-      { nome: 'Joca', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994883/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_JOCA.png', letra: 'J', tag: 'O Divertido', quem: 'Menino engraçado de camiseta verde.', gosto: 'Fazer piadas e rir.', frase: 'O importante é se divertir!' },
-      { nome: 'Leo', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994883/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_LEO.png', letra: 'L', tag: 'Explorador Focado', quem: 'Observador detalhista.', gosto: 'Organizar blocos e rotinas.', frase: 'Tudo no nosso próprio tempo.' },
-      { nome: 'Beto', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994886/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_VOVO_BETO.png', letra: 'B', tag: 'Vovô Coruja', quem: 'Vovô de óculos quadrados e risada boa.', gosto: 'Passear ao ar livre.', frase: 'A família é a maior riqueza.' },
-      { nome: 'Hilda', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994886/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_VOVO_HILDA.png', letra: 'H', tag: 'Vovó Acolhedora', quem: 'Vovó de abraços doces.', gosto: 'Fazer bolos quentinhos.', frase: 'Um coração cheio de amor não envelhece.' }
+      { nome: 'Xexéu', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994886/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_XEXEU.png', lousa: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994876/DESENHOS_DA_LOUSA_XEXEU.png', letra: 'X', tag: 'Mascote Oficial', quem: 'Pássaro azul de boina amarela.', gosto: 'Cantar, voar e contar histórias.', frase: 'Educando com alegria!' },
+      { nome: 'Capilé', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994882/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_CAPILE.png', lousa: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994874/DESENHOS_DA_LOUSA_CAPILE.png', letra: 'C', tag: 'O Companheiro', quem: 'Cachorrinho fiel.', gosto: 'Correr e brincar.', frase: 'Sempre pronto para a brincadeira!' },
+      { nome: 'Maya', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994884/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_MAYA.png', lousa: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994875/DESENHOS_DA_LOUSA_MAYA.png', letra: 'M', tag: 'Mãe & Guia', quem: 'Mãe dedicada e porto seguro.', gosto: 'Ler histórias em família.', frase: 'O amor transforma tudo.' },
+      { nome: 'Theo', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994885/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_THEO.png', lousa: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994877/DESENHOS_DA_LOUSA_THEO.png', letra: 'T', tag: 'Pai Protetor', quem: 'Pai paciente e atencioso.', gosto: 'Ensinar e dar abraços.', frase: 'Com calma aprendemos melhor.' },
+      { nome: 'Nina', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994885/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_NINA.png', lousa: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994876/DESENHOS_DA_LOUSA_NINA.png', letra: 'N', tag: 'Super Esperta', quem: 'Menina de cabelos cacheados.', gosto: 'Descobrir coisas novas.', frase: 'Aprender é super divertido!' },
+      { nome: 'Iza', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994883/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_IZA.png', lousa: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994873/DESENHOS_DA_LOUSA_IZA.png', letra: 'I', tag: 'A Vaidosa', quem: 'Menina charmosa.', gosto: 'Cantar e usar laços bonitos.', frase: 'Ser gentil é lindo!' },
+      { nome: 'Sam', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994885/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_SAM.png', lousa: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994876/DESENHOS_DA_LOUSA_SAM.png', letra: 'S', tag: 'Pai Inventor', quem: 'Paizão ruivo apaixonado por criar.', gosto: 'Montar máquinas.', frase: 'Toda ideia é uma invenção!' },
+      { nome: 'Lia', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994884/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_LIA.png', lousa: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994875/DESENHOS_DA_LOUSA_LIA.png', letra: 'L', tag: 'Mãe Alegria', quem: 'Mãe cheia de energia positiva.', gosto: 'Dançar.', frase: 'A alegria é nosso superpoder!' },
+      { nome: 'Joca', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994883/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_JOCA.png', lousa: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994874/DESENHOS_DA_LOUSA_JOCA.png', letra: 'J', tag: 'O Divertido', quem: 'Menino engraçado.', gosto: 'Fazer piadas.', frase: 'O importante é se divertir!' },
+      { nome: 'Leo', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994883/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_LEO.png', lousa: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994875/DESENHOS_DA_LOUSA_LEO.png', letra: 'L', tag: 'Explorador Focado', quem: 'Observador detalhista.', gosto: 'Organizar rotinas.', frase: 'Tudo no nosso próprio tempo.' },
+      { nome: 'Beto', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994886/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_VOVO_BETO.png', lousa: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994876/DESENHOS_DA_LOUSA_VOVO_BETO.png', letra: 'B', tag: 'Vovô Coruja', quem: 'Vovô de risada boa.', gosto: 'Passear ao ar livre.', frase: 'A família é a maior riqueza.' },
+      { nome: 'Hilda', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994886/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_VOVO_HILDA.png', lousa: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994877/DESENHOS_DA_LOUSA_VOVO_HILDA.png', letra: 'H', tag: 'Vovó Acolhedora', quem: 'Vovó de abraços doces.', gosto: 'Fazer bolos.', frase: 'O amor não envelhece.' }
     ];
 
-    /* FUNÇÕES BÁSICAS, ÁUDIO E MODAIS */
+    /* APP SCRIPT: ENVIO DE SUPORTE E CADASTRO VIP */
+    function enviarSuporteReclamacao(local) {
+      const email = document.getElementById('suporteEmail' + local).value.trim();
+      const mensagem = document.getElementById('suporteMensagem' + local).value.trim();
+      const btn = document.getElementById('btnEnviarSuporte' + local);
+
+      if (!email || !mensagem) { alert("⚠️ Preencha o e-mail e a mensagem!"); return; }
+      btn.innerText = "Enviando... ⏳"; btn.disabled = true;
+
+      fetch(URL_SCRIPT, {
+        method: "POST", mode: "no-cors", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ tipo: "SUPORTE", email: email, mensagem: mensagem })
+      }).then(() => {
+        lerTexto("Sua mensagem foi enviada!");
+        document.getElementById('suporteEmail' + local).value = ''; document.getElementById('suporteMensagem' + local).value = '';
+        btn.innerText = "Mensagem Enviada! ✅"; btn.style.background = "#10B981";
+        setTimeout(() => { btn.innerText = "Enviar Mensagem ✉️"; btn.style.background = "var(--tea-blue)"; btn.disabled = false; }, 3000);
+      }).catch((e) => {
+        alert("❌ Erro ao enviar. Tente novamente."); btn.innerText = "Enviar Mensagem ✉️"; btn.disabled = false;
+      });
+    }
+
+    function salvarECadastrar() {
+      const email = document.getElementById('cad-email').value.trim();
+      const senha = document.getElementById('cad-senha').value.trim();
+      if (!email || !senha) { alert("Preencha o e-mail e crie a senha!"); return; }
+      
+      const btn = document.getElementById('btnCheckoutVip');
+      btn.innerText = "Processando... ⏳";
+      
+      fetch(URL_SCRIPT, {
+        method: "POST", mode: "no-cors", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ tipo: "NOVO_CLIENTE", email: email, senha: senha })
+      }).then(() => {
+        lerTexto("Cadastro iniciado!");
+        window.open("https://pay.kiwify.com.br/avOqrEg", "_blank");
+        btn.innerText = "Quero Ser VIP por R$ 6,00 💳";
+      }).catch(() => { btn.innerText = "Quero Ser VIP por R$ 6,00 💳"; });
+    }
+
+    function fazerLogin() {
+      const email = document.getElementById('log-email').value.trim();
+      const senha = document.getElementById('log-senha').value.trim();
+      
+      if (senha === SENHA_MESTRA) { 
+          isUserVip = true; localStorage.setItem('turminha_vip_status', 'ativo'); 
+          alert("Acesso Mestre Liberado!"); lerTexto("Bem-vindo de volta ao VIP!"); 
+          window.location.reload(); return; 
+      }
+      
+      if (!email || !senha) { alert("Preencha o e-mail e a senha."); return; }
+      
+      const btn = document.getElementById('btnLoginVip');
+      btn.innerText = "Verificando... ⏳";
+      
+      fetch(`${URL_SCRIPT}?email=${encodeURIComponent(email)}&senha=${encodeURIComponent(senha)}`)
+        .then(res => res.json())
+        .then(data => {
+          if(data.liberado) {
+            isUserVip = true; localStorage.setItem('turminha_vip_status', 'ativo'); 
+            alert("Acesso Confirmado!"); window.location.reload();
+          } else {
+            alert("Senha incorreta ou assinatura pendente."); btn.innerText = "Entrar no Painel";
+          }
+        })
+        .catch(() => { alert("Erro ao verificar conexão."); btn.innerText = "Entrar no Painel"; });
+    }
+
+    /* FUNÇÕES BÁSICAS GERAIS */
     function lerTexto(texto) {
       exibirToast(texto);
       if (!audioAtivo || !('speechSynthesis' in window)) return;
       try { window.speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(texto); u.lang = 'pt-BR'; u.rate = 1.0; u.pitch = 1.05; window.speechSynthesis.speak(u); } catch (e) {}
     }
 
-    function desbloquearAudioMobileOnce() {
-      if (!audioUnlocked && 'speechSynthesis' in window) { window.speechSynthesis.speak(new SpeechSynthesisUtterance("")); audioUnlocked = true; }
-    }
+    function desbloquearAudioMobileOnce() { if (!audioUnlocked && 'speechSynthesis' in window) { window.speechSynthesis.speak(new SpeechSynthesisUtterance("")); audioUnlocked = true; } }
 
     function abrirFichaPersonagem(nome) {
       const p = PERSONAGENS.find(x => x.nome === nome);
       if (!p) return;
-      document.getElementById('ficha-img').src = p.img;
-      document.getElementById('ficha-nome').innerText = p.nome;
-      document.getElementById('ficha-apelido').innerText = `"${p.tag}"`;
-      document.getElementById('ficha-quem').innerText = p.quem;
-      document.getElementById('ficha-gosto').innerText = p.gosto;
-      document.getElementById('ficha-frase').innerText = p.frase;
-      
+      document.getElementById('ficha-img').src = p.img; document.getElementById('ficha-nome').innerText = p.nome; document.getElementById('ficha-apelido').innerText = `"${p.tag}"`;
+      document.getElementById('ficha-quem').innerText = p.quem; document.getElementById('ficha-gosto').innerText = p.gosto; document.getElementById('ficha-frase').innerText = p.frase;
       document.getElementById('btnFichaOuvir').onclick = () => lerTexto(`Oi! Eu sou ${p.nome}, ${p.tag}. ${p.quem} ${p.frase}`);
-      document.getElementById('modalFichaPersonagem').classList.add('active');
-      lerTexto(`Conheça ${p.nome}!`);
+      document.getElementById('modalFichaPersonagem').classList.add('active'); lerTexto(`Conheça ${p.nome}!`);
     }
 
     function fecharFichaPersonagem() { document.getElementById('modalFichaPersonagem').classList.remove('active'); }
     function abrirPrivacidade() { document.getElementById('modalPrivacidade').classList.add('active'); }
     function fecharPrivacidade() { document.getElementById('modalPrivacidade').classList.remove('active'); }
-
-    function aceitarCookies() {
-      localStorage.setItem('turminha_cookies_aceito', 'true');
-      document.getElementById('cookieBanner').classList.add('hidden');
-    }
+    function aceitarCookies() { localStorage.setItem('turminha_cookies_aceito', 'true'); document.getElementById('cookieBanner').classList.add('hidden'); }
 
     function alternarAudioGlobal() {
-      audioAtivo = !audioAtivo;
-      const btn = document.getElementById('toggleAudioBtn');
+      audioAtivo = !audioAtivo; const btn = document.getElementById('toggleAudioBtn');
       if (audioAtivo) { btn.classList.remove('muted'); document.getElementById('audioIcon').innerText = '🔊'; lerTexto("Voz ligada!"); } 
       else { if ('speechSynthesis' in window) window.speechSynthesis.cancel(); btn.classList.add('muted'); document.getElementById('audioIcon').innerText = '🔇'; exibirToast("Voz desligada!"); }
     }
 
     function toggleSensoryMode() {
-      const ativado = document.body.classList.toggle('sensory-mode');
-      document.getElementById('btnSensoryHeader').innerHTML = ativado ? '🌿 Normal' : '🌿 Modo Calmo';
-      if (somAcalentoAtual) { somAcalentoAtual.pause(); somAcalentoAtual = null; }
-      lerTexto(ativado ? "Modo Calmo ativado" : "Modo normal ativado");
+      const ativado = document.body.classList.toggle('sensory-mode'); document.getElementById('btnSensoryHeader').innerHTML = ativado ? '🌿 Normal' : '🌿 Modo Calmo';
+      if (somAcalentoAtual) { somAcalentoAtual.pause(); somAcalentoAtual = null; } lerTexto(ativado ? "Modo Calmo ativado" : "Modo normal ativado");
     }
 
     function exibirToast(t) {
-      const toast = document.getElementById('visualToast');
-      if (!toast) return;
-      toast.innerText = t;
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 2800);
+      const toast = document.getElementById('visualToast'); if (!toast) return; toast.innerText = t; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 2800);
     }
 
     /* SISTEMA DE ROTINA (GRÁTIS VS VIP) */
     function renderizarRotinas() {
-      const container = document.getElementById('lista-rotinas-dinamica');
-      container.innerHTML = '';
+      const container = document.getElementById('lista-rotinas-dinamica'); container.innerHTML = '';
       rotinasSalvas.forEach((r, idx) => {
-        const div = document.createElement('div');
-        div.className = `rotina-item ${r.feito ? 'concluido' : ''}`;
+        const div = document.createElement('div'); div.className = `rotina-item ${r.feito ? 'concluido' : ''}`;
         div.innerHTML = `
           <span class="rotina-texto">${r.texto}</span>
           <div style="display:flex; gap:8px;">
@@ -854,131 +866,114 @@
     function adicionarRotinaPersonalizada() {
       const texto = document.getElementById('rotina-nova-texto').value.trim();
       if (!texto) { alert("Escreva a tarefa antes de adicionar."); return; }
-      
-      if (!isUserVip && rotinasSalvas.length >= 3) {
-        alert("🔒 No modo Grátis, você pode ter até 3 rotinas por vez. Assine o VIP para ter Rotinas Ilimitadas!");
-        abrirAreaProtegida('vip');
-        return;
-      }
-      
+      if (!isUserVip && rotinasSalvas.length >= 3) { alert("🔒 No modo Grátis, você pode ter até 3 rotinas. Assine o VIP para ter Rotinas Ilimitadas!"); abrirAreaProtegida('vip'); return; }
       rotinasSalvas.push({ id: Date.now(), texto: texto, feito: false });
       localStorage.setItem('turminha_rotina', JSON.stringify(rotinasSalvas));
-      document.getElementById('rotina-nova-texto').value = '';
-      renderizarRotinas();
-      lerTexto("Nova rotina adicionada!");
+      document.getElementById('rotina-nova-texto').value = ''; renderizarRotinas(); lerTexto("Nova rotina adicionada!");
     }
 
     function toggleRotinaStatus(index) {
       rotinasSalvas[index].feito = !rotinasSalvas[index].feito;
       if(rotinasSalvas[index].feito) { adicionarPontos(5); lerTexto("Tarefa concluída!"); }
-      localStorage.setItem('turminha_rotina', JSON.stringify(rotinasSalvas));
-      renderizarRotinas();
+      localStorage.setItem('turminha_rotina', JSON.stringify(rotinasSalvas)); renderizarRotinas();
     }
+    function removerRotina(index) { rotinasSalvas.splice(index, 1); localStorage.setItem('turminha_rotina', JSON.stringify(rotinasSalvas)); renderizarRotinas(); }
 
-    function removerRotina(index) {
-      rotinasSalvas.splice(index, 1);
-      localStorage.setItem('turminha_rotina', JSON.stringify(rotinasSalvas));
-      renderizarRotinas();
-    }
-
-    /* PARENTAL GATE */
+    /* PARENTAL GATE E NAVEGAÇÃO */
     function abrirAreaProtegida(destino) {
-      destinoAposGate = destino;
-      const n1 = Math.floor(Math.random() * 5) + 2;
-      const n2 = Math.floor(Math.random() * 4) + 1;
-      desafioResultadoEsperado = n1 + n2;
-      document.getElementById('desafioMatematicoTexto').innerText = `${n1} + ${n2} = ?`;
-      document.getElementById('respostaDesafio').value = '';
-      document.getElementById('modalParentalGate').classList.add('active');
+      destinoAposGate = destino; const n1 = Math.floor(Math.random() * 5) + 2; const n2 = Math.floor(Math.random() * 4) + 1; desafioResultadoEsperado = n1 + n2;
+      document.getElementById('desafioMatematicoTexto').innerText = `${n1} + ${n2} = ?`; document.getElementById('respostaDesafio').value = ''; document.getElementById('modalParentalGate').classList.add('active');
     }
-
     function fecharParentalGate() { document.getElementById('modalParentalGate').classList.remove('active'); }
-
     function verificarParentalGate() {
       const resp = parseInt(document.getElementById('respostaDesafio').value);
-      if (resp === desafioResultadoEsperado) {
-        fecharParentalGate();
-        mudarPagina(destinoAposGate);
-        lerTexto("Acesso liberado.");
-      } else {
-        alert("Resposta incorreta! Tente novamente.");
-        abrirAreaProtegida(destinoAposGate);
-      }
+      if (resp === desafioResultadoEsperado) { fecharParentalGate(); mudarPagina(destinoAposGate); lerTexto("Acesso liberado."); } 
+      else { alert("Resposta incorreta! Tente novamente."); abrirAreaProtegida(destinoAposGate); }
     }
 
     function mudarPagina(p) {
       const abas = ['inicio', 'videos', 'jogos', 'tea', 'livros', 'rotina', 'conquistas', 'vip', 'config', 'perfil'];
       abas.forEach(id => {
-        const el = document.getElementById('pagina-' + id);
-        const tab = document.getElementById('btn-tab-' + id);
-        if (el) el.classList.remove('active-page');
-        if (tab) tab.classList.remove('active');
+        const el = document.getElementById('pagina-' + id); const tab = document.getElementById('btn-tab-' + id);
+        if (el) el.classList.remove('active-page'); if (tab) tab.classList.remove('active');
       });
-      const target = document.getElementById('pagina-' + p);
-      const targetTab = document.getElementById('btn-tab-' + p);
-      if (target) target.classList.add('active-page');
-      if (targetTab) targetTab.classList.add('active');
+      const target = document.getElementById('pagina-' + p); const targetTab = document.getElementById('btn-tab-' + p);
+      if (target) target.classList.add('active-page'); if (targetTab) targetTab.classList.add('active');
       
-      if (p === 'jogos') setTimeout(redimensionarCanvas, 50);
+      if (p === 'jogos') { renderizarLousaBtns(); setTimeout(redimensionarCanvas, 50); }
       if (p === 'perfil') criarSeletorAvatar();
       if (p === 'rotina') renderizarRotinas();
-      
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function mudarSubJogo(sub) {
       ['lousa', 'contar', 'letras', 'memoria', 'quiz'].forEach(s => {
-        const el = document.getElementById('game-' + s);
-        const tab = document.getElementById('subtab-' + s);
-        if (el) el.classList.remove('active-game-page');
-        if (tab) tab.classList.remove('active');
+        const el = document.getElementById('game-' + s); const tab = document.getElementById('subtab-' + s);
+        if (el) el.classList.remove('active-game-page'); if (tab) tab.classList.remove('active');
       });
-      const target = document.getElementById('game-' + sub);
-      const tabTarget = document.getElementById('subtab-' + sub);
-      if (target) target.classList.add('active-game-page');
-      if (tabTarget) tabTarget.classList.add('active');
+      const target = document.getElementById('game-' + sub); const tabTarget = document.getElementById('subtab-' + sub);
+      if (target) target.classList.add('active-game-page'); if (tabTarget) tabTarget.classList.add('active');
       if (sub === 'lousa') setTimeout(redimensionarCanvas, 50);
     }
 
     function responderMinhaEmocao(e) {
-      if (e === 'Feliz') lerTexto("Que coisa maravilhosa estar feliz!");
-      else if (e === 'Calmo') lerTexto("Que momento bom e tranquilo.");
-      else if (e === 'Triste') lerTexto("Tudo bem ficar triste. A Turminha te abraça.");
-      else if (e === 'Bravo') lerTexto("Vamos respirar fundo juntos e acalmar.");
+      if (e === 'Feliz') lerTexto("Que coisa maravilhosa estar feliz!"); else if (e === 'Calmo') lerTexto("Que momento bom e tranquilo.");
+      else if (e === 'Triste') lerTexto("Tudo bem ficar triste. A Turminha te abraça."); else if (e === 'Bravo') lerTexto("Vamos respirar fundo juntos e acalmar.");
     }
 
     function tocarSomReal(url) {
       if (somAcalentoAtual) { somAcalentoAtual.pause(); if (somAcalentoAtual.src === url) { somAcalentoAtual = null; lerTexto("Som pausado"); return; } }
-      somAcalentoAtual = new Audio(url); somAcalentoAtual.loop = true; somAcalentoAtual.play().catch(() => {});
-      lerTexto("Tocando som relaxante.");
+      somAcalentoAtual = new Audio(url); somAcalentoAtual.loop = true; somAcalentoAtual.play().catch(() => {}); lerTexto("Tocando som relaxante.");
     }
 
-    /* CANVAS / LOUSA MÁGICA */
-    const canvas = document.getElementById('paintCanvas');
-    const ctx = canvas ? canvas.getContext('2d') : null;
+    /* CANVAS / LOUSA MÁGICA COM DESENHO LIVRE E VIP LOGIC */
+    const canvas = document.getElementById('paintCanvas'); const ctx = canvas ? canvas.getContext('2d') : null;
     let desenhando = false, corAtual = '#3B82F6', tamanhoPincel = 4, imgContornoAtual = null;
+
+    function renderizarLousaBtns() {
+      const grid = document.getElementById('coloringSelectGrid');
+      grid.innerHTML = '';
+      
+      const btnLivre = document.createElement('button');
+      btnLivre.className = 'btn-color-draw selected';
+      btnLivre.innerHTML = '✏️ Desenho Livre';
+      btnLivre.onclick = () => { imgContornoAtual = null; limparCanvas(); document.querySelectorAll('.btn-color-draw').forEach(b => b.classList.remove('selected')); btnLivre.classList.add('selected'); };
+      grid.appendChild(btnLivre);
+
+      const limit = isUserVip ? PERSONAGENS.length : 3;
+
+      for(let i = 0; i < limit; i++) {
+        const item = PERSONAGENS[i];
+        const btn = document.createElement('button');
+        btn.className = 'btn-color-draw';
+        btn.innerHTML = `<img src="${item.img}"> ${item.nome}`;
+        btn.onclick = () => carregarContornoPintar(item.lousa, btn);
+        grid.appendChild(btn);
+      }
+
+      if(!isUserVip) {
+        const btnVip = document.createElement('button');
+        btnVip.className = 'btn-color-draw float-anim';
+        btnVip.style.borderColor = '#F59E0B'; btnVip.style.background = '#FFFBEB'; btnVip.style.color = '#92400E';
+        btnVip.innerHTML = '🔒 +9 Desenhos (VIP)';
+        btnVip.onclick = () => abrirAreaProtegida('vip');
+        grid.appendChild(btnVip);
+      }
+    }
 
     function redimensionarCanvas() {
       if (!canvas || !canvas.parentElement) return;
-      canvas.width = canvas.parentElement.clientWidth - (window.innerWidth > 1024 ? 48 : 24);
-      canvas.height = window.innerWidth > 1024 ? 480 : (window.innerWidth > 768 ? 350 : 260);
+      canvas.width = canvas.parentElement.clientWidth - (window.innerWidth > 1024 ? 48 : 24); canvas.height = window.innerWidth > 1024 ? 480 : (window.innerWidth > 768 ? 350 : 260);
       if (imgContornoAtual) desenharContorno(imgContornoAtual);
     }
 
-    function definirTamanhoPincel(tam, btn) {
-      tamanhoPincel = tam;
-      document.querySelectorAll('.btn-brush-size').forEach(b => b.classList.remove('active'));
-      if (btn) btn.classList.add('active');
-    }
-
+    function definirTamanhoPincel(tam, btn) { tamanhoPincel = tam; document.querySelectorAll('.btn-brush-size').forEach(b => b.classList.remove('active')); if (btn) btn.classList.add('active'); }
     function mudarCor(c) { corAtual = c; }
     function limparCanvas() { if (ctx) ctx.clearRect(0, 0, canvas.width, canvas.height); if (imgContornoAtual) desenharContorno(imgContornoAtual); }
 
     function carregarContornoPintar(url, btn) {
-      document.querySelectorAll('.btn-color-draw').forEach(b => b.classList.remove('selected'));
-      if (btn) btn.classList.add('selected');
-      limparCanvas();
-      const img = new Image(); img.crossOrigin = "Anonymous"; img.src = url;
+      document.querySelectorAll('.btn-color-draw').forEach(b => b.classList.remove('selected')); if (btn) btn.classList.add('selected');
+      limparCanvas(); const img = new Image(); img.crossOrigin = "Anonymous"; img.src = url;
       img.onload = () => { imgContornoAtual = img; desenharContorno(img); };
     }
 
@@ -989,10 +984,7 @@
       ctx.globalAlpha = 0.35; ctx.drawImage(img, x, y, w, h); ctx.globalAlpha = 1.0;
     }
 
-    function salvarFotoDesenho() {
-      const link = document.createElement('a'); link.download = 'meu-desenho-turminha.png'; link.href = canvas.toDataURL(); link.click();
-      lerTexto("Desenho salvo com sucesso!");
-    }
+    function salvarFotoDesenho() { const link = document.createElement('a'); link.download = 'meu-desenho.png'; link.href = canvas.toDataURL(); link.click(); lerTexto("Salvo com sucesso!"); }
 
     if (canvas) {
       const getPos = (e) => { const r = canvas.getBoundingClientRect(); const cx = e.touches ? e.touches[0].clientX : e.clientX; const cy = e.touches ? e.touches[0].clientY : e.clientY; return { x: cx - r.left, y: cy - r.top }; };
@@ -1007,17 +999,13 @@
     /* MINIGAMES SIMPLES */
     let qContar = 0;
     function carregarJogoContar() {
-      qContar = Math.floor(Math.random() * 4) + 1;
-      const char = PERSONAGENS[Math.floor(Math.random() * PERSONAGENS.length)];
+      qContar = Math.floor(Math.random() * 4) + 1; const char = PERSONAGENS[Math.floor(Math.random() * PERSONAGENS.length)];
       const display = document.getElementById('countDisplay'); display.innerHTML = '';
       for (let i = 0; i < qContar; i++) { const img = document.createElement('img'); img.src = char.img; img.style.cssText = 'width:60px; height:60px; object-fit:contain; margin:0 4px;'; display.appendChild(img); }
       const opts = document.getElementById('countOptions'); opts.innerHTML = '';
       for (let n = 1; n <= 4; n++) {
         const btn = document.createElement('button'); btn.className = 'btn-choice'; btn.innerText = n;
-        btn.onclick = () => {
-          if (n === qContar) { btn.classList.add('acertou'); lerTexto("Acertou!"); adicionarPontos(5); setTimeout(() => { btn.classList.remove('acertou'); carregarJogoContar(); }, 800); } 
-          else { btn.classList.add('errou'); lerTexto("Tente de novo!"); setTimeout(() => btn.classList.remove('errou'), 500); }
-        };
+        btn.onclick = () => { if (n === qContar) { btn.classList.add('acertou'); lerTexto("Acertou!"); adicionarPontos(5); setTimeout(() => { btn.classList.remove('acertou'); carregarJogoContar(); }, 800); } else { btn.classList.add('errou'); lerTexto("Tente de novo!"); setTimeout(() => btn.classList.remove('errou'), 500); } };
         opts.appendChild(btn);
       }
     }
@@ -1025,34 +1013,26 @@
     let pLetraAtual = null;
     function carregarJogoLetra() {
       pLetraAtual = PERSONAGENS[Math.floor(Math.random() * PERSONAGENS.length)];
-      document.getElementById('nome-letra-personagem').innerText = pLetraAtual.nome;
-      document.getElementById('img-letra-personagem').src = pLetraAtual.img;
+      document.getElementById('nome-letra-personagem').innerText = pLetraAtual.nome; document.getElementById('img-letra-personagem').src = pLetraAtual.img;
       const container = document.getElementById('opcoes-letras'); container.innerHTML = '';
-      const alfabeto = ['A', 'B', 'C', 'D', 'E', 'F', 'I', 'J', 'L', 'M', 'N', 'P', 'S', 'T', 'X'];
-      let opcoes = [pLetraAtual.letra];
+      const alfabeto = ['A', 'B', 'C', 'D', 'E', 'F', 'I', 'J', 'L', 'M', 'N', 'P', 'S', 'T', 'X']; let opcoes = [pLetraAtual.letra];
       while (opcoes.length < 3) { let l = alfabeto[Math.floor(Math.random() * alfabeto.length)]; if (!opcoes.includes(l)) opcoes.push(l); }
       opcoes.sort(() => Math.random() - 0.5).forEach(l => {
         const btn = document.createElement('button'); btn.className = 'btn-choice'; btn.innerText = l;
-        btn.onclick = () => {
-          if (l === pLetraAtual.letra) { btn.classList.add('acertou'); lerTexto("Muito bem!"); adicionarPontos(5); setTimeout(() => { btn.classList.remove('acertou'); carregarJogoLetra(); }, 800); } 
-          else { btn.classList.add('errou'); lerTexto("Tente outra vez!"); setTimeout(() => btn.classList.remove('errou'), 500); }
-        };
+        btn.onclick = () => { if (l === pLetraAtual.letra) { btn.classList.add('acertou'); lerTexto("Muito bem!"); adicionarPontos(5); setTimeout(() => { btn.classList.remove('acertou'); carregarJogoLetra(); }, 800); } else { btn.classList.add('errou'); lerTexto("Tente outra vez!"); setTimeout(() => btn.classList.remove('errou'), 500); } };
         container.appendChild(btn);
       });
     }
 
     let cMem = [], pCarta = null, travaMem = false, acertosMem = 0;
     function iniciarMemoria() {
-      acertosMem = 0;
-      const sorteados = [...PERSONAGENS].sort(() => Math.random() - 0.5).slice(0, 4);
-      const imgs = sorteados.map(p => p.img);
-      cMem = [...imgs, ...imgs].sort(() => Math.random() - 0.5);
-      const board = document.getElementById('memoryBoard'); board.innerHTML = '';
+      acertosMem = 0; const sorteados = [...PERSONAGENS].sort(() => Math.random() - 0.5).slice(0, 4); const imgs = sorteados.map(p => p.img);
+      cMem = [...imgs, ...imgs].sort(() => Math.random() - 0.5); const board = document.getElementById('memoryBoard'); board.innerHTML = '';
       cMem.forEach(src => {
         const card = document.createElement('div'); card.className = 'memory-card'; card.dataset.img = src; card.innerText = '❓';
         card.onclick = () => {
           if (travaMem || card.classList.contains('flipped')) return;
-          card.classList.add('flipped'); card.innerHTML = `<img src="${src}" alt="Carta">`;
+          card.classList.add('flipped'); card.innerHTML = `<img src="${src}">`;
           if (!pCarta) pCarta = card;
           else {
             if (pCarta.dataset.img === src) { acertosMem++; lerTexto("Achou o par!"); pCarta = null; adicionarPontos(3); if (acertosMem === 4) { adicionarPontos(10); setTimeout(iniciarMemoria, 1800); } } 
@@ -1065,23 +1045,17 @@
 
     function carregarQuiz() {
       const pAtual = PERSONAGENS[Math.floor(Math.random() * PERSONAGENS.length)];
-      document.getElementById('quiz-img').src = pAtual.img;
-      const container = document.getElementById('quiz-options'); container.innerHTML = '';
-      let opcoes = [pAtual.nome];
-      while (opcoes.length < 3) { let o = PERSONAGENS[Math.floor(Math.random() * PERSONAGENS.length)].nome; if (!opcoes.includes(o)) opcoes.push(o); }
+      document.getElementById('quiz-img').src = pAtual.img; const container = document.getElementById('quiz-options'); container.innerHTML = '';
+      let opcoes = [pAtual.nome]; while (opcoes.length < 3) { let o = PERSONAGENS[Math.floor(Math.random() * PERSONAGENS.length)].nome; if (!opcoes.includes(o)) opcoes.push(o); }
       opcoes.sort(() => Math.random() - 0.5).forEach(o => {
         const btn = document.createElement('button'); btn.className = 'btn-choice'; btn.style.fontSize = '14px'; btn.innerText = o;
-        btn.onclick = () => {
-          if (o === pAtual.nome) { btn.classList.add('acertou'); lerTexto("Isso mesmo!"); adicionarPontos(5); setTimeout(() => { btn.classList.remove('acertou'); carregarQuiz(); }, 800); } 
-          else { btn.classList.add('errou'); lerTexto("Tente novamente!"); setTimeout(() => btn.classList.remove('errou'), 500); }
-        };
+        btn.onclick = () => { if (o === pAtual.nome) { btn.classList.add('acertou'); lerTexto("Isso mesmo!"); adicionarPontos(5); setTimeout(() => { btn.classList.remove('acertou'); carregarQuiz(); }, 800); } else { btn.classList.add('errou'); lerTexto("Tente novamente!"); setTimeout(() => btn.classList.remove('errou'), 500); } };
         container.appendChild(btn);
       });
     }
 
     function adicionarPontos(n) {
-      pontosConquista += n;
-      localStorage.setItem('turminha_pontos', pontosConquista);
+      pontosConquista += n; localStorage.setItem('turminha_pontos', pontosConquista);
       const placa = document.getElementById('placar-pontos'); if (placa) placa.innerText = pontosConquista;
       const tit = pontosConquista >= 50 ? "🌟 Super Fã Mestre" : pontosConquista >= 20 ? "⭐ Explorador" : "⭐ Iniciante";
       const med = document.getElementById('medalha-status'); if (med) med.innerText = tit;
@@ -1089,8 +1063,7 @@
 
     function criarSeletorAvatar() {
       const grid = document.getElementById('avatarEscolhaGrid'); if (!grid || grid.children.length > 0) return;
-      grid.innerHTML = '';
-      const avatarAtual = localStorage.getItem('turminha_avatar') || PERSONAGENS[0].img;
+      grid.innerHTML = ''; const avatarAtual = localStorage.getItem('turminha_avatar') || PERSONAGENS[0].img;
       PERSONAGENS.forEach(p => {
         const img = document.createElement('img'); img.src = p.img; img.className = 'avatar-escolha-btn' + (p.img === avatarAtual ? ' selecionado' : '');
         img.onclick = () => { document.querySelectorAll('.avatar-escolha-btn').forEach(b => b.classList.remove('selecionado')); img.classList.add('selecionado'); localStorage.setItem('turminha_avatar', p.img); lerTexto(`${p.nome} escolhido como avatar!`); };
@@ -1106,21 +1079,9 @@
       lerTexto(`Parabéns, ${nome}! Certificado Gerado.`);
     }
 
-    function salvarECadastrar() {
-      const email = document.getElementById('cad-email').value.trim(); const senha = document.getElementById('cad-senha').value.trim();
-      if (!email || !senha) alert("Preencha o e-mail e crie a senha parental!");
-    }
-
-    function fazerLogin() {
-      const senha = document.getElementById('log-senha').value.trim();
-      if (senha === SENHA_MESTRA) { isUserVip = true; localStorage.setItem('turminha_vip_status', 'ativo'); alert("Acesso Mestre Liberado!"); lerTexto("Bem-vindo de volta ao VIP!"); } 
-      else { alert("Senha incorreta ou assinatura pendente."); }
-    }
-
     window.onload = () => {
       adicionarPontos(0); carregarJogoContar(); carregarJogoLetra(); iniciarMemoria(); carregarQuiz(); renderizarRotinas();
-      const btnXexeuLousa = document.querySelector('.btn-color-draw');
-      if (btnXexeuLousa) carregarContornoPintar('https://res.cloudinary.com/oactqmgs/image/upload/v1786994876/DESENHOS_DA_LOUSA_XEXEU.png', btnXexeuLousa);
+      renderizarLousaBtns();
       if (localStorage.getItem('turminha_cookies_aceito') === 'true') document.getElementById('cookieBanner').classList.add('hidden');
       window.addEventListener('resize', redimensionarCanvas); setTimeout(redimensionarCanvas, 200);
     };
