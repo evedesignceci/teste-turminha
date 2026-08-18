@@ -61,7 +61,6 @@
     .hover-float { transition: transform 0.2s ease; }
     .hover-float:hover { transform: translateY(-3px); }
 
-    /* LAYOUT AMPLO PARA NOTEBOOK / DESKTOP */
     .app-container { width: 100%; min-height: 100vh; display: flex; flex-direction: column; gap: 24px; padding: 0 16px 60px; }
     .content-wrapper { width: 100%; max-width: 1500px; margin-left: auto; margin-right: auto; }
 
@@ -72,7 +71,6 @@
     .action-btn-pill { background: #FFFFFF; border: 2.5px solid var(--primary); color: var(--primary-dark); font-weight: 800; font-size: 14px; padding: 10px 20px; border-radius: 50px; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15); transition: all 0.2s ease; }
     .action-btn-pill:hover { background: var(--primary); color: #FFF; transform: translateY(-2px); }
 
-    /* MENU DE NAVEGAÇÃO ESPAÇADO E ELEGANTE */
     .page-nav { display: flex; gap: 12px; background: #F0F9FF; padding: 12px; border-radius: var(--radius-lg); border: 2px solid #BAE6FD; justify-content: center; flex-wrap: wrap; box-shadow: var(--shadow-sm); }
     .nav-tab-btn { flex: 1; min-width: 130px; max-width: 180px; padding: 12px 16px; border: none; border-radius: 12px; font-weight: 800; font-size: 14.5px; cursor: pointer; background: #FFFFFF; color: var(--text-muted); display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: all 0.25s ease; }
     .nav-tab-btn:hover { background: #E0F2FE; color: var(--primary); transform: translateY(-2px); }
@@ -209,8 +207,8 @@
       <p style="font-size: 15px; color: #475569; margin-bottom: 18px; font-weight: 600;">Digite sua <strong>Senha Parental (PIN)</strong>:</p>
       <input type="password" id="respostaDesafio" class="vip-input" style="text-align:center; font-size:24px; letter-spacing:4px;" placeholder="****">
       <div style="display: flex; gap: 14px; justify-content: center; margin-bottom: 14px;">
-        <button onclick="fecharParentalGate()" style="padding: 14px 24px; border: none; border-radius: 10px; background: #E2E8F0; font-weight: 800; cursor: pointer; font-size: 15px;">Voltar</button>
-        <button onclick="verificarParentalGate()" style="padding: 14px 28px; border: none; border-radius: 10px; background: #F59E0B; color: #FFF; font-weight: 900; cursor: pointer; font-size: 15px;">Entrar ➔</button>
+        <button onclick="fecharParentalGate()" style="padding: 12px 20px; border: none; border-radius: 10px; background: #E2E8F0; font-weight: 800; cursor: pointer; font-size: 15px;">Voltar</button>
+        <button onclick="verificarParentalGate()" style="padding: 12px 24px; border: none; border-radius: 10px; background: #F59E0B; color: #FFF; font-weight: 900; cursor: pointer; font-size: 15px;">Entrar ➔</button>
       </div>
       <a onclick="esqueciMinhaSenha()" style="font-size: 13px; color: var(--primary); cursor: pointer; text-decoration: underline;">Esqueci minha senha (Usar Senha Mestra)</a>
     </div>
@@ -344,7 +342,7 @@
         <p style="font-size:15px; font-weight:600; color:#475569; margin-bottom:18px;">Sua mensagem vai direto para nossa equipe (turminhaxexeu@gmail.com).</p>
         <input type="email" id="suporteEmailInicio" class="vip-input" placeholder="Seu e-mail de contato">
         <textarea id="suporteMensagemInicio" class="vip-input" placeholder="Escreva aqui..." style="resize:vertical; min-height:120px;"></textarea>
-        <button onclick="enviarSuporteReclamacao('Inicio')" id="btnEnviarSuporteInicio" style="background:var(--tea-blue); color:#FFF; border:none; padding:16px 28px; border-radius:12px; font-size:17px; font-weight:900; cursor:pointer; width:100%;">Enviar Mensagem ✉️</button>
+        <button onclick="enviarSuporteReclamacao('Inicio')" id="btnEnviarSuporteInicio" style="background:var(--tea-blue); color:#FFF; border:none; padding:16px 24px; border-radius:12px; font-size:16px; font-weight:900; cursor:pointer; width:100%;">Enviar Mensagem ✉️</button>
       </section>
     </main>
 
@@ -373,8 +371,8 @@
           <button class="btn-audio-mini" onclick="lerTexto('Sons suaves para relaxar, focar ou dormir.')">🔊</button>
         </h4>
         <div class="media-card-grid">
-          <div class="media-item-box" onclick="tocarSomReal('https://actions.google.com/sounds/v1/weather/light_rain.ogg')"><span style="font-size:42px;">🌧️</span><strong style="font-size:16px;">Chuva Suave</strong><span style="font-size:13px; color:#16A34A; font-weight:900;">GRÁTIS</span></div>
-          <div class="media-item-box" onclick="tocarSomReal('https://actions.google.com/sounds/v1/animals/birds_arent_real.ogg')"><span style="font-size:42px;">🐦</span><strong style="font-size:16px;">Passarinhos</strong><span style="font-size:13px; color:#16A34A; font-weight:900;">GRÁTIS</span></div>
+          <div class="media-item-box" onclick="tocarSomReal('https://cdn.freesound.org/previews/536/536102_11861866-lq.mp3')"><span style="font-size:42px;">🌧️</span><strong style="font-size:16px;">Chuva Suave</strong><span style="font-size:13px; color:#16A34A; font-weight:900;">GRÁTIS</span></div>
+          <div class="media-item-box" onclick="tocarSomReal('https://cdn.freesound.org/previews/569/569947_13334648-lq.mp3')"><span style="font-size:42px;">🐦</span><strong style="font-size:16px;">Passarinhos</strong><span style="font-size:13px; color:#16A34A; font-weight:900;">GRÁTIS</span></div>
           <div class="media-item-box locked" onclick="abrirAreaProtegida('vip')"><span class="media-badge-vip">👑 VIP</span><span style="font-size:42px;">🌊</span><strong style="font-size:16px;">Ondas do Mar</strong></div>
         </div>
       </div>
@@ -388,53 +386,53 @@
           <button class="btn-audio-mini" onclick="lerTexto('Central de jogos educativos e interativos!')">🔊</button>
         </h3>
         
-        <nav class="games-subnav" style="display:flex; gap:12px; background:#E0F2FE; padding:14px; border-radius:14px; margin-bottom:24px; overflow-x:auto;">
-          <button id="subtab-lousa" class="subnav-btn active" onclick="mudarSubJogo('lousa')" style="padding:12px 20px; border:none; border-radius:10px; font-weight:800; cursor:pointer; background:var(--primary); color:#FFF; font-size:15px;">🎨 Lousa Mágica</button>
-          <button id="subtab-contar" class="subnav-btn" onclick="mudarSubJogo('contar')" style="padding:12px 20px; border:none; border-radius:10px; font-weight:800; cursor:pointer; background:#FFF; color:var(--primary-dark); font-size:15px;">🔢 Contar</button>
-          <button id="subtab-letras" class="subnav-btn" onclick="mudarSubJogo('letras')" style="padding:12px 20px; border:none; border-radius:10px; font-weight:800; cursor:pointer; background:#FFF; color:var(--primary-dark); font-size:15px;">🔤 Letras</button>
-          <button id="subtab-memoria" class="subnav-btn" onclick="mudarSubJogo('memoria')" style="padding:12px 20px; border:none; border-radius:10px; font-weight:800; cursor:pointer; background:#FFF; color:var(--primary-dark); font-size:15px;">🧠 Memória</button>
-          <button id="subtab-quiz" class="subnav-btn" onclick="mudarSubJogo('quiz')" style="padding:12px 20px; border:none; border-radius:10px; font-weight:800; cursor:pointer; background:#FFF; color:var(--primary-dark); font-size:15px;">❓ Quiz</button>
+        <nav class="games-subnav" style="display:flex; gap:12px; background:#E0F2FE; padding:14px; border-radius:14px; margin-bottom:20px; overflow-x:auto;">
+          <button id="subtab-lousa" class="subnav-btn active" onclick="mudarSubJogo('lousa')" style="padding:12px 18px; border:none; border-radius:10px; font-weight:800; cursor:pointer; background:var(--primary); color:#FFF; font-size:15px;">🎨 Lousa Mágica</button>
+          <button id="subtab-contar" class="subnav-btn" onclick="mudarSubJogo('contar')" style="padding:12px 18px; border:none; border-radius:10px; font-weight:800; cursor:pointer; background:#FFF; color:var(--primary-dark); font-size:15px;">🔢 Contar</button>
+          <button id="subtab-letras" class="subnav-btn" onclick="mudarSubJogo('letras')" style="padding:12px 18px; border:none; border-radius:10px; font-weight:800; cursor:pointer; background:#FFF; color:var(--primary-dark); font-size:15px;">🔤 Letras</button>
+          <button id="subtab-memoria" class="subnav-btn" onclick="mudarSubJogo('memoria')" style="padding:12px 18px; border:none; border-radius:10px; font-weight:800; cursor:pointer; background:#FFF; color:var(--primary-dark); font-size:15px;">🧠 Memória</button>
+          <button id="subtab-quiz" class="subnav-btn" onclick="mudarSubJogo('quiz')" style="padding:12px 18px; border:none; border-radius:10px; font-weight:800; cursor:pointer; background:#FFF; color:var(--primary-dark); font-size:15px;">❓ Quiz</button>
         </nav>
 
         <div id="game-lousa" class="game-section-page active-game-page interactive-card">
-          <h4 style="font-weight: 900; margin-bottom: 16px; font-size: 22px;">🎨 Lousa Mágica & Colorir</h4>
-          <div id="coloringSelectGrid" style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-bottom:18px;"></div>
+          <h4 style="font-weight: 900; margin-bottom: 14px; font-size: 20px;">🎨 Lousa Mágica & Colorir</h4>
+          <div id="coloringSelectGrid" style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:16px;"></div>
           <canvas id="paintCanvas"></canvas>
-          <div class="palette" style="display:flex; gap:14px; justify-content:center; align-items:center; margin-top:20px; flex-wrap:wrap;">
-            <div class="color-dot" style="width:44px;height:44px;border-radius:50%;background:#3B82F6;cursor:pointer;" onclick="mudarCor('#3B82F6')"></div>
-            <div class="color-dot" style="width:44px;height:44px;border-radius:50%;background:#EF4444;cursor:pointer;" onclick="mudarCor('#EF4444')"></div>
-            <div class="color-dot" style="width:44px;height:44px;border-radius:50%;background:#10B981;cursor:pointer;" onclick="mudarCor('#10B981')"></div>
-            <div class="color-dot" style="width:44px;height:44px;border-radius:50%;background:#F59E0B;cursor:pointer;" onclick="mudarCor('#F59E0B')"></div>
-            <div class="color-dot" style="width:44px;height:44px;border-radius:50%;background:#8B5CF6;cursor:pointer;" onclick="mudarCor('#8B5CF6')"></div>
-            <div class="color-dot" style="width:44px;height:44px;border-radius:50%;background:#000000;cursor:pointer;" onclick="mudarCor('#000000')"></div>
+          <div class="palette" style="display:flex; gap:12px; justify-content:center; align-items:center; margin-top:20px; flex-wrap:wrap;">
+            <div class="color-dot" style="width:40px;height:40px;border-radius:50%;background:#3B82F6;cursor:pointer;" onclick="mudarCor('#3B82F6')"></div>
+            <div class="color-dot" style="width:40px;height:40px;border-radius:50%;background:#EF4444;cursor:pointer;" onclick="mudarCor('#EF4444')"></div>
+            <div class="color-dot" style="width:40px;height:40px;border-radius:50%;background:#10B981;cursor:pointer;" onclick="mudarCor('#10B981')"></div>
+            <div class="color-dot" style="width:40px;height:40px;border-radius:50%;background:#F59E0B;cursor:pointer;" onclick="mudarCor('#F59E0B')"></div>
+            <div class="color-dot" style="width:40px;height:40px;border-radius:50%;background:#8B5CF6;cursor:pointer;" onclick="mudarCor('#8B5CF6')"></div>
+            <div class="color-dot" style="width:40px;height:40px;border-radius:50%;background:#000000;cursor:pointer;" onclick="mudarCor('#000000')"></div>
             <button class="action-btn-pill" style="background:#FEE2E2; border-color:#EF4444; color:#991B1B;" onclick="limparCanvas()">Limpar 🗑️</button>
             <button class="action-btn-pill" style="background:#D1FAE5; border-color:#10B981; color:#065F46;" onclick="salvarFotoDesenho()">Salvar 📸</button>
           </div>
         </div>
 
         <div id="game-contar" class="game-section-page interactive-card">
-          <h4 style="font-weight:900; font-size:24px; margin-bottom:12px;">🔢 Vamos Contar?</h4>
-          <p style="color:var(--text-muted); font-size:15px; margin-bottom:16px;">Quantos amiguinhos aparecem abaixo?</p>
-          <div id="countDisplay" style="display:flex; justify-content:center; align-items:center; gap:20px; margin:28px 0; min-height:100px; flex-wrap:wrap;"></div>
+          <h4 style="font-weight:900; font-size:22px; margin-bottom:10px;">🔢 Vamos Contar?</h4>
+          <p style="color:var(--text-muted); font-size:14px; margin-bottom:14px;">Quantos amiguinhos aparecem abaixo?</p>
+          <div id="countDisplay" style="display:flex; justify-content:center; align-items:center; gap:16px; margin:24px 0; min-height:90px; flex-wrap:wrap;"></div>
           <div id="countOptions" class="game-btn-grid"></div>
         </div>
 
         <div id="game-letras" class="game-section-page interactive-card">
-          <h4 style="font-weight:900; font-size:24px; margin-bottom:12px;">🔤 Qual é a Primeira Letra?</h4>
-          <p style="font-size:17px; font-weight:700;">Nome: <strong id="nome-letra-personagem" style="color:var(--purple); font-size:22px;">Xexéu</strong></p>
-          <img id="img-letra-personagem" src="" style="width:150px; height:150px; object-fit:contain; margin:20px 0;">
+          <h4 style="font-weight:900; font-size:22px; margin-bottom:10px;">🔤 Qual é a Primeira Letra?</h4>
+          <p style="font-size:16px; font-weight:700;">Nome: <strong id="nome-letra-personagem" style="color:var(--purple); font-size:20px;">Xexéu</strong></p>
+          <img id="img-letra-personagem" src="" style="width:130px; height:130px; object-fit:contain; margin:16px 0;">
           <div id="opcoes-letras" class="game-btn-grid"></div>
         </div>
 
         <div id="game-memoria" class="game-section-page interactive-card">
-          <h4 style="font-weight:900; font-size:24px; margin-bottom:12px;">🧠 Jogo da Memória</h4>
-          <p style="color:var(--text-muted); font-size:15px; margin-bottom:16px;">Encontre os pares dos amigos da Turminha!</p>
+          <h4 style="font-weight:900; font-size:22px; margin-bottom:10px;">🧠 Jogo da Memória</h4>
+          <p style="color:var(--text-muted); font-size:14px; margin-bottom:14px;">Encontre os pares dos amigos da Turminha!</p>
           <div id="memoryBoard" class="memory-board"></div>
         </div>
 
         <div id="game-quiz" class="game-section-page interactive-card">
-          <h4 style="font-weight:900; font-size:24px; margin-bottom:12px;">❓ Desafios da Turminha</h4>
-          <img id="quiz-img" src="" style="width:150px; height:150px; object-fit:contain; margin:20px 0;">
+          <h4 style="font-weight:900; font-size:22px; margin-bottom:10px;">❓ Desafios da Turminha</h4>
+          <img id="quiz-img" src="" style="width:130px; height:130px; object-fit:contain; margin:16px 0;">
           <div id="quiz-options" class="game-btn-grid"></div>
         </div>
       </div>
@@ -447,19 +445,19 @@
           <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
             <div style="display:flex; align-items:center; gap:16px;">
               <img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994883/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_LEO.png" style="width:70px; height:70px; object-fit:contain;">
-              <h3 style="margin:0; font-size:26px;">🧩 Espaço TEA com o Leo</h3>
+              <h3 style="margin:0; font-size:24px;">🧩 Espaço TEA com o Leo</h3>
             </div>
             <button class="btn-audio-mini" onclick="lerTexto('Espaço TEA com o Leo. Vamos fazer tudo com calma?')">🔊</button>
           </div>
-          <p style="font-size: 16px; color: #475569; font-weight: 600;">"Oi! Eu sou o Leo. Vamos fazer tudo com calma?"</p>
+          <p style="font-size: 15px; color: #475569; font-weight: 600;">"Oi! Eu sou o Leo. Vamos fazer tudo com calma?"</p>
         </div>
 
         <div class="interactive-card" style="border-color: #BAE6FD; margin-top: 24px;">
-          <h4 style="color: var(--tea-blue); font-weight: 900; font-size: 20px; margin-bottom: 16px;">🗣️ Cartões de Fala (CAA)</h4>
-          <div class="caa-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px,1fr)); gap:16px;">
-            <div class="caa-btn hover-float" style="background:#FFF; border:2.5px solid #BAE6FD; border-radius:16px; padding:20px 12px; text-align:center; cursor:pointer;" onclick="lerTexto('Eu quero água, por favor.')"><span style="font-size:40px;">💧</span><p style="font-weight:800; color:var(--tea-blue); margin-top:8px; font-size:15px;">Água</p></div>
-            <div class="caa-btn hover-float" style="background:#FFF; border:2.5px solid #BAE6FD; border-radius:16px; padding:20px 12px; text-align:center; cursor:pointer;" onclick="lerTexto('Estou com fome.')"><span style="font-size:40px;">🍎</span><p style="font-weight:800; color:var(--tea-blue); margin-top:8px; font-size:15px;">Comer</p></div>
-            <div class="caa-btn hover-float" style="background:#FFF; border:2.5px solid #BAE6FD; border-radius:16px; padding:20px 12px; text-align:center; cursor:pointer;" onclick="lerTexto('Preciso ir ao banheiro.')"><span style="font-size:40px;">🚽</span><p style="font-weight:800; color:var(--tea-blue); margin-top:8px; font-size:15px;">Banheiro</p></div>
+          <h4 style="color: var(--tea-blue); font-weight: 900; font-size: 18px; margin-bottom: 12px;">🗣️ Cartões de Fala (CAA)</h4>
+          <div class="caa-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:14px;">
+            <div class="caa-btn hover-float" style="background:#FFF; border:2.5px solid #BAE6FD; border-radius:14px; padding:18px 10px; text-align:center; cursor:pointer;" onclick="lerTexto('Eu quero água, por favor.')"><span style="font-size:36px;">💧</span><p style="font-weight:800; color:var(--tea-blue); margin-top:6px; font-size:14px;">Água</p></div>
+            <div class="caa-btn hover-float" style="background:#FFF; border:2.5px solid #BAE6FD; border-radius:14px; padding:18px 10px; text-align:center; cursor:pointer;" onclick="lerTexto('Estou com fome.')"><span style="font-size:36px;">🍎</span><p style="font-weight:800; color:var(--tea-blue); margin-top:6px; font-size:14px;">Comer</p></div>
+            <div class="caa-btn hover-float" style="background:#FFF; border:2.5px solid #BAE6FD; border-radius:14px; padding:18px 10px; text-align:center; cursor:pointer;" onclick="lerTexto('Preciso ir ao banheiro.')"><span style="font-size:36px;">🚽</span><p style="font-weight:800; color:var(--tea-blue); margin-top:6px; font-size:14px;">Banheiro</p></div>
           </div>
         </div>
       </div>
@@ -472,7 +470,7 @@
           <span>📚 Biblioteca da Turminha</span>
           <button class="btn-audio-mini" onclick="lerTexto('As histórias mágicas estão sendo preparadas!')">🔊</button>
         </h3>
-        <p style="font-size:16px; font-weight:600; color:#475569; text-align:center;">As histórias mágicas da Turminha estão sendo escritas e ilustradas com muito amor!</p>
+        <p style="font-size:15px; font-weight:600; color:#475569; text-align:center;">As histórias mágicas da Turminha estão sendo escritas e ilustradas com muito amor!</p>
       </div>
     </main>
 
@@ -484,8 +482,8 @@
           <button class="btn-audio-mini" onclick="lerTexto('Crie a sua rotina diária.')">🔊</button>
         </h3>
         <div class="interactive-card" style="text-align:left; padding:28px;">
-          <h4 style="font-size:20px; font-weight:900; margin-bottom:14px;">Adicionar Tarefa na Rotina:</h4>
-          <div class="rotina-add-box" style="display:flex; gap:12px; margin-bottom:24px; flex-wrap:wrap;">
+          <h4 style="font-size:18px; font-weight:900; margin-bottom:12px;">Adicionar Tarefa na Rotina:</h4>
+          <div class="rotina-add-box" style="display:flex; gap:10px; margin-bottom:20px; flex-wrap:wrap;">
             <input type="text" id="rotina-nova-texto" class="vip-input" style="flex:1; margin-bottom:0;" placeholder="Ex: Hora do banho 🛁">
             <button class="action-btn-pill" style="background:var(--primary); color:#FFF;" onclick="adicionarRotinaPersonalizada()">Adicionar</button>
           </div>
@@ -501,35 +499,41 @@
           <span>🏆 Minhas Conquistas</span>
           <button class="btn-audio-mini" onclick="lerTexto('Minhas conquistas e certificado de Super Fã!')">🔊</button>
         </h3>
-        <div class="conquistas-box" style="background: linear-gradient(135deg, #FEF3C7 0%, #FFFBEB 100%); border: 2px solid #FCD34D; border-radius: 14px; padding: 18px 24px; margin-bottom: 24px; display: flex; justify-content: space-between; font-weight: 800; color: #92400E; font-size: 16px;">
+        <div class="conquistas-box" style="background: linear-gradient(135deg, #FEF3C7 0%, #FFFBEB 100%); border: 2px solid #FCD34D; border-radius: 12px; padding: 16px 24px; margin-bottom: 20px; display: flex; justify-content: space-between; font-weight: 800; color: #92400E; font-size: 15px;">
           <span>⭐ Pontos: <strong id="placar-pontos">0</strong></span>
           <span id="medalha-status">Iniciante</span>
         </div>
 
         <div class="interactive-card hover-float" style="border: 3px double #F59E0B; background: #FFFBEB; padding:32px;">
-          <h4 style="color:#92400E; font-size:26px; font-weight:900; margin-bottom:16px;">🎓 Certificado de Super Fã</h4>
-          <input type="text" id="nome-certificado-input" placeholder="Seu nome" class="vip-input" style="border-color:#FCD34D; max-width:400px; margin:0 auto 16px; display:block;">
-          <button onclick="gerarCertificadoGeral()" class="action-btn-pill" style="background:#D97706; color:#FFF; border:none; margin:0 auto; padding:14px 28px; font-size:16px;">Gerar Certificado ⭐</button>
-          <div id="boxCertificadoResultado" style="display:none; margin-top:28px; padding:28px; background:#FFF; border-radius:14px; border:2px solid #FCD34D;">
-            <h3 style="color:#1D4ED8; font-size:32px; text-transform:uppercase;" id="txtNomeCertificado"></h3>
-            <p style="font-weight:800; color:#B45309; font-size:18px;">É oficialmente Super Fã da Turminha do Xexéu! 🌟</p>
+          <h4 style="color:#92400E; font-size:24px; font-weight:900; margin-bottom:14px;">🎓 Certificado de Super Fã</h4>
+          <input type="text" id="nome-certificado-input" placeholder="Seu nome" class="vip-input" style="border-color:#FCD34D; max-width:380px; margin:0 auto 14px; display:block;">
+          <button onclick="gerarCertificadoGeral()" class="action-btn-pill" style="background:#D97706; color:#FFF; border:none; margin:0 auto; padding:12px 24px;">Gerar Certificado ⭐</button>
+          <div id="boxCertificadoResultado" style="display:none; margin-top:24px; padding:24px; background:#FFF; border-radius:12px; border:2px solid #FCD34D;">
+            <h3 style="color:#1D4ED8; font-size:30px; text-transform:uppercase;" id="txtNomeCertificado"></h3>
+            <p style="font-weight:800; color:#B45309; font-size:16.5px;">É oficialmente Super Fã da Turminha do Xexéu! 🌟</p>
           </div>
         </div>
       </div>
     </main>
 
-    <!-- PÁGINA 8: ÁREA VIP -->
+    <!-- PÁGINA 8: ÁREA VIP (COM OS DRIVES OFICIAIS INTEGRADOS) -->
     <main id="pagina-vip" class="page-content content-wrapper">
       <div class="age-group-section">
-        <div class="vip-lock-container" style="background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%); border: 3px solid #FCD34D; border-radius: var(--radius-lg); padding: 36px; text-align: center;">
-          <h3 style="font-size:30px; color:#92400E; font-weight:900; display:flex; justify-content:center; align-items:center; gap:14px;">
+        <div class="vip-lock-container" id="painelVipConteudo" style="background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%); border: 3px solid #FCD34D; border-radius: var(--radius-lg); padding: 36px; text-align: center;">
+          <h3 style="font-size:30px; color:#92400E; font-weight:900; display:flex; justify-content:center; align-items:center; gap:12px;">
             ⭐ Clube VIP da Turminha
             <button class="btn-audio-mini" onclick="lerTexto('Assine o Clube VIP e desbloqueie todas as ferramentas exclusivas!')">🔊</button>
           </h3>
-          <div class="vip-price-tag" style="display:inline-block; background:#F59E0B; color:#FFF; font-weight:900; font-size:18px; padding:12px 32px; border-radius:30px; margin:16px 0;">Apenas R$ 6,00 / mês</div>
+          <div class="vip-price-tag" style="display:inline-block; background:#F59E0B; color:#FFF; font-weight:900; font-size:17px; padding:10px 28px; border-radius:30px; margin:16px 0;">Apenas R$ 6,00 / mês</div>
           
-          <div style="background:#FFF; padding:32px; border-radius:18px; border:2px dashed #F59E0B; text-align:left; font-size:16px; margin:24px auto; color:#78350F; max-width: 950px;">
-            <strong style="display:block; font-size:22px; margin-bottom:16px;">💖 O que o Clube VIP desbloqueia para os Pais e para as Crianças?</strong>
+          <!-- DRIVE OFICIAL & DRIVE TEA -->
+          <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin: 20px 0;">
+            <a href="https://drive.google.com/drive/folders/1gi1SjbtPXWuFBxhfMEuRpK2z4BFPXIBP?usp=drive_link" target="_blank" class="action-btn-pill" style="background:#2563EB; color:#FFF; border:none; padding:14px 24px; font-size:15px;">📁 Acessar Drive Oficial da Turminha</a>
+            <a href="https://drive.google.com/drive/folders/1JO8RfeGen-CeN6eWiw60OENT5E50R6yu?usp=drive_link" target="_blank" class="action-btn-pill" style="background:#0284C7; color:#FFF; border:none; padding:14px 24px; font-size:15px;" title="Drive Azul TEA">🧩 Drive Azul TEA (🚧 Em Construção)</a>
+          </div>
+
+          <div style="background:#FFF; padding:28px; border-radius:18px; border:2px dashed #F59E0B; text-align:left; font-size:15.5px; margin:24px auto; color:#78350F; max-width: 950px;">
+            <strong style="display:block; font-size:20px; margin-bottom:16px;">💖 O que o Clube VIP desbloqueia para os Pais e para as Crianças?</strong>
             <ul style="margin-left:24px; line-height:2.0; font-weight:600; display:flex; flex-direction:column; gap:8px;">
               <li>📁 <strong>Drive Completo de Atividades Pedagógicas:</strong> Material exclusivo para imprimir em alta qualidade.</li>
               <li>🧩 <strong>Área Especial Pais & TEA (VIP):</strong> Pranchas de rotina visual e histórias sociais adaptadas.</li>
@@ -546,14 +550,14 @@
 
           <div class="vip-grid-forms" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px,1fr)); gap:24px; max-width:950px; margin:24px auto 0;">
             <div class="vip-form-box" style="background:#FFF; padding:28px; border-radius:16px; border:2px solid #FCD34D; text-align:left;">
-              <h4 style="font-size:20px; color:#92400E; margin-bottom:14px; font-weight:900;">✨ Desbloquear Acesso VIP</h4>
+              <h4 style="font-size:19px; color:#92400E; margin-bottom:12px; font-weight:900;">✨ Desbloquear Acesso VIP</h4>
               <input type="email" id="cad-email" class="vip-input" placeholder="Seu E-mail">
               <input type="password" id="cad-senha" class="vip-input" placeholder="Crie uma Senha">
               <a href="javascript:void(0)" class="btn-vip-checkout" id="btnCheckoutVip" onclick="salvarECadastrar()" style="background:linear-gradient(135deg, #F59E0B, #D97706); color:#FFF; font-weight:800; padding:16px; border-radius:12px; text-decoration:none; display:block; text-align:center; font-size:16px;">Quero Ser VIP por R$ 6,00 💳</a>
             </div>
 
             <div class="vip-form-box" style="background:#FFF; padding:28px; border-radius:16px; border:2px solid #CBD5E1; text-align:left;">
-              <h4 style="font-size:20px; color:#1E293B; margin-bottom:14px; font-weight:900;">🔑 Já sou Assinante</h4>
+              <h4 style="font-size:19px; color:#1E293B; margin-bottom:12px; font-weight:900;">🔑 Já sou Assinante</h4>
               <input type="email" id="log-email" class="vip-input" placeholder="E-mail Cadastrado">
               <input type="password" id="log-senha" class="vip-input" placeholder="Sua Senha">
               <button onclick="fazerLogin()" id="btnLoginVip" class="action-btn-pill" style="width:100%; justify-content:center; background:#3B82F6; color:#FFF; border:none; min-height:52px; font-size:16px;">Entrar no Clube VIP</button>
@@ -657,6 +661,31 @@
       document.querySelectorAll('.nome-usuario-dinamico').forEach(el => el.innerText = nome);
       if (modo === 'adolescente') { document.body.classList.add('teen-mode'); } 
       else { document.body.classList.remove('teen-mode'); }
+      atualizarInterfaceVip();
+    }
+
+    function atualizarInterfaceVip() {
+      const painel = document.getElementById('painelVipConteudo');
+      if (!painel) return;
+      if (isUserVip) {
+        painel.innerHTML = `
+          <h3 style="font-size:30px; color:#065F46; font-weight:900; margin-bottom:12px;">🎉 Acesso VIP Confirmado!</h3>
+          <p style="font-size:16px; color:#047857; font-weight:700; margin-bottom:20px;">Você tem acesso completo a todo o portal.</p>
+          <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+            <a href="https://drive.google.com/drive/folders/1gi1SjbtPXWuFBxhfMEuRpK2z4BFPXIBP?usp=drive_link" target="_blank" class="action-btn-pill" style="background:#2563EB; color:#FFF; border:none; padding:14px 24px;">📁 Drive Oficial</a>
+            <a href="https://drive.google.com/drive/folders/1JO8RfeGen-CeN6eWiw60OENT5E50R6yu?usp=drive_link" target="_blank" class="action-btn-pill" style="background:#0284C7; color:#FFF; border:none; padding:14px 24px;">🧩 Drive TEA (🚧 Em Construção)</a>
+            <button onclick="sairVip()" class="action-btn-pill" style="background:#EF4444; color:#FFF; border:none; padding:14px 24px;">🔒 Sair do VIP</button>
+          </div>
+        `;
+      }
+    }
+
+    function sairVip() {
+      if(confirm("Deseja sair do modo VIP?")) {
+        localStorage.removeItem('turminha_vip_status');
+        isUserVip = false;
+        window.location.reload();
+      }
     }
 
     function lerTexto(texto) {
@@ -745,12 +774,25 @@
       if (senha === SENHA_MESTRA) { isUserVip = true; localStorage.setItem('turminha_vip_status', 'ativo'); alert("Acesso Mestre Liberado!"); window.location.reload(); return; }
       if (!email || !senha) { alert("Preencha e-mail e senha."); return; }
       
+      const btn = document.getElementById('btnLoginVip');
+      if(btn) btn.innerText = "Verificando na Planilha... ⏳";
+
       fetch(`${URL_SCRIPT}?email=${encodeURIComponent(email)}&senha=${encodeURIComponent(senha)}`)
         .then(res => res.json())
         .then(data => {
-          if(data.liberado) { isUserVip = true; localStorage.setItem('turminha_vip_status', 'ativo'); alert("Acesso VIP Confirmado!"); window.location.reload(); } 
-          else { alert("Senha incorreta ou assinatura pendente."); }
-        }).catch(() => alert("Erro ao verificar conexão."));
+          if(data.liberado) { 
+            isUserVip = true; 
+            localStorage.setItem('turminha_vip_status', 'ativo'); 
+            alert("✅ Acesso VIP Confirmado!"); 
+            window.location.reload(); 
+          } else { 
+            alert("❌ Senha incorreta ou assinatura pendente na planilha."); 
+            if(btn) btn.innerText = "Entrar no Clube VIP";
+          }
+        }).catch(() => {
+          alert("❌ Erro ao verificar conexão."); 
+          if(btn) btn.innerText = "Entrar no Clube VIP";
+        });
     }
 
     function renderizarRotinas() {
@@ -886,6 +928,7 @@
       if (p === 'jogos') { renderizarLousaBtns(); setTimeout(redimensionarCanvas, 50); }
       if (p === 'perfil') criarSeletorAvatar();
       if (p === 'rotina') renderizarRotinas();
+      if (p === 'vip') atualizarInterfaceVip();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
