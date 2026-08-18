@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Turminha do Xexéu — Portal Oficial</title>
   
   <link rel="icon" type="image/png" href="https://res.cloudinary.com/oactqmgs/image/upload/v1786908275/TURMINHA_LOGO.png">
@@ -24,11 +24,12 @@
       --card-bg: #FFFFFF; 
       --text-main: #0F172A; 
       --text-muted: #475569;
-      --radius-xl: 32px; 
-      --radius-lg: 20px; 
-      --radius-md: 14px;
-      --shadow-sm: 0 6px 16px rgba(15, 23, 42, 0.06); 
-      --shadow-md: 0 10px 28px rgba(15, 23, 42, 0.1);
+      --radius-xl: 28px; 
+      --radius-lg: 18px; 
+      --radius-md: 12px;
+      --shadow-sm: 0 4px 16px rgba(15, 23, 42, 0.05); 
+      --shadow-md: 0 8px 30px rgba(15, 23, 42, 0.08);
+      --shadow-lg: 0 16px 40px rgba(59, 130, 246, 0.15);
     }
 
     body.teen-mode {
@@ -36,7 +37,7 @@
       --primary: #60A5FA !important; --primary-dark: #3B82F6 !important;
       --card-bg: #1E293B !important; --text-main: #F8FAFC !important; --text-muted: #94A3B8 !important;
     }
-    body.teen-mode .app-container { background: rgba(30, 41, 59, 0.95); border-color: #334155; }
+    body.teen-mode .app-container { background: rgba(30, 41, 59, 0.98); border-color: #334155; }
     body.teen-mode header { background: linear-gradient(135deg, #1E293B 0%, #334155 100%) !important; }
     body.teen-mode .interactive-card, body.teen-mode .age-group-section, body.teen-mode .video-card { background: #1E293B !important; border-color: #334155 !important; color: #F8FAFC; }
 
@@ -49,31 +50,31 @@
     body.sensory-mode .interactive-card, body.sensory-mode .tea-box, body.sensory-mode .video-card { background: #FFFFFF !important; border: 2px solid #CBD5E1 !important; }
 
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', system-ui, sans-serif; -webkit-tap-highlight-color: transparent; }
-    body { background: var(--bg-gradient); color: var(--text-main); min-height: 100vh; transition: background 0.3s ease; overflow-x: hidden; }
+    body { background: var(--bg-gradient); color: var(--text-main); min-height: 100vh; overflow-x: hidden; }
 
-    @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-6px); } 100% { transform: translateY(0px); } }
-    @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-4px); } 100% { transform: translateY(0px); } }
+    @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
     .float-anim { animation: float 4s ease-in-out infinite; }
     .pulse-anim { animation: pulse 2.5s infinite; }
-    .hover-float { transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
-    .hover-float:hover { transform: translateY(-4px); }
+    .hover-float { transition: transform 0.2s ease; }
+    .hover-float:hover { transform: translateY(-3px); }
 
-    .app-container { width: 100%; min-height: 100vh; display: flex; flex-direction: column; gap: 24px; padding-bottom: 50px; }
-    .content-wrapper { width: 100%; max-width: 1350px; margin-left: auto; margin-right: auto; }
-    @media (max-width: 1380px) { .content-wrapper { width: calc(100% - 32px); } }
+    /* LAYOUT AMPLO PARA NOTEBOOK / DESKTOP */
+    .app-container { width: 100%; min-height: 100vh; display: flex; flex-direction: column; gap: 24px; padding: 0 16px 60px; }
+    .content-wrapper { width: 100%; max-width: 1500px; margin-left: auto; margin-right: auto; }
 
-    header { background: linear-gradient(135deg, #BAE6FD 0%, #E0F2FE 100%); display: flex; align-items: center; justify-content: space-between; border-radius: var(--radius-lg); padding: 18px 28px; margin-top: 16px; box-shadow: var(--shadow-sm); gap: 16px; flex-wrap: wrap; border: 3px solid #FFFFFF; }
-    .logo-img { max-width: 170px; height: auto; object-fit: contain; }
-    .header-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    header { background: linear-gradient(135deg, #BAE6FD 0%, #E0F2FE 100%); display: flex; align-items: center; justify-content: space-between; border-radius: var(--radius-lg); padding: 16px 32px; margin-top: 16px; box-shadow: var(--shadow-sm); gap: 16px; border: 2px solid #FFFFFF; }
+    .logo-img { max-width: 180px; height: auto; object-fit: contain; }
+    .header-actions { display: flex; align-items: center; gap: 12px; }
     
     .action-btn-pill { background: #FFFFFF; border: 2.5px solid var(--primary); color: var(--primary-dark); font-weight: 800; font-size: 14px; padding: 10px 20px; border-radius: 50px; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15); transition: all 0.2s ease; }
-    .action-btn-pill:hover { background: var(--primary); color: #FFF; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3); }
+    .action-btn-pill:hover { background: var(--primary); color: #FFF; transform: translateY(-2px); }
 
-    .page-nav { display: flex; gap: 12px; background: #F0F9FF; padding: 12px; border-radius: var(--radius-lg); border: 2px solid #BAE6FD; overflow-x: auto; scrollbar-width: thin; flex-wrap: nowrap; box-shadow: var(--shadow-sm); }
-    @media (min-width: 1024px) { .page-nav { flex-wrap: wrap; justify-content: center; } }
-    .nav-tab-btn { flex: 0 0 auto; padding: 12px 22px; border: none; border-radius: 12px; font-weight: 800; font-size: 14.5px; cursor: pointer; background: #FFFFFF; color: var(--text-muted); display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: all 0.25s ease; }
+    /* MENU DE NAVEGAÇÃO ESPAÇADO E ELEGANTE */
+    .page-nav { display: flex; gap: 12px; background: #F0F9FF; padding: 12px; border-radius: var(--radius-lg); border: 2px solid #BAE6FD; justify-content: center; flex-wrap: wrap; box-shadow: var(--shadow-sm); }
+    .nav-tab-btn { flex: 1; min-width: 130px; max-width: 180px; padding: 12px 16px; border: none; border-radius: 12px; font-weight: 800; font-size: 14.5px; cursor: pointer; background: #FFFFFF; color: var(--text-muted); display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: all 0.25s ease; }
     .nav-tab-btn:hover { background: #E0F2FE; color: var(--primary); transform: translateY(-2px); }
     .nav-tab-btn.active { background: var(--primary); color: #FFFFFF; box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4); transform: translateY(-3px); }
     .nav-tab-btn.tea-tab.active { background: var(--tea-blue); color: #FFF; }
@@ -83,75 +84,72 @@
     .page-content.active-page { display: flex; }
 
     .banner-container { width: 100%; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); border: 3px solid #FFF; }
-    .banner-img { width: 100%; height: 100%; min-height: 260px; display: block; object-fit: cover; }
+    .banner-img { width: 100%; height: 100%; min-height: 320px; max-height: 450px; display: block; object-fit: cover; }
     
-    .intro-box { background: linear-gradient(135deg, #FEF3C7 0%, #FFFBEB 100%); border: 3px solid #FCD34D; border-radius: var(--radius-lg); padding: 28px; display: flex; flex-direction: column; justify-content: center; gap: 16px; box-shadow: var(--shadow-sm); }
-    .intro-box h2 { font-size: 22px; font-weight: 900; color: #92400E; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-    .intro-box p { font-size: 15px; color: #78350F; line-height: 1.7; font-weight: 600; }
+    .intro-box { background: linear-gradient(135deg, #FEF3C7 0%, #FFFBEB 100%); border: 3px solid #FCD34D; border-radius: var(--radius-lg); padding: 32px; display: flex; flex-direction: column; justify-content: center; gap: 16px; box-shadow: var(--shadow-sm); }
+    .intro-box h2 { font-size: 24px; font-weight: 900; color: #92400E; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .intro-box p { font-size: 16px; color: #78350F; line-height: 1.8; font-weight: 600; }
     
-    .btn-audio-mini { background: linear-gradient(135deg, #FBBF24, #F59E0B); border: none; border-radius: 50%; width: 42px; height: 42px; min-width: 42px; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center; color: #FFF; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4); transition: all 0.2s; }
+    .btn-audio-mini { background: linear-gradient(135deg, #FBBF24, #F59E0B); border: none; border-radius: 50%; width: 44px; height: 44px; min-width: 44px; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center; color: #FFF; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4); transition: all 0.2s; }
     .btn-audio-mini:hover { transform: scale(1.1) rotate(5deg); }
 
-    .age-group-section { background: #FFFFFF; border-radius: var(--radius-lg); padding: 28px; border: 2px solid #E2E8F0; box-shadow: var(--shadow-sm); }
-    .age-title { font-size: 24px; font-weight: 900; color: var(--primary-dark); margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; }
-    .interactive-card { background: #F8FAFC; border-radius: var(--radius-md); padding: 24px; text-align: center; border: 2px solid #E2E8F0; width: 100%; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
+    .age-group-section { background: #FFFFFF; border-radius: var(--radius-lg); padding: 32px; border: 2px solid #E2E8F0; box-shadow: var(--shadow-sm); }
+    .age-title { font-size: 26px; font-weight: 900; color: var(--primary-dark); margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between; }
+    .interactive-card { background: #F8FAFC; border-radius: var(--radius-md); padding: 28px; text-align: center; border: 2px solid #E2E8F0; width: 100%; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
 
-    .floating-cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
-    .floating-char-card { background: #FFFFFF; border-radius: var(--radius-lg); padding: 20px 16px; text-align: center; border: 3px solid #E2E8F0; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; align-items: center; gap: 10px; cursor: pointer; transition: all 0.3s ease; }
+    .floating-cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
+    .floating-char-card { background: #FFFFFF; border-radius: var(--radius-lg); padding: 24px 18px; text-align: center; border: 3px solid #E2E8F0; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; align-items: center; gap: 12px; cursor: pointer; transition: all 0.3s ease; }
     .floating-char-card:hover { transform: translateY(-6px); border-color: var(--primary); box-shadow: var(--shadow-md); }
-    .floating-char-img { width: 100px; height: 100px; object-fit: contain; border-radius: 50%; background: #F0F9FF; padding: 6px; }
-    .floating-char-name { font-size: 18px; font-weight: 900; color: var(--text-main); }
-    .floating-char-tag { font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; }
+    .floating-char-img { width: 110px; height: 110px; object-fit: contain; border-radius: 50%; background: #F0F9FF; padding: 6px; }
+    .floating-char-name { font-size: 20px; font-weight: 900; color: var(--text-main); }
+    .floating-char-tag { font-size: 12.5px; font-weight: 800; padding: 6px 14px; border-radius: 20px; text-transform: uppercase; }
 
-    .media-section-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
-    @media (min-width: 900px) { .media-section-grid { grid-template-columns: 1fr 1fr; } }
-    .video-card { background: #FFFFFF; border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-sm); border: 2px solid #E2E8F0; text-align: center; }
+    .media-section-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    @media (max-width: 900px) { .media-section-grid { grid-template-columns: 1fr; } }
+    .video-card { background: #FFFFFF; border-radius: var(--radius-lg); padding: 28px; box-shadow: var(--shadow-sm); border: 2px solid #E2E8F0; text-align: center; }
     .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--radius-md); }
     .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
     .spotify-wrapper { width: 100%; height: 352px; border-radius: 14px; overflow: hidden; border: 2px solid #1DB954; }
 
-    .media-card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-top: 16px; }
-    .media-item-box { background: #FFF; border: 2.5px solid #CBD5E1; border-radius: var(--radius-md); padding: 18px 14px; display: flex; flex-direction: column; align-items: center; gap: 10px; cursor: pointer; position: relative; transition: all 0.2s; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
+    .media-card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin-top: 20px; }
+    .media-item-box { background: #FFF; border: 2.5px solid #CBD5E1; border-radius: var(--radius-md); padding: 22px 16px; display: flex; flex-direction: column; align-items: center; gap: 10px; cursor: pointer; position: relative; transition: all 0.2s; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
     .media-item-box:hover { transform: translateY(-4px); border-color: var(--primary); box-shadow: 0 6px 14px rgba(59,130,246,0.15); }
     .media-item-box.locked { background: #FFFBEB; border-color: #FCD34D; }
-    .media-badge-vip { position: absolute; top: 8px; right: 8px; background: #F59E0B; color: #FFF; font-size: 10px; font-weight: 800; padding: 4px 8px; border-radius: 8px; }
+    .media-badge-vip { position: absolute; top: 8px; right: 8px; background: #F59E0B; color: #FFF; font-size: 11px; font-weight: 800; padding: 4px 8px; border-radius: 8px; }
 
-    #paintCanvas { background: #FFF; border: 4px solid var(--primary); border-radius: var(--radius-lg); width: 100%; height: 380px; touch-action: none; cursor: crosshair; }
-    @media (min-width: 1024px) { #paintCanvas { height: 500px; } }
-    
-    .btn-color-draw { background: #FFF; border: 2.5px solid #CBD5E1; padding: 10px 16px; border-radius: 12px; font-weight: 800; font-size: 13.5px; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.2s; }
+    #paintCanvas { background: #FFF; border: 4px solid var(--primary); border-radius: var(--radius-lg); width: 100%; height: 500px; touch-action: none; cursor: crosshair; }
+    .btn-color-draw { background: #FFF; border: 2.5px solid #CBD5E1; padding: 12px 20px; border-radius: 12px; font-weight: 800; font-size: 14px; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.2s; }
     .btn-color-draw.selected { border-color: var(--primary); background: #E0F2FE; transform: scale(1.05); box-shadow: 0 4px 10px rgba(59,130,246,0.2); }
-    .btn-color-draw img { width: 28px; height: 28px; object-fit: contain; }
+    .btn-color-draw img { width: 30px; height: 30px; object-fit: contain; }
 
-    .game-btn-grid { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
-    .btn-choice { background: var(--purple); color: #FFF; border: none; padding: 16px 28px; font-weight: 900; font-size: 19px; border-radius: 14px; cursor: pointer; min-width: 70px; box-shadow: 0 4px 14px rgba(139, 92, 246, 0.3); transition: transform 0.15s ease; }
+    .game-btn-grid { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 24px; }
+    .btn-choice { background: var(--purple); color: #FFF; border: none; padding: 18px 32px; font-weight: 900; font-size: 20px; border-radius: 14px; cursor: pointer; min-width: 80px; box-shadow: 0 4px 14px rgba(139, 92, 246, 0.3); transition: transform 0.15s ease; }
     .btn-choice:active { transform: scale(0.92); }
     .btn-choice.acertou { background: #10B981 !important; transform: scale(1.1); }
     .btn-choice.errou { background: #EF4444 !important; transform: scale(0.95) rotate(-3deg); }
 
-    .memory-board { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 16px; max-width: 440px; margin-left: auto; margin-right: auto; }
-    .memory-card { aspect-ratio: 1; background: var(--primary); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #FFF; font-weight: 900; font-size: 28px; cursor: pointer; transition: transform 0.2s; box-shadow: 0 4px 12px rgba(59,130,246,0.2); }
+    .memory-board { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 20px; max-width: 520px; margin-left: auto; margin-right: auto; }
+    .memory-card { aspect-ratio: 1; background: var(--primary); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #FFF; font-weight: 900; font-size: 32px; cursor: pointer; transition: transform 0.2s; box-shadow: 0 4px 12px rgba(59,130,246,0.2); }
     .memory-card:active { transform: scale(0.95); }
     .memory-card.flipped { background: #FFF; border: 3px solid var(--primary); }
 
-    /* TEMPORIZADOR */
-    .timer-bar-bg { width: 100%; height: 22px; background: #E2E8F0; border-radius: 12px; overflow: hidden; margin: 12px 0; border: 2px solid #CBD5E1; }
+    .timer-bar-bg { width: 100%; height: 24px; background: #E2E8F0; border-radius: 12px; overflow: hidden; margin: 14px 0; border: 2px solid #CBD5E1; }
     .timer-bar-fill { width: 100%; height: 100%; background: #10B981; transition: width 1s linear, background-color 0.5s ease; }
 
     .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(6px); z-index: 99999; justify-content: center; align-items: center; padding: 20px; }
     .modal-overlay.active { display: flex; animation: fadeIn 0.3s; }
-    .modal-box { background: #FFF; border-radius: var(--radius-lg); padding: 32px; max-width: 480px; width: 100%; text-align: center; border: 4px solid var(--primary); position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
-    .modal-close { position: absolute; top: 16px; right: 16px; background: #F1F5F9; border: none; width: 36px; height: 36px; border-radius: 50%; font-weight: bold; font-size: 16px; cursor: pointer; }
+    .modal-box { background: #FFF; border-radius: var(--radius-lg); padding: 36px; max-width: 520px; width: 100%; text-align: center; border: 4px solid var(--primary); position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+    .modal-close { position: absolute; top: 16px; right: 16px; background: #F1F5F9; border: none; width: 38px; height: 38px; border-radius: 50%; font-weight: bold; font-size: 16px; cursor: pointer; }
     
     .vip-input { width: 100%; padding: 14px 18px; font-size: 15px; border: 2.5px solid #CBD5E1; border-radius: 12px; margin-bottom: 14px; outline: none; font-family: 'Poppins'; }
     .vip-input:focus { border-color: var(--primary); }
 
-    #visualToast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%) translateY(100px); background: #0F172A; color: #FFF; padding: 12px 24px; border-radius: 30px; font-size: 14px; font-weight: 700; transition: transform 0.3s; z-index: 999999; pointer-events: none; opacity: 0; }
+    #visualToast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%) translateY(100px); background: #0F172A; color: #FFF; padding: 14px 28px; border-radius: 30px; font-size: 15px; font-weight: 700; transition: transform 0.3s; z-index: 999999; pointer-events: none; opacity: 0; box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
     #visualToast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
     
-    .floating-vip-badge { position: fixed; bottom: 24px; right: 24px; background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: #FFF; padding: 14px 26px; border-radius: 50px; font-size: 16px; font-weight: 900; box-shadow: 0 8px 24px rgba(245, 158, 11, 0.4); display: flex; align-items: center; gap: 8px; cursor: pointer; border: 2px solid #FDE68A; z-index: 999; }
+    .floating-vip-badge { position: fixed; bottom: 28px; right: 28px; background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: #FFF; padding: 16px 28px; border-radius: 50px; font-size: 16px; font-weight: 900; box-shadow: 0 8px 24px rgba(245, 158, 11, 0.4); display: flex; align-items: center; gap: 10px; cursor: pointer; border: 2px solid #FDE68A; z-index: 999; }
     
-    footer { text-align: center; padding: 30px 20px; font-size: 13.5px; color: var(--text-muted); font-weight: 600; margin-top: auto; display: flex; flex-direction: column; gap: 8px; }
+    footer { text-align: center; padding: 40px 20px; font-size: 14px; color: var(--text-muted); font-weight: 600; margin-top: auto; display: flex; flex-direction: column; gap: 8px; }
     footer a { color: var(--primary); cursor: pointer; text-decoration: underline; }
   </style>
 </head>
@@ -159,30 +157,30 @@
 
   <div id="visualToast">Aviso</div>
 
-  <!-- MODAL: ONBOARDING FLEXÍVEL -->
+  <!-- MODAL: ONBOARDING -->
   <div id="modalOnboarding" class="modal-overlay">
-    <div class="modal-box" style="max-width: 520px; text-align: left; border-color: #3B82F6;">
-      <h3 style="color: var(--primary-dark); font-size: 22px; margin-bottom: 8px; font-weight: 900; text-align:center; display:flex; align-items:center; justify-content:center; gap:8px;">
+    <div class="modal-box" style="max-width: 540px; text-align: left; border-color: #3B82F6;">
+      <h3 style="color: var(--primary-dark); font-size: 24px; margin-bottom: 10px; font-weight: 900; text-align:center; display:flex; align-items:center; justify-content:center; gap:10px;">
         👋 Bem-vindo(a) ao Portal!
-        <button class="btn-audio-mini" style="width:34px;height:34px;font-size:13px;" onclick="lerTexto('Bem-vindo ao Portal da Turminha do Xexéu. Vamos configurar sua experiência.')">🔊</button>
+        <button class="btn-audio-mini" style="width:38px;height:38px;font-size:14px;" onclick="lerTexto('Bem-vindo ao Portal da Turminha do Xexéu. Vamos configurar sua experiência.')">🔊</button>
       </h3>
-      <p style="font-size: 13px; color: #475569; margin-bottom: 16px; font-weight: 600; text-align:center;">Para quem estamos configurando este acesso?</p>
+      <p style="font-size: 14px; color: #475569; margin-bottom: 20px; font-weight: 600; text-align:center;">Configure seu acesso para iniciar a navegação no notebook.</p>
 
-      <label style="font-size: 13.5px; font-weight: 800; color: var(--primary-dark); display: block; margin-bottom: 4px;">Seu Nome ou Apelido de Exibição:</label>
-      <input type="text" id="onb-nome" class="vip-input" placeholder="Digite seu nome ou apelido...">
+      <label style="font-size: 14px; font-weight: 800; color: var(--primary-dark); display: block; margin-bottom: 6px;">Seu Nome ou Apelido de Exibição:</label>
+      <input type="text" id="onb-nome" class="vip-input" placeholder="Digite seu nome ou apelido..." value="Evelyn">
 
-      <label style="font-size: 13.5px; font-weight: 800; color: var(--primary-dark); display: block; margin-bottom: 4px; margin-top:8px;">Estilo de Experiência do Portal:</label>
+      <label style="font-size: 14px; font-weight: 800; color: var(--primary-dark); display: block; margin-bottom: 6px; margin-top:12px;">Estilo de Experiência do Portal:</label>
       <select id="onb-modo" class="vip-input" style="background:#FFF;">
         <option value="familia">🧸 Padrão / Família & Crianças</option>
         <option value="adolescente">🎧 Adolescente / Criativo (Visual Clean/Dark)</option>
       </select>
 
-      <label style="font-size: 13.5px; font-weight: 800; color: var(--primary-dark); display: block; margin-bottom: 4px; margin-top:8px;">
+      <label style="font-size: 14px; font-weight: 800; color: var(--primary-dark); display: block; margin-bottom: 6px; margin-top:12px;">
         Criar Senha Parental / Segurança (PIN):
       </label>
       <input type="password" id="onb-senha" class="vip-input" placeholder="Crie uma senha numérica ou texto">
 
-      <button onclick="salvarConfiguracaoInicial()" style="background: #10B981; color: #FFF; border: none; padding: 12px; border-radius: 12px; font-size: 15px; font-weight: 900; cursor: pointer; width: 100%; box-shadow: 0 4px 12px rgba(16,185,129,0.3); margin-top:8px;">
+      <button onclick="salvarConfiguracaoInicial()" style="background: #10B981; color: #FFF; border: none; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 900; cursor: pointer; width: 100%; box-shadow: 0 4px 12px rgba(16,185,129,0.3); margin-top:12px;">
         Acessar Portal 🚀
       </button>
     </div>
@@ -192,11 +190,11 @@
   <div id="modalFichaPersonagem" class="modal-overlay">
     <div class="modal-box">
       <button class="modal-close" onclick="fecharFichaPersonagem()">✕</button>
-      <img id="ficha-img" src="" alt="Personagem" class="pulse-anim" style="width: 120px; height: 120px; object-fit: contain; margin-bottom: 14px;">
-      <h3 id="ficha-nome" style="color: var(--primary-dark); font-weight: 900; font-size: 26px;"></h3>
-      <p id="ficha-apelido" style="color: var(--purple); font-weight: 800; font-size: 15px; margin-bottom: 16px;"></p>
-      <button id="btnFichaOuvir" class="btn-choice hover-float" style="padding: 14px 24px; font-size: 16px; margin-bottom: 18px; background: #F59E0B;">🔊 Ouvir Apresentação</button>
-      <div style="text-align: left; background: #F8FAFC; padding: 18px; border-radius: 12px; border: 2px solid #E2E8F0; font-size: 14.5px; display: flex; flex-direction: column; gap: 10px;">
+      <img id="ficha-img" src="" alt="Personagem" class="pulse-anim" style="width: 130px; height: 130px; object-fit: contain; margin-bottom: 16px;">
+      <h3 id="ficha-nome" style="color: var(--primary-dark); font-weight: 900; font-size: 28px;"></h3>
+      <p id="ficha-apelido" style="color: var(--purple); font-weight: 800; font-size: 16px; margin-bottom: 18px;"></p>
+      <button id="btnFichaOuvir" class="btn-choice hover-float" style="padding: 16px 28px; font-size: 17px; margin-bottom: 20px; background: #F59E0B;">🔊 Ouvir Apresentação</button>
+      <div style="text-align: left; background: #F8FAFC; padding: 20px; border-radius: 14px; border: 2px solid #E2E8F0; font-size: 15px; display: flex; flex-direction: column; gap: 12px;">
         <p><strong>🌟 Quem sou eu?</strong> <span id="ficha-quem"></span></p>
         <p><strong>💖 O que eu gosto?</strong> <span id="ficha-gosto"></span></p>
         <p><strong>💬 Minha frase:</strong> <em style="color:#475569;">"<span id="ficha-frase"></span>"</em></p>
@@ -204,33 +202,33 @@
     </div>
   </div>
 
-  <!-- MODAL: PARENTAL GATE & RECUPERAÇÃO DE SENHA -->
+  <!-- MODAL: PARENTAL GATE -->
   <div id="modalParentalGate" class="modal-overlay">
-    <div class="modal-box" style="border-color:#F59E0B; max-width:420px;">
-      <h3 style="color: #92400E; font-size: 24px; margin-bottom: 8px; font-weight: 900;">🔒 Área Restrita</h3>
-      <p style="font-size: 14px; color: #475569; margin-bottom: 16px; font-weight: 600;">Digite sua <strong>Senha Parental (PIN)</strong>:</p>
-      <input type="password" id="respostaDesafio" class="vip-input" style="text-align:center; font-size:22px; letter-spacing:4px;" placeholder="****">
-      <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 12px;">
-        <button onclick="fecharParentalGate()" style="padding: 12px 20px; border: none; border-radius: 10px; background: #E2E8F0; font-weight: 800; cursor: pointer; font-size: 14px;">Voltar</button>
-        <button onclick="verificarParentalGate()" style="padding: 12px 24px; border: none; border-radius: 10px; background: #F59E0B; color: #FFF; font-weight: 900; cursor: pointer; font-size: 14px;">Entrar ➔</button>
+    <div class="modal-box" style="border-color:#F59E0B; max-width:440px;">
+      <h3 style="color: #92400E; font-size: 26px; margin-bottom: 10px; font-weight: 900;">🔒 Área Restrita</h3>
+      <p style="font-size: 15px; color: #475569; margin-bottom: 18px; font-weight: 600;">Digite sua <strong>Senha Parental (PIN)</strong>:</p>
+      <input type="password" id="respostaDesafio" class="vip-input" style="text-align:center; font-size:24px; letter-spacing:4px;" placeholder="****">
+      <div style="display: flex; gap: 14px; justify-content: center; margin-bottom: 14px;">
+        <button onclick="fecharParentalGate()" style="padding: 14px 24px; border: none; border-radius: 10px; background: #E2E8F0; font-weight: 800; cursor: pointer; font-size: 15px;">Voltar</button>
+        <button onclick="verificarParentalGate()" style="padding: 14px 28px; border: none; border-radius: 10px; background: #F59E0B; color: #FFF; font-weight: 900; cursor: pointer; font-size: 15px;">Entrar ➔</button>
       </div>
-      <a onclick="esqueciMinhaSenha()" style="font-size: 12px; color: var(--primary); cursor: pointer; text-decoration: underline;">Esqueci minha senha (Usar Senha Mestra)</a>
+      <a onclick="esqueciMinhaSenha()" style="font-size: 13px; color: var(--primary); cursor: pointer; text-decoration: underline;">Esqueci minha senha (Usar Senha Mestra)</a>
     </div>
   </div>
 
-  <!-- MODAL: BLOQUEIO POR TEMPORIZADOR ESGOTADO -->
+  <!-- MODAL: BLOQUEIO TEMPO -->
   <div id="modalBloqueioTempo" class="modal-overlay">
-    <div class="modal-box" style="border-color:#EF4444; max-width:400px;">
-      <h3 style="color: #991B1B; font-size: 24px; margin-bottom: 8px; font-weight: 900;">⏰ O Tempo de Uso Acabou!</h3>
-      <p style="font-size: 14px; color: #475569; margin-bottom: 16px; font-weight: 600;">Para desbloquear o portal, insira a senha parental:</p>
-      <input type="password" id="senhaDesbloqueioTempo" class="vip-input" style="text-align:center; font-size:22px; letter-spacing:4px;" placeholder="****">
-      <button onclick="tentarDesbloquearTelaTempo()" style="background: #EF4444; color: #FFF; border: none; padding: 12px; border-radius: 10px; font-weight: 900; cursor: pointer; width: 100%; margin-bottom: 10px;">Desbloquear 🔓</button>
-      <a onclick="esqueciMinhaSenhaTempo()" style="font-size: 12px; color: var(--primary); cursor: pointer; text-decoration: underline;">Esqueci minha senha</a>
+    <div class="modal-box" style="border-color:#EF4444; max-width:440px;">
+      <h3 style="color: #991B1B; font-size: 26px; margin-bottom: 10px; font-weight: 900;">⏰ O Tempo de Uso Acabou!</h3>
+      <p style="font-size: 15px; color: #475569; margin-bottom: 18px; font-weight: 600;">Para desbloquear o portal, insira a senha parental:</p>
+      <input type="password" id="senhaDesbloqueioTempo" class="vip-input" style="text-align:center; font-size:24px; letter-spacing:4px;" placeholder="****">
+      <button onclick="tentarDesbloquearTelaTempo()" style="background: #EF4444; color: #FFF; border: none; padding: 14px; border-radius: 12px; font-weight: 900; cursor: pointer; width: 100%; margin-bottom: 12px; font-size: 16px;">Desbloquear 🔓</button>
+      <a onclick="esqueciMinhaSenhaTempo()" style="font-size: 13px; color: var(--primary); cursor: pointer; text-decoration: underline;">Esqueci minha senha</a>
     </div>
   </div>
 
   <div class="floating-vip-badge float-anim" onclick="abrirAreaProtegida('vip')">
-    <span style="font-size:18px;">⭐</span><span>Seja VIP (R$ 6,00)</span>
+    <span style="font-size:20px;">⭐</span><span>Seja VIP (R$ 6,00)</span>
   </div>
 
   <div class="app-container">
@@ -262,37 +260,36 @@
 
     <!-- PÁGINA 1: INÍCIO -->
     <main id="pagina-inicio" class="page-content active-page content-wrapper">
-      <section class="banner-intro-grid" style="display:grid; grid-template-columns:1fr; gap:24px;">
+      <section style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch;">
         <div class="banner-container"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994339/BANNER_SITE_TURMINHA_DO_XEXEU.png" class="banner-img"></div>
         
-        <!-- TEMPORIZADOR INTEGRADO (GRÁTIS ATE 2MIN | VIP ATE 30MIN) -->
-        <div class="interactive-card" style="border-color: #BAE6FD; background: #F0F9FF; text-align: left; padding: 18px 24px;">
-          <h4 style="color: var(--tea-blue); font-weight: 900; font-size: 16px; margin-bottom: 4px; display:flex; justify-content:space-between; align-items:center;">
+        <div class="interactive-card" style="border-color: #BAE6FD; background: #F0F9FF; text-align: left; padding: 24px; display:flex; flex-direction:column; justify-content:center;">
+          <h4 style="color: var(--tea-blue); font-weight: 900; font-size: 18px; margin-bottom: 6px; display:flex; justify-content:space-between; align-items:center;">
             <span>⏳ Temporizador de Uso</span>
-            <button class="btn-audio-mini" style="width:32px;height:32px;font-size:12px;" onclick="lerTexto('Defina um limite de tempo para uso do portal. Grátis até 2 minutos, VIP até 30 minutos.')">🔊</button>
+            <button class="btn-audio-mini" style="width:34px;height:34px;font-size:13px;" onclick="lerTexto('Defina um limite de tempo para uso do portal. Grátis até 2 minutos, VIP até 30 minutos.')">🔊</button>
           </h4>
-          <p style="font-size: 12.5px; color: #475569; font-weight: 600; margin-bottom: 10px;">Grátis: até 2 min | VIP: até 30 min.</p>
-          <div id="botoesTemporizadorGeral" style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;"></div>
+          <p style="font-size: 13.5px; color: #475569; font-weight: 600; margin-bottom: 12px;">Grátis: até 2 min | VIP: até 30 min.</p>
+          <div id="botoesTemporizadorGeral" style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:12px;"></div>
           <div class="timer-bar-bg"><div id="barra-temporizador" class="timer-bar-fill" style="width: 100%;"></div></div>
-          <p id="texto-temporizador" style="font-weight: 900; color: #475569; font-size: 15px; margin:0; text-align:center;">0:00</p>
-        </div>
-
-        <div class="intro-box hover-float">
-          <h2>
-            <span>✨ Educando com Alegria e Amor</span>
-            <button class="btn-audio-mini" onclick="lerTexto('Mais do que um nome divertido, a Turminha do Xexéu é o nosso jeito de honrar as raízes e a história da nossa família. O nome Xexéu é uma homenagem que atravessa gerações. Ele honra a memória de Mariano Xexéu e celebra a vida de seu filho, Pedro Mariano, grande inspiração para o nosso querido Vovô Beto. A Vovó Hilda é inspirada na inesquecível Astrogilda Grispym, representando o amor que não conhece o tempo.')">🔊</button>
-          </h2>
-          <p>Olá, <strong class="nome-usuario-dinamico">Visitante</strong>! Mais do que um nome divertido, a <strong>Turminha do Xexéu</strong> é o nosso jeito de honrar as raízes e a história da nossa família.</p>
-          <p>O nome <strong>Xexéu</strong> é uma homenagem que atravessa gerações. Ele honra a memória de <em>Mariano Xexéu</em> e celebra a vida de seu filho, <em>Pedro Mariano</em>, grande inspiração para o nosso querido <strong>Vovô Beto</strong>.</p>
-          <p>A <strong>Vovó Hilda</strong> é inspirada na inesquecível <em>Astrogilda Grispym</em>, representando o amor que não conhece o tempo.</p>
+          <p id="texto-temporizador" style="font-weight: 900; color: #475569; font-size: 18px; margin:4px 0 0 0; text-align:center;">0:00</p>
         </div>
       </section>
 
-      <section class="section-family-container" style="display:flex; flex-direction:column; gap:28px;">
+      <section class="intro-box hover-float">
+        <h2>
+          <span>✨ Educando com Alegria e Amor</span>
+          <button class="btn-audio-mini" onclick="lerTexto('Mais do que um nome divertido, a Turminha do Xexéu é o nosso jeito de honrar as raízes e a história da nossa família. O nome Xexéu é uma homenagem que atravessa gerações. Ele honra a memória de Mariano Xexéu e celebra a vida de seu filho, Pedro Mariano, grande inspiração para o nosso querido Vovô Beto. A Vovó Hilda é inspirada na inesquecível Astrogilda Grispym, representando o amor que não conhece o tempo.')">🔊</button>
+        </h2>
+        <p>Olá, <strong class="nome-usuario-dinamico">Evelyn</strong>! Mais do que um nome divertido, a <strong>Turminha do Xexéu</strong> é o nosso jeito de honrar as raízes e a história da nossa família.</p>
+        <p>O nome <strong>Xexéu</strong> é uma homenagem que atravessa gerações. Ele honra a memória de <em>Mariano Xexéu</em> e celebra a vida de seu filho, <em>Pedro Mariano</em>, grande inspiração para o nosso querido <strong>Vovô Beto</strong>.</p>
+        <p>A <strong>Vovó Hilda</strong> é inspirada na inesquecível <em>Astrogilda Grispym</em>, representando o amor que não conhece o tempo.</p>
+      </section>
+
+      <section class="section-family-container" style="display:flex; flex-direction:column; gap:32px;">
         <div>
-          <h3 class="family-group-title" style="font-size:20px; font-weight:900; color:var(--primary-dark); margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;">
+          <h3 class="family-group-title" style="font-size:22px; font-weight:900; color:var(--primary-dark); margin-bottom:14px; display:flex; justify-content:space-between; align-items:center;">
             <span>✨ Mascotes Oficiais</span>
-            <button class="btn-audio-mini" style="width:38px;height:38px;font-size:14px;" onclick="lerTexto('Toque nos personagens para ver a ficha completa.')">🔊</button>
+            <button class="btn-audio-mini" style="width:40px;height:40px;font-size:15px;" onclick="lerTexto('Toque nos personagens para ver a ficha completa.')">🔊</button>
           </h3>
           <div class="floating-cards-grid">
             <div class="floating-char-card card-especial" onclick="abrirFichaPersonagem('Xexéu')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994886/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_XEXEU.png" class="floating-char-img"><span class="floating-char-name">Xexéu</span><span class="floating-char-tag">Mascote Oficial</span></div>
@@ -301,9 +298,9 @@
         </div>
 
         <div>
-          <h3 class="family-group-title" style="font-size:20px; font-weight:900; color:var(--primary-dark); margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;">
+          <h3 class="family-group-title" style="font-size:22px; font-weight:900; color:var(--primary-dark); margin-bottom:14px; display:flex; justify-content:space-between; align-items:center;">
             <span>💖 Casa da Maya e do Theo</span>
-            <button class="btn-audio-mini" style="width:38px;height:38px;font-size:14px;" onclick="lerTexto('Casa da Maya e do Theo.')">🔊</button>
+            <button class="btn-audio-mini" style="width:40px;height:40px;font-size:15px;" onclick="lerTexto('Casa da Maya e do Theo.')">🔊</button>
           </h3>
           <div class="floating-cards-grid">
             <div class="floating-char-card card-f1" onclick="abrirFichaPersonagem('Maya')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994884/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_MAYA.png" class="floating-char-img"><span class="floating-char-name">Maya</span></div>
@@ -314,9 +311,9 @@
         </div>
 
         <div>
-          <h3 class="family-group-title" style="font-size:20px; font-weight:900; color:var(--primary-dark); margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;">
+          <h3 class="family-group-title" style="font-size:22px; font-weight:900; color:var(--primary-dark); margin-bottom:14px; display:flex; justify-content:space-between; align-items:center;">
             <span>⚡ Casa do Sam e da Lia</span>
-            <button class="btn-audio-mini" style="width:38px;height:38px;font-size:14px;" onclick="lerTexto('Casa do Sam e da Lia.')">🔊</button>
+            <button class="btn-audio-mini" style="width:40px;height:40px;font-size:15px;" onclick="lerTexto('Casa do Sam e da Lia.')">🔊</button>
           </h3>
           <div class="floating-cards-grid">
             <div class="floating-char-card card-f2" onclick="abrirFichaPersonagem('Sam')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994885/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_SAM.png" class="floating-char-img"><span class="floating-char-name">Sam</span></div>
@@ -327,9 +324,9 @@
         </div>
 
         <div>
-          <h3 class="family-group-title" style="font-size:20px; font-weight:900; color:var(--primary-dark); margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;">
+          <h3 class="family-group-title" style="font-size:22px; font-weight:900; color:var(--primary-dark); margin-bottom:14px; display:flex; justify-content:space-between; align-items:center;">
             <span>👵👴 Os Avós</span>
-            <button class="btn-audio-mini" style="width:38px;height:38px;font-size:14px;" onclick="lerTexto('Os queridos Avós.')">🔊</button>
+            <button class="btn-audio-mini" style="width:40px;height:40px;font-size:15px;" onclick="lerTexto('Os queridos Avós.')">🔊</button>
           </h3>
           <div class="floating-cards-grid">
             <div class="floating-char-card card-avos" onclick="abrirFichaPersonagem('Beto')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994886/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_VOVO_BETO.png" class="floating-char-img"><span class="floating-char-name">Vovô Beto</span></div>
@@ -339,15 +336,15 @@
       </section>
 
       <!-- SUPORTE INÍCIO -->
-      <section class="interactive-card" style="background:#F0F9FF; border:3px solid #BAE6FD; text-align:left; margin-top:28px;">
-        <h3 style="color:var(--tea-blue); font-size:22px; font-weight:900; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center;">
+      <section class="interactive-card" style="background:#F0F9FF; border:3px solid #BAE6FD; text-align:left; margin-top:32px; padding:32px;">
+        <h3 style="color:var(--tea-blue); font-size:24px; font-weight:900; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center;">
           📬 Dúvidas ou Sugestões?
           <button class="btn-audio-mini" onclick="lerTexto('Precisa de ajuda ou quer enviar uma sugestão? Escreva para nós!')">🔊</button>
         </h3>
-        <p style="font-size:14.5px; font-weight:600; color:#475569; margin-bottom:16px;">Sua mensagem vai direto para nossa equipe (turminhaxexeu@gmail.com).</p>
+        <p style="font-size:15px; font-weight:600; color:#475569; margin-bottom:18px;">Sua mensagem vai direto para nossa equipe (turminhaxexeu@gmail.com).</p>
         <input type="email" id="suporteEmailInicio" class="vip-input" placeholder="Seu e-mail de contato">
-        <textarea id="suporteMensagemInicio" class="vip-input" placeholder="Escreva aqui..." style="resize:vertical; min-height:110px;"></textarea>
-        <button onclick="enviarSuporteReclamacao('Inicio')" id="btnEnviarSuporteInicio" style="background:var(--tea-blue); color:#FFF; border:none; padding:16px 24px; border-radius:12px; font-size:16px; font-weight:900; cursor:pointer; width:100%;">Enviar Mensagem ✉️</button>
+        <textarea id="suporteMensagemInicio" class="vip-input" placeholder="Escreva aqui..." style="resize:vertical; min-height:120px;"></textarea>
+        <button onclick="enviarSuporteReclamacao('Inicio')" id="btnEnviarSuporteInicio" style="background:var(--tea-blue); color:#FFF; border:none; padding:16px 28px; border-radius:12px; font-size:17px; font-weight:900; cursor:pointer; width:100%;">Enviar Mensagem ✉️</button>
       </section>
     </main>
 
@@ -355,14 +352,14 @@
     <main id="pagina-videos" class="page-content content-wrapper">
       <div class="media-section-grid">
         <div class="video-card hover-float">
-          <h3 style="font-size:22px; font-weight:900; color:var(--primary-dark); margin-bottom:16px; display:flex; justify-content:space-between; align-items:center;">
+          <h3 style="font-size:22px; font-weight:900; color:var(--primary-dark); margin-bottom:18px; display:flex; justify-content:space-between; align-items:center;">
             📺 Episódios YouTube
             <button class="btn-audio-mini" onclick="lerTexto('Assista aos episódios no YouTube!')">🔊</button>
           </h3>
           <div class="video-wrapper"><iframe src="https://www.youtube-nocookie.com/embed/videosseries?list=PLh42qmbnReoE_pM4lig3DpJaNGWqoT9uJ" allowfullscreen></iframe></div>
         </div>
         <div class="video-card hover-float" style="border-color:#1DB954;">
-          <h3 style="font-size:22px; font-weight:900; color:#1DB954; margin-bottom:16px; display:flex; justify-content:space-between; align-items:center;">
+          <h3 style="font-size:22px; font-weight:900; color:#1DB954; margin-bottom:18px; display:flex; justify-content:space-between; align-items:center;">
             🎧 Rádio da Turminha
             <button class="btn-audio-mini" style="background:#1DB954;" onclick="lerTexto('Ouça as músicas no Spotify!')">🔊</button>
           </h3>
@@ -376,9 +373,9 @@
           <button class="btn-audio-mini" onclick="lerTexto('Sons suaves para relaxar, focar ou dormir.')">🔊</button>
         </h4>
         <div class="media-card-grid">
-          <div class="media-item-box" onclick="tocarSomReal('https://actions.google.com/sounds/v1/weather/light_rain.ogg')"><span style="font-size:40px;">🌧️</span><strong style="font-size:16px;">Chuva Suave</strong><span style="font-size:12.5px; color:#16A34A; font-weight:900;">GRÁTIS</span></div>
-          <div class="media-item-box" onclick="tocarSomReal('https://actions.google.com/sounds/v1/animals/birds_arent_real.ogg')"><span style="font-size:40px;">🐦</span><strong style="font-size:16px;">Passarinhos</strong><span style="font-size:12.5px; color:#16A34A; font-weight:900;">GRÁTIS</span></div>
-          <div class="media-item-box locked" onclick="abrirAreaProtegida('vip')"><span class="media-badge-vip">👑 VIP</span><span style="font-size:40px;">🌊</span><strong style="font-size:16px;">Ondas do Mar</strong></div>
+          <div class="media-item-box" onclick="tocarSomReal('https://actions.google.com/sounds/v1/weather/light_rain.ogg')"><span style="font-size:42px;">🌧️</span><strong style="font-size:16px;">Chuva Suave</strong><span style="font-size:13px; color:#16A34A; font-weight:900;">GRÁTIS</span></div>
+          <div class="media-item-box" onclick="tocarSomReal('https://actions.google.com/sounds/v1/animals/birds_arent_real.ogg')"><span style="font-size:42px;">🐦</span><strong style="font-size:16px;">Passarinhos</strong><span style="font-size:13px; color:#16A34A; font-weight:900;">GRÁTIS</span></div>
+          <div class="media-item-box locked" onclick="abrirAreaProtegida('vip')"><span class="media-badge-vip">👑 VIP</span><span style="font-size:42px;">🌊</span><strong style="font-size:16px;">Ondas do Mar</strong></div>
         </div>
       </div>
     </main>
@@ -391,48 +388,53 @@
           <button class="btn-audio-mini" onclick="lerTexto('Central de jogos educativos e interativos!')">🔊</button>
         </h3>
         
-        <nav class="games-subnav" style="display:flex; gap:10px; background:#E0F2FE; padding:12px; border-radius:14px; margin-bottom:20px; overflow-x:auto;">
-          <button id="subtab-lousa" class="subnav-btn active" onclick="mudarSubJogo('lousa')" style="padding:12px 18px; border:none; border-radius:10px; font-weight:800; cursor:pointer; background:var(--primary); color:#FFF;">🎨 Lousa Mágica</button>
-          <button id="subtab-contar" class="subnav-btn" onclick="mudarSubJogo('contar')" style="padding:12px 18px; border:none; border-radius:10px; font-weight:800; cursor:pointer; background:#FFF; color:var(--primary-dark);">🔢 Contar</button>
-          <button id="subtab-letras" class="subnav-btn" onclick="mudarSubJogo('letras')" style="padding:12px 18px; border:none; border-radius:10px; font-weight:800; cursor:pointer; background:#FFF; color:var(--primary-dark);">🔤 Letras</button>
-          <button id="subtab-memoria" class="subnav-btn" onclick="mudarSubJogo('memoria')" style="padding:12px 18px; border:none; border-radius:10px; font-weight:800; cursor:pointer; background:#FFF; color:var(--primary-dark);">🧠 Memória</button>
-          <button id="subtab-quiz" class="subnav-btn" onclick="mudarSubJogo('quiz')" style="padding:12px 18px; border:none; border-radius:10px; font-weight:800; cursor:pointer; background:#FFF; color:var(--primary-dark);">❓ Quiz</button>
+        <nav class="games-subnav" style="display:flex; gap:12px; background:#E0F2FE; padding:14px; border-radius:14px; margin-bottom:24px; overflow-x:auto;">
+          <button id="subtab-lousa" class="subnav-btn active" onclick="mudarSubJogo('lousa')" style="padding:12px 20px; border:none; border-radius:10px; font-weight:800; cursor:pointer; background:var(--primary); color:#FFF; font-size:15px;">🎨 Lousa Mágica</button>
+          <button id="subtab-contar" class="subnav-btn" onclick="mudarSubJogo('contar')" style="padding:12px 20px; border:none; border-radius:10px; font-weight:800; cursor:pointer; background:#FFF; color:var(--primary-dark); font-size:15px;">🔢 Contar</button>
+          <button id="subtab-letras" class="subnav-btn" onclick="mudarSubJogo('letras')" style="padding:12px 20px; border:none; border-radius:10px; font-weight:800; cursor:pointer; background:#FFF; color:var(--primary-dark); font-size:15px;">🔤 Letras</button>
+          <button id="subtab-memoria" class="subnav-btn" onclick="mudarSubJogo('memoria')" style="padding:12px 20px; border:none; border-radius:10px; font-weight:800; cursor:pointer; background:#FFF; color:var(--primary-dark); font-size:15px;">🧠 Memória</button>
+          <button id="subtab-quiz" class="subnav-btn" onclick="mudarSubJogo('quiz')" style="padding:12px 20px; border:none; border-radius:10px; font-weight:800; cursor:pointer; background:#FFF; color:var(--primary-dark); font-size:15px;">❓ Quiz</button>
         </nav>
 
         <div id="game-lousa" class="game-section-page active-game-page interactive-card">
-          <h4 style="font-weight: 900; margin-bottom: 14px; font-size: 20px;">🎨 Lousa Mágica & Colorir</h4>
-          <div id="coloringSelectGrid" style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:16px;"></div>
+          <h4 style="font-weight: 900; margin-bottom: 16px; font-size: 22px;">🎨 Lousa Mágica & Colorir</h4>
+          <div id="coloringSelectGrid" style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-bottom:18px;"></div>
           <canvas id="paintCanvas"></canvas>
-          <div class="palette" style="display:flex; gap:12px; justify-content:center; align-items:center; margin-top:16px; flex-wrap:wrap;">
-            <div class="color-dot" style="width:40px;height:40px;border-radius:50%;background:#3B82F6;cursor:pointer;" onclick="mudarCor('#3B82F6')"></div>
-            <div class="color-dot" style="width:40px;height:40px;border-radius:50%;background:#EF4444;cursor:pointer;" onclick="mudarCor('#EF4444')"></div>
-            <div class="color-dot" style="width:40px;height:40px;border-radius:50%;background:#10B981;cursor:pointer;" onclick="mudarCor('#10B981')"></div>
+          <div class="palette" style="display:flex; gap:14px; justify-content:center; align-items:center; margin-top:20px; flex-wrap:wrap;">
+            <div class="color-dot" style="width:44px;height:44px;border-radius:50%;background:#3B82F6;cursor:pointer;" onclick="mudarCor('#3B82F6')"></div>
+            <div class="color-dot" style="width:44px;height:44px;border-radius:50%;background:#EF4444;cursor:pointer;" onclick="mudarCor('#EF4444')"></div>
+            <div class="color-dot" style="width:44px;height:44px;border-radius:50%;background:#10B981;cursor:pointer;" onclick="mudarCor('#10B981')"></div>
+            <div class="color-dot" style="width:44px;height:44px;border-radius:50%;background:#F59E0B;cursor:pointer;" onclick="mudarCor('#F59E0B')"></div>
+            <div class="color-dot" style="width:44px;height:44px;border-radius:50%;background:#8B5CF6;cursor:pointer;" onclick="mudarCor('#8B5CF6')"></div>
+            <div class="color-dot" style="width:44px;height:44px;border-radius:50%;background:#000000;cursor:pointer;" onclick="mudarCor('#000000')"></div>
             <button class="action-btn-pill" style="background:#FEE2E2; border-color:#EF4444; color:#991B1B;" onclick="limparCanvas()">Limpar 🗑️</button>
             <button class="action-btn-pill" style="background:#D1FAE5; border-color:#10B981; color:#065F46;" onclick="salvarFotoDesenho()">Salvar 📸</button>
           </div>
         </div>
 
         <div id="game-contar" class="game-section-page interactive-card">
-          <h4 style="font-weight:900; font-size:22px; margin-bottom:10px;">🔢 Vamos Contar?</h4>
-          <div id="countDisplay" style="display:flex; justify-content:center; align-items:center; gap:16px; margin:24px 0; min-height:90px; flex-wrap:wrap;"></div>
+          <h4 style="font-weight:900; font-size:24px; margin-bottom:12px;">🔢 Vamos Contar?</h4>
+          <p style="color:var(--text-muted); font-size:15px; margin-bottom:16px;">Quantos amiguinhos aparecem abaixo?</p>
+          <div id="countDisplay" style="display:flex; justify-content:center; align-items:center; gap:20px; margin:28px 0; min-height:100px; flex-wrap:wrap;"></div>
           <div id="countOptions" class="game-btn-grid"></div>
         </div>
 
         <div id="game-letras" class="game-section-page interactive-card">
-          <h4 style="font-weight:900; font-size:22px; margin-bottom:10px;">🔤 Qual é a Primeira Letra?</h4>
-          <p style="font-size:16px; font-weight:700;">Nome: <strong id="nome-letra-personagem" style="color:var(--purple); font-size:20px;">Xexéu</strong></p>
-          <img id="img-letra-personagem" src="" style="width:130px; height:130px; object-fit:contain; margin:16px 0;">
+          <h4 style="font-weight:900; font-size:24px; margin-bottom:12px;">🔤 Qual é a Primeira Letra?</h4>
+          <p style="font-size:17px; font-weight:700;">Nome: <strong id="nome-letra-personagem" style="color:var(--purple); font-size:22px;">Xexéu</strong></p>
+          <img id="img-letra-personagem" src="" style="width:150px; height:150px; object-fit:contain; margin:20px 0;">
           <div id="opcoes-letras" class="game-btn-grid"></div>
         </div>
 
         <div id="game-memoria" class="game-section-page interactive-card">
-          <h4 style="font-weight:900; font-size:22px; margin-bottom:10px;">🧠 Jogo da Memória</h4>
+          <h4 style="font-weight:900; font-size:24px; margin-bottom:12px;">🧠 Jogo da Memória</h4>
+          <p style="color:var(--text-muted); font-size:15px; margin-bottom:16px;">Encontre os pares dos amigos da Turminha!</p>
           <div id="memoryBoard" class="memory-board"></div>
         </div>
 
         <div id="game-quiz" class="game-section-page interactive-card">
-          <h4 style="font-weight:900; font-size:22px; margin-bottom:10px;">❓ Desafios da Turminha</h4>
-          <img id="quiz-img" src="" style="width:130px; height:130px; object-fit:contain; margin:16px 0;">
+          <h4 style="font-weight:900; font-size:24px; margin-bottom:12px;">❓ Desafios da Turminha</h4>
+          <img id="quiz-img" src="" style="width:150px; height:150px; object-fit:contain; margin:20px 0;">
           <div id="quiz-options" class="game-btn-grid"></div>
         </div>
       </div>
@@ -441,22 +443,23 @@
     <!-- PÁGINA 4: ESPAÇO TEA -->
     <main id="pagina-tea" class="page-content content-wrapper">
       <div class="age-group-section">
-        <div class="tea-box hover-float">
-          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
-            <div style="display:flex; align-items:center; gap:14px;">
-              <img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994883/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_LEO.png" style="width:65px; height:65px; object-fit:contain;">
-              <h3 style="margin:0; font-size:24px;">🧩 Espaço TEA com o Leo</h3>
+        <div class="tea-box hover-float" style="padding:28px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+            <div style="display:flex; align-items:center; gap:16px;">
+              <img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994883/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_LEO.png" style="width:70px; height:70px; object-fit:contain;">
+              <h3 style="margin:0; font-size:26px;">🧩 Espaço TEA com o Leo</h3>
             </div>
             <button class="btn-audio-mini" onclick="lerTexto('Espaço TEA com o Leo. Vamos fazer tudo com calma?')">🔊</button>
           </div>
-          <p style="font-size: 15px; color: #475569; font-weight: 600;">"Oi! Eu sou o Leo. Vamos fazer tudo com calma?"</p>
+          <p style="font-size: 16px; color: #475569; font-weight: 600;">"Oi! Eu sou o Leo. Vamos fazer tudo com calma?"</p>
         </div>
 
-        <div class="interactive-card" style="border-color: #BAE6FD; margin-bottom: 20px;">
-          <h4 style="color: var(--tea-blue); font-weight: 900; font-size: 18px; margin-bottom: 12px;">🗣️ Cartões de Fala (CAA)</h4>
-          <div class="caa-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:14px;">
-            <div class="caa-btn hover-float" style="background:#FFF; border:2px solid #BAE6FD; border-radius:14px; padding:18px 10px; text-align:center; cursor:pointer;" onclick="lerTexto('Eu quero água, por favor.')"><span style="font-size:36px;">💧</span><p style="font-weight:800; color:var(--tea-blue); margin-top:6px; font-size:14px;">Água</p></div>
-            <div class="caa-btn hover-float" style="background:#FFF; border:2px solid #BAE6FD; border-radius:14px; padding:18px 10px; text-align:center; cursor:pointer;" onclick="lerTexto('Estou com fome.')"><span style="font-size:36px;">🍎</span><p style="font-weight:800; color:var(--tea-blue); margin-top:6px; font-size:14px;">Comer</p></div>
+        <div class="interactive-card" style="border-color: #BAE6FD; margin-top: 24px;">
+          <h4 style="color: var(--tea-blue); font-weight: 900; font-size: 20px; margin-bottom: 16px;">🗣️ Cartões de Fala (CAA)</h4>
+          <div class="caa-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px,1fr)); gap:16px;">
+            <div class="caa-btn hover-float" style="background:#FFF; border:2.5px solid #BAE6FD; border-radius:16px; padding:20px 12px; text-align:center; cursor:pointer;" onclick="lerTexto('Eu quero água, por favor.')"><span style="font-size:40px;">💧</span><p style="font-weight:800; color:var(--tea-blue); margin-top:8px; font-size:15px;">Água</p></div>
+            <div class="caa-btn hover-float" style="background:#FFF; border:2.5px solid #BAE6FD; border-radius:16px; padding:20px 12px; text-align:center; cursor:pointer;" onclick="lerTexto('Estou com fome.')"><span style="font-size:40px;">🍎</span><p style="font-weight:800; color:var(--tea-blue); margin-top:8px; font-size:15px;">Comer</p></div>
+            <div class="caa-btn hover-float" style="background:#FFF; border:2.5px solid #BAE6FD; border-radius:16px; padding:20px 12px; text-align:center; cursor:pointer;" onclick="lerTexto('Preciso ir ao banheiro.')"><span style="font-size:40px;">🚽</span><p style="font-weight:800; color:var(--tea-blue); margin-top:8px; font-size:15px;">Banheiro</p></div>
           </div>
         </div>
       </div>
@@ -469,7 +472,7 @@
           <span>📚 Biblioteca da Turminha</span>
           <button class="btn-audio-mini" onclick="lerTexto('As histórias mágicas estão sendo preparadas!')">🔊</button>
         </h3>
-        <p style="font-size:15px; font-weight:600; color:#475569; text-align:center;">As histórias mágicas da Turminha estão sendo escritas e ilustradas com muito amor!</p>
+        <p style="font-size:16px; font-weight:600; color:#475569; text-align:center;">As histórias mágicas da Turminha estão sendo escritas e ilustradas com muito amor!</p>
       </div>
     </main>
 
@@ -480,9 +483,9 @@
           <span>📅 Rotina & Cuidados</span>
           <button class="btn-audio-mini" onclick="lerTexto('Crie a sua rotina diária.')">🔊</button>
         </h3>
-        <div class="interactive-card" style="text-align:left; margin-bottom:24px;">
-          <h4 style="font-size:18px; font-weight:900; margin-bottom:12px;">Adicionar Tarefa na Rotina:</h4>
-          <div class="rotina-add-box" style="display:flex; gap:10px; margin-bottom:20px; flex-wrap:wrap;">
+        <div class="interactive-card" style="text-align:left; padding:28px;">
+          <h4 style="font-size:20px; font-weight:900; margin-bottom:14px;">Adicionar Tarefa na Rotina:</h4>
+          <div class="rotina-add-box" style="display:flex; gap:12px; margin-bottom:24px; flex-wrap:wrap;">
             <input type="text" id="rotina-nova-texto" class="vip-input" style="flex:1; margin-bottom:0;" placeholder="Ex: Hora do banho 🛁">
             <button class="action-btn-pill" style="background:var(--primary); color:#FFF;" onclick="adicionarRotinaPersonalizada()">Adicionar</button>
           </div>
@@ -498,18 +501,18 @@
           <span>🏆 Minhas Conquistas</span>
           <button class="btn-audio-mini" onclick="lerTexto('Minhas conquistas e certificado de Super Fã!')">🔊</button>
         </h3>
-        <div class="conquistas-box" style="background: linear-gradient(135deg, #FEF3C7 0%, #FFFBEB 100%); border: 2px solid #FCD34D; border-radius: 12px; padding: 16px 24px; margin-bottom: 20px; display: flex; justify-content: space-between; font-weight: 800; color: #92400E; font-size: 15px;">
+        <div class="conquistas-box" style="background: linear-gradient(135deg, #FEF3C7 0%, #FFFBEB 100%); border: 2px solid #FCD34D; border-radius: 14px; padding: 18px 24px; margin-bottom: 24px; display: flex; justify-content: space-between; font-weight: 800; color: #92400E; font-size: 16px;">
           <span>⭐ Pontos: <strong id="placar-pontos">0</strong></span>
           <span id="medalha-status">Iniciante</span>
         </div>
 
-        <div class="interactive-card hover-float" style="border: 3px double #F59E0B; background: #FFFBEB;">
-          <h4 style="color:#92400E; font-size:24px; font-weight:900; margin-bottom:14px;">🎓 Certificado de Super Fã</h4>
-          <input type="text" id="nome-certificado-input" placeholder="Seu nome" class="vip-input" style="border-color:#FCD34D; max-width:380px; margin:0 auto 14px; display:block;">
-          <button onclick="gerarCertificadoGeral()" class="action-btn-pill" style="background:#D97706; color:#FFF; border:none; margin:0 auto; padding:12px 24px;">Gerar Certificado ⭐</button>
-          <div id="boxCertificadoResultado" style="display:none; margin-top:24px; padding:24px; background:#FFF; border-radius:12px; border:2px solid #FCD34D;">
-            <h3 style="color:#1D4ED8; font-size:30px; text-transform:uppercase;" id="txtNomeCertificado"></h3>
-            <p style="font-weight:800; color:#B45309; font-size:16.5px;">É oficialmente Super Fã da Turminha do Xexéu! 🌟</p>
+        <div class="interactive-card hover-float" style="border: 3px double #F59E0B; background: #FFFBEB; padding:32px;">
+          <h4 style="color:#92400E; font-size:26px; font-weight:900; margin-bottom:16px;">🎓 Certificado de Super Fã</h4>
+          <input type="text" id="nome-certificado-input" placeholder="Seu nome" class="vip-input" style="border-color:#FCD34D; max-width:400px; margin:0 auto 16px; display:block;">
+          <button onclick="gerarCertificadoGeral()" class="action-btn-pill" style="background:#D97706; color:#FFF; border:none; margin:0 auto; padding:14px 28px; font-size:16px;">Gerar Certificado ⭐</button>
+          <div id="boxCertificadoResultado" style="display:none; margin-top:28px; padding:28px; background:#FFF; border-radius:14px; border:2px solid #FCD34D;">
+            <h3 style="color:#1D4ED8; font-size:32px; text-transform:uppercase;" id="txtNomeCertificado"></h3>
+            <p style="font-weight:800; color:#B45309; font-size:18px;">É oficialmente Super Fã da Turminha do Xexéu! 🌟</p>
           </div>
         </div>
       </div>
@@ -518,15 +521,15 @@
     <!-- PÁGINA 8: ÁREA VIP -->
     <main id="pagina-vip" class="page-content content-wrapper">
       <div class="age-group-section">
-        <div class="vip-lock-container" style="background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%); border: 3px solid #FCD34D; border-radius: var(--radius-lg); padding: 32px; text-align: center;">
-          <h3 style="font-size:28px; color:#92400E; font-weight:900; display:flex; justify-content:center; align-items:center; gap:12px;">
+        <div class="vip-lock-container" style="background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%); border: 3px solid #FCD34D; border-radius: var(--radius-lg); padding: 36px; text-align: center;">
+          <h3 style="font-size:30px; color:#92400E; font-weight:900; display:flex; justify-content:center; align-items:center; gap:14px;">
             ⭐ Clube VIP da Turminha
             <button class="btn-audio-mini" onclick="lerTexto('Assine o Clube VIP e desbloqueie todas as ferramentas exclusivas!')">🔊</button>
           </h3>
-          <div class="vip-price-tag" style="display:inline-block; background:#F59E0B; color:#FFF; font-weight:900; font-size:17px; padding:10px 28px; border-radius:30px; margin:16px 0;">Apenas R$ 6,00 / mês</div>
+          <div class="vip-price-tag" style="display:inline-block; background:#F59E0B; color:#FFF; font-weight:900; font-size:18px; padding:12px 32px; border-radius:30px; margin:16px 0;">Apenas R$ 6,00 / mês</div>
           
-          <div style="background:#FFF; padding:28px; border-radius:18px; border:2px dashed #F59E0B; text-align:left; font-size:15.5px; margin:24px auto; color:#78350F; max-width: 900px;">
-            <strong style="display:block; font-size:20px; margin-bottom:16px;">💖 O que o Clube VIP desbloqueia para os Pais e para as Crianças?</strong>
+          <div style="background:#FFF; padding:32px; border-radius:18px; border:2px dashed #F59E0B; text-align:left; font-size:16px; margin:24px auto; color:#78350F; max-width: 950px;">
+            <strong style="display:block; font-size:22px; margin-bottom:16px;">💖 O que o Clube VIP desbloqueia para os Pais e para as Crianças?</strong>
             <ul style="margin-left:24px; line-height:2.0; font-weight:600; display:flex; flex-direction:column; gap:8px;">
               <li>📁 <strong>Drive Completo de Atividades Pedagógicas:</strong> Material exclusivo para imprimir em alta qualidade.</li>
               <li>🧩 <strong>Área Especial Pais & TEA (VIP):</strong> Pranchas de rotina visual e histórias sociais adaptadas.</li>
@@ -541,16 +544,16 @@
             </ul>
           </div>
 
-          <div class="vip-grid-forms" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:24px; max-width:900px; margin:24px auto 0;">
-            <div class="vip-form-box" style="background:#FFF; padding:24px; border-radius:16px; border:2px solid #FCD34D; text-align:left;">
-              <h4 style="font-size:19px; color:#92400E; margin-bottom:12px; font-weight:900;">✨ Desbloquear Acesso VIP</h4>
+          <div class="vip-grid-forms" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px,1fr)); gap:24px; max-width:950px; margin:24px auto 0;">
+            <div class="vip-form-box" style="background:#FFF; padding:28px; border-radius:16px; border:2px solid #FCD34D; text-align:left;">
+              <h4 style="font-size:20px; color:#92400E; margin-bottom:14px; font-weight:900;">✨ Desbloquear Acesso VIP</h4>
               <input type="email" id="cad-email" class="vip-input" placeholder="Seu E-mail">
               <input type="password" id="cad-senha" class="vip-input" placeholder="Crie uma Senha">
               <a href="javascript:void(0)" class="btn-vip-checkout" id="btnCheckoutVip" onclick="salvarECadastrar()" style="background:linear-gradient(135deg, #F59E0B, #D97706); color:#FFF; font-weight:800; padding:16px; border-radius:12px; text-decoration:none; display:block; text-align:center; font-size:16px;">Quero Ser VIP por R$ 6,00 💳</a>
             </div>
 
-            <div class="vip-form-box" style="background:#FFF; padding:24px; border-radius:16px; border:2px solid #CBD5E1; text-align:left;">
-              <h4 style="font-size:19px; color:#1E293B; margin-bottom:12px; font-weight:900;">🔑 Já sou Assinante</h4>
+            <div class="vip-form-box" style="background:#FFF; padding:28px; border-radius:16px; border:2px solid #CBD5E1; text-align:left;">
+              <h4 style="font-size:20px; color:#1E293B; margin-bottom:14px; font-weight:900;">🔑 Já sou Assinante</h4>
               <input type="email" id="log-email" class="vip-input" placeholder="E-mail Cadastrado">
               <input type="password" id="log-senha" class="vip-input" placeholder="Sua Senha">
               <button onclick="fazerLogin()" id="btnLoginVip" class="action-btn-pill" style="width:100%; justify-content:center; background:#3B82F6; color:#FFF; border:none; min-height:52px; font-size:16px;">Entrar no Clube VIP</button>
@@ -558,11 +561,11 @@
           </div>
         </div>
 
-        <div class="interactive-card" style="background:#F0F9FF; border:3px solid #BAE6FD; text-align:left; margin-top:28px;">
+        <div class="interactive-card" style="background:#F0F9FF; border:3px solid #BAE6FD; text-align:left; margin-top:32px; padding:32px;">
           <h3 style="color:var(--tea-blue); font-size:22px; font-weight:900; margin-bottom:10px;">📬 Precisa de Ajuda ou quer enviar uma Sugestão?</h3>
-          <p style="font-size:14.5px; font-weight:600; color:#475569; margin-bottom:16px;">Escreva para nós! Sua mensagem será enviada diretamente para <strong>turminhaxexeu@gmail.com</strong>.</p>
+          <p style="font-size:15px; font-weight:600; color:#475569; margin-bottom:18px;">Escreva para nós! Sua mensagem será enviada diretamente para <strong>turminhaxexeu@gmail.com</strong>.</p>
           <input type="email" id="suporteEmailVip" class="vip-input" placeholder="Seu e-mail de contato">
-          <textarea id="suporteMensagemVip" class="vip-input" placeholder="Escreva aqui..." style="resize:vertical; min-height:110px;"></textarea>
+          <textarea id="suporteMensagemVip" class="vip-input" placeholder="Escreva aqui..." style="resize:vertical; min-height:120px;"></textarea>
           <button onclick="enviarSuporteReclamacao('Vip')" id="btnEnviarSuporteVip" style="background:var(--tea-blue); color:#FFF; border:none; padding:16px 24px; border-radius:12px; font-size:16px; font-weight:900; cursor:pointer; width:100%;">Enviar Mensagem ✉️</button>
         </div>
       </div>
@@ -579,8 +582,8 @@
     <main id="pagina-perfil" class="page-content content-wrapper">
       <div class="age-group-section">
         <h3 class="age-title">👤 Perfil</h3>
-        <p style="font-size:16px; font-weight:700;">Olá, <strong class="nome-usuario-dinamico">Evelyn</strong>!</p>
-        <div id="avatarEscolhaGrid" style="display:flex; gap:12px; margin-top:16px; flex-wrap:wrap;"></div>
+        <p style="font-size:17px; font-weight:700;">Olá, <strong class="nome-usuario-dinamico">Evelyn</strong>!</p>
+        <div id="avatarEscolhaGrid" style="display:flex; gap:14px; margin-top:20px; flex-wrap:wrap;"></div>
       </div>
     </main>
 
@@ -707,7 +710,6 @@
 
     function fecharFichaPersonagem() { document.getElementById('modalFichaPersonagem').classList.remove('active'); }
 
-    /* SUPORTE E VIP VIA PLANILHA */
     function enviarSuporteReclamacao(local) {
       const email = document.getElementById('suporteEmail' + local).value.trim();
       const mensagem = document.getElementById('suporteMensagem' + local).value.trim();
@@ -751,7 +753,6 @@
         }).catch(() => alert("Erro ao verificar conexão."));
     }
 
-    /* ROTINAS */
     function renderizarRotinas() {
       const container = document.getElementById('lista-rotinas-dinamica'); if (!container) return; container.innerHTML = '';
       rotinasSalvas.forEach((r, idx) => {
@@ -780,22 +781,21 @@
     function toggleRotinaStatus(index) { rotinasSalvas[index].feito = !rotinasSalvas[index].feito; if(rotinasSalvas[index].feito) adicionarPontos(5); localStorage.setItem('turminha_rotina', JSON.stringify(rotinasSalvas)); renderizarRotinas(); }
     function removerRotina(index) { rotinasSalvas.splice(index, 1); localStorage.setItem('turminha_rotina', JSON.stringify(rotinasSalvas)); renderizarRotinas(); }
 
-    /* TEMPORIZADOR (GRATIS ATE 2MIN | VIP ATE 30MIN) */
     function atualizarBotoesTemporizadorGeral() {
       const container = document.getElementById('botoesTemporizadorGeral');
       if (!container) return;
       if (isUserVip) {
         container.innerHTML = `
-          <button class="action-btn-pill" style="min-height:36px; font-size:12px;" onclick="iniciarTemporizador(1)">1 Min</button>
-          <button class="action-btn-pill" style="min-height:36px; font-size:12px;" onclick="iniciarTemporizador(5)">5 Min</button>
-          <button class="action-btn-pill" style="min-height:36px; font-size:12px;" onclick="iniciarTemporizador(10)">10 Min</button>
-          <button class="action-btn-pill" style="min-height:36px; font-size:12px;" onclick="iniciarTemporizador(15)">15 Min</button>
-          <button class="action-btn-pill" style="min-height:36px; font-size:12px;" onclick="iniciarTemporizador(30)">30 Min</button>
+          <button class="action-btn-pill" style="min-height:36px; font-size:13px;" onclick="iniciarTemporizador(1)">1 Min</button>
+          <button class="action-btn-pill" style="min-height:36px; font-size:13px;" onclick="iniciarTemporizador(5)">5 Min</button>
+          <button class="action-btn-pill" style="min-height:36px; font-size:13px;" onclick="iniciarTemporizador(10)">10 Min</button>
+          <button class="action-btn-pill" style="min-height:36px; font-size:13px;" onclick="iniciarTemporizador(15)">15 Min</button>
+          <button class="action-btn-pill" style="min-height:36px; font-size:13px;" onclick="iniciarTemporizador(30)">30 Min</button>
         `;
       } else {
         container.innerHTML = `
-          <button class="action-btn-pill" style="min-height:36px; font-size:12px;" onclick="iniciarTemporizador(1)">1 Min</button>
-          <button class="action-btn-pill" style="min-height:36px; font-size:12px;" onclick="iniciarTemporizador(2)">2 Min (Máx Grátis)</button>
+          <button class="action-btn-pill" style="min-height:36px; font-size:13px;" onclick="iniciarTemporizador(1)">1 Min</button>
+          <button class="action-btn-pill" style="min-height:36px; font-size:13px;" onclick="iniciarTemporizador(2)">2 Min (Máx Grátis)</button>
         `;
       }
     }
@@ -847,24 +847,17 @@
     }
 
     function esqueciMinhaSenha() {
-      const usarMestra = confirm("Deseja usar a Senha Mestra de emergência para entrar?");
-      if(usarMestra) {
-        fecharParentalGate();
-        mudarPagina(destinoAposGate);
-        lerTexto("Acesso liberado com senha mestra.");
+      if(confirm("Deseja usar a Senha Mestra de emergência?")) {
+        fecharParentalGate(); mudarPagina(destinoAposGate); lerTexto("Acesso liberado.");
       }
     }
-
     function esqueciMinhaSenhaTempo() {
-      const usarMestra = confirm("Deseja usar a Senha Mestra de emergência para destravar a tela?");
-      if(usarMestra) {
+      if(confirm("Deseja usar a Senha Mestra de emergência?")) {
         document.getElementById('modalBloqueioTempo').classList.remove('active');
-        document.getElementById('senhaDesbloqueioTempo').value = '';
-        lerTexto("Tela destravada com senha mestra.");
+        lerTexto("Tela destravada.");
       }
     }
 
-    /* PARENTAL GATE */
     function abrirAreaProtegida(destino) {
       destinoAposGate = destino;
       document.getElementById('respostaDesafio').value = '';
@@ -877,9 +870,7 @@
       const senhaSalva = localStorage.getItem('turminha_senha_parental');
       if (resp === senhaSalva || resp === SENHA_MESTRA) {
         fecharParentalGate(); mudarPagina(destinoAposGate); lerTexto("Acesso liberado.");
-      } else {
-        alert("Senha incorreta!"); lerTexto("Senha incorreta.");
-      }
+      } else { alert("Senha incorreta!"); lerTexto("Senha incorreta."); }
     }
 
     function mudarPagina(p) {
@@ -935,7 +926,7 @@
 
     function redimensionarCanvas() {
       if (!canvas || !canvas.parentElement) return;
-      canvas.width = canvas.parentElement.clientWidth - 32; canvas.height = window.innerWidth > 1024 ? 450 : 300;
+      canvas.width = canvas.parentElement.clientWidth - 48; canvas.height = 450;
       if (imgContornoAtual) desenharContorno(imgContornoAtual);
     }
     function mudarCor(c) { corAtual = c; }
@@ -950,7 +941,7 @@
       const w = img.width * ratio; const h = img.height * ratio; const x = (canvas.width - w) / 2; const y = (canvas.height - h) / 2;
       ctx.globalAlpha = 0.35; ctx.drawImage(img, x, y, w, h); ctx.globalAlpha = 1.0;
     }
-    function salvarFotoDesenho() { const link = document.createElement('a'); link.download = 'desenho.png'; link.href = canvas.toDataURL(); link.click(); lerTexto("Salvo com sucesso!"); }
+    function salvarFotoDesenho() { const link = document.createElement('a'); link.download = 'desenho.png'; link.href = canvas.toDataURL(); link.click(); lerTexto("Salvo!"); }
 
     if (canvas) {
       const getPos = (e) => { const r = canvas.getBoundingClientRect(); const cx = e.touches ? e.touches[0].clientX : e.clientX; const cy = e.touches ? e.touches[0].clientY : e.clientY; return { x: cx - r.left, y: cy - r.top }; };
@@ -966,7 +957,7 @@
     function carregarJogoContar() {
       qContar = Math.floor(Math.random() * 4) + 1; const char = PERSONAGENS[Math.floor(Math.random() * PERSONAGENS.length)];
       const display = document.getElementById('countDisplay'); if(!display) return; display.innerHTML = '';
-      for (let i = 0; i < qContar; i++) { const img = document.createElement('img'); img.src = char.img; img.style.cssText = 'width:60px; height:60px; object-fit:contain;'; display.appendChild(img); }
+      for (let i = 0; i < qContar; i++) { const img = document.createElement('img'); img.src = char.img; img.style.cssText = 'width:70px; height:70px; object-fit:contain;'; display.appendChild(img); }
       const opts = document.getElementById('countOptions'); opts.innerHTML = '';
       for (let n = 1; n <= 4; n++) {
         const btn = document.createElement('button'); btn.className = 'btn-choice'; btn.innerText = n;
@@ -1027,7 +1018,7 @@
       const avatarAtual = localStorage.getItem('turminha_avatar') || PERSONAGENS[0].img;
       PERSONAGENS.forEach(p => {
         const img = document.createElement('img'); img.src = p.img;
-        img.style.cssText = `width:60px; height:60px; border-radius:50%; border:3px solid ${p.img === avatarAtual ? '#F59E0B' : '#CBD5E1'}; cursor:pointer; background:#FFF; padding:4px; transition:transform 0.2s;`;
+        img.style.cssText = `width:70px; height:70px; border-radius:50%; border:3px solid ${p.img === avatarAtual ? '#F59E0B' : '#CBD5E1'}; cursor:pointer; background:#FFF; padding:4px; transition:transform 0.2s;`;
         img.onclick = () => { document.querySelectorAll('#avatarEscolhaGrid img').forEach(b => b.style.borderColor = '#CBD5E1'); img.style.borderColor = '#F59E0B'; localStorage.setItem('turminha_avatar', p.img); lerTexto(`${p.nome} escolhido!`); };
         grid.appendChild(img);
       });
