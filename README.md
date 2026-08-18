@@ -89,7 +89,7 @@
     .intro-box h2 { font-size: 22px; font-weight: 900; color: #92400E; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
     .intro-box p { font-size: 15px; color: #78350F; line-height: 1.7; font-weight: 600; }
     
-    .btn-audio-mini { background: linear-gradient(135deg, #FBBF24, #F59E0B); border: none; border-radius: 50%; width: 44px; height: 44px; min-width: 44px; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center; color: #FFF; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4); transition: all 0.2s; }
+    .btn-audio-mini { background: linear-gradient(135deg, #FBBF24, #F59E0B); border: none; border-radius: 50%; width: 42px; height: 42px; min-width: 42px; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center; color: #FFF; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4); transition: all 0.2s; }
     .btn-audio-mini:hover { transform: scale(1.1) rotate(5deg); }
 
     .age-group-section { background: #FFFFFF; border-radius: var(--radius-lg); padding: 28px; border: 2px solid #E2E8F0; box-shadow: var(--shadow-sm); }
@@ -134,6 +134,10 @@
     .memory-card:active { transform: scale(0.95); }
     .memory-card.flipped { background: #FFF; border: 3px solid var(--primary); }
 
+    /* TEMPORIZADOR */
+    .timer-bar-bg { width: 100%; height: 22px; background: #E2E8F0; border-radius: 12px; overflow: hidden; margin: 12px 0; border: 2px solid #CBD5E1; }
+    .timer-bar-fill { width: 100%; height: 100%; background: #10B981; transition: width 1s linear, background-color 0.5s ease; }
+
     .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(6px); z-index: 99999; justify-content: center; align-items: center; padding: 20px; }
     .modal-overlay.active { display: flex; animation: fadeIn 0.3s; }
     .modal-box { background: #FFF; border-radius: var(--radius-lg); padding: 32px; max-width: 480px; width: 100%; text-align: center; border: 4px solid var(--primary); position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
@@ -158,27 +162,27 @@
   <!-- MODAL: ONBOARDING FLEXÍVEL -->
   <div id="modalOnboarding" class="modal-overlay">
     <div class="modal-box" style="max-width: 520px; text-align: left; border-color: #3B82F6;">
-      <h3 style="color: var(--primary-dark); font-size: 24px; margin-bottom: 10px; font-weight: 900; text-align:center; display:flex; align-items:center; justify-content:center; gap:10px;">
-        👋 Bem-vindo(a), Evelyn!
-        <button class="btn-audio-mini" style="width:36px;height:36px;font-size:14px;" onclick="lerTexto('Bem-vindo ao Portal da Turminha do Xexéu. Vamos configurar sua experiência.')">🔊</button>
+      <h3 style="color: var(--primary-dark); font-size: 22px; margin-bottom: 8px; font-weight: 900; text-align:center; display:flex; align-items:center; justify-content:center; gap:8px;">
+        👋 Bem-vindo(a) ao Portal!
+        <button class="btn-audio-mini" style="width:34px;height:34px;font-size:13px;" onclick="lerTexto('Bem-vindo ao Portal da Turminha do Xexéu. Vamos configurar sua experiência.')">🔊</button>
       </h3>
-      <p style="font-size: 14px; color: #475569; margin-bottom: 20px; font-weight: 600; text-align:center;">Configure seu acesso para iniciar a navegação.</p>
+      <p style="font-size: 13px; color: #475569; margin-bottom: 16px; font-weight: 600; text-align:center;">Para quem estamos configurando este acesso?</p>
 
-      <label style="font-size: 14px; font-weight: 800; color: var(--primary-dark); display: block; margin-bottom: 6px;">Seu Nome ou Apelido de Exibição:</label>
-      <input type="text" id="onb-nome" class="vip-input" placeholder="Digite seu nome ou apelido..." value="Evelyn">
+      <label style="font-size: 13.5px; font-weight: 800; color: var(--primary-dark); display: block; margin-bottom: 4px;">Seu Nome ou Apelido de Exibição:</label>
+      <input type="text" id="onb-nome" class="vip-input" placeholder="Digite seu nome ou apelido...">
 
-      <label style="font-size: 14px; font-weight: 800; color: var(--primary-dark); display: block; margin-bottom: 6px; margin-top:10px;">Estilo de Experiência do Portal:</label>
+      <label style="font-size: 13.5px; font-weight: 800; color: var(--primary-dark); display: block; margin-bottom: 4px; margin-top:8px;">Estilo de Experiência do Portal:</label>
       <select id="onb-modo" class="vip-input" style="background:#FFF;">
         <option value="familia">🧸 Padrão / Família & Crianças</option>
         <option value="adolescente">🎧 Adolescente / Criativo (Visual Clean/Dark)</option>
       </select>
 
-      <label style="font-size: 14px; font-weight: 800; color: var(--primary-dark); display: block; margin-bottom: 6px; margin-top:10px;">
+      <label style="font-size: 13.5px; font-weight: 800; color: var(--primary-dark); display: block; margin-bottom: 4px; margin-top:8px;">
         Criar Senha Parental / Segurança (PIN):
       </label>
       <input type="password" id="onb-senha" class="vip-input" placeholder="Crie uma senha numérica ou texto">
 
-      <button onclick="salvarConfiguracaoInicial()" style="background: #10B981; color: #FFF; border: none; padding: 14px; border-radius: 12px; font-size: 16px; font-weight: 900; cursor: pointer; width: 100%; box-shadow: 0 4px 12px rgba(16,185,129,0.3); margin-top:10px;">
+      <button onclick="salvarConfiguracaoInicial()" style="background: #10B981; color: #FFF; border: none; padding: 12px; border-radius: 12px; font-size: 15px; font-weight: 900; cursor: pointer; width: 100%; box-shadow: 0 4px 12px rgba(16,185,129,0.3); margin-top:8px;">
         Acessar Portal 🚀
       </button>
     </div>
@@ -200,21 +204,33 @@
     </div>
   </div>
 
-  <!-- MODAL: PARENTAL GATE -->
+  <!-- MODAL: PARENTAL GATE & RECUPERAÇÃO DE SENHA -->
   <div id="modalParentalGate" class="modal-overlay">
     <div class="modal-box" style="border-color:#F59E0B; max-width:420px;">
-      <h3 style="color: #92400E; font-size: 24px; margin-bottom: 10px; font-weight: 900;">🔒 Área Restrita</h3>
-      <p style="font-size: 14.5px; color: #475569; margin-bottom: 18px; font-weight: 600;">Digite sua <strong>Senha Parental (PIN)</strong>:</p>
-      <input type="password" id="respostaDesafio" class="vip-input" style="text-align:center; font-size:24px; letter-spacing:4px;" placeholder="****">
-      <div style="display: flex; gap: 12px; justify-content: center;">
+      <h3 style="color: #92400E; font-size: 24px; margin-bottom: 8px; font-weight: 900;">🔒 Área Restrita</h3>
+      <p style="font-size: 14px; color: #475569; margin-bottom: 16px; font-weight: 600;">Digite sua <strong>Senha Parental (PIN)</strong>:</p>
+      <input type="password" id="respostaDesafio" class="vip-input" style="text-align:center; font-size:22px; letter-spacing:4px;" placeholder="****">
+      <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 12px;">
         <button onclick="fecharParentalGate()" style="padding: 12px 20px; border: none; border-radius: 10px; background: #E2E8F0; font-weight: 800; cursor: pointer; font-size: 14px;">Voltar</button>
         <button onclick="verificarParentalGate()" style="padding: 12px 24px; border: none; border-radius: 10px; background: #F59E0B; color: #FFF; font-weight: 900; cursor: pointer; font-size: 14px;">Entrar ➔</button>
       </div>
+      <a onclick="esqueciMinhaSenha()" style="font-size: 12px; color: var(--primary); cursor: pointer; text-decoration: underline;">Esqueci minha senha (Usar Senha Mestra)</a>
+    </div>
+  </div>
+
+  <!-- MODAL: BLOQUEIO POR TEMPORIZADOR ESGOTADO -->
+  <div id="modalBloqueioTempo" class="modal-overlay">
+    <div class="modal-box" style="border-color:#EF4444; max-width:400px;">
+      <h3 style="color: #991B1B; font-size: 24px; margin-bottom: 8px; font-weight: 900;">⏰ O Tempo de Uso Acabou!</h3>
+      <p style="font-size: 14px; color: #475569; margin-bottom: 16px; font-weight: 600;">Para desbloquear o portal, insira a senha parental:</p>
+      <input type="password" id="senhaDesbloqueioTempo" class="vip-input" style="text-align:center; font-size:22px; letter-spacing:4px;" placeholder="****">
+      <button onclick="tentarDesbloquearTelaTempo()" style="background: #EF4444; color: #FFF; border: none; padding: 12px; border-radius: 10px; font-weight: 900; cursor: pointer; width: 100%; margin-bottom: 10px;">Desbloquear 🔓</button>
+      <a onclick="esqueciMinhaSenhaTempo()" style="font-size: 12px; color: var(--primary); cursor: pointer; text-decoration: underline;">Esqueci minha senha</a>
     </div>
   </div>
 
   <div class="floating-vip-badge float-anim" onclick="abrirAreaProtegida('vip')">
-    <span style="font-size:20px;">⭐</span><span>Seja VIP (R$ 6,00)</span>
+    <span style="font-size:18px;">⭐</span><span>Seja VIP (R$ 6,00)</span>
   </div>
 
   <div class="app-container">
@@ -244,16 +260,29 @@
       <button id="btn-tab-vip" class="nav-tab-btn vip-tab" onclick="abrirAreaProtegida('vip')">⭐ Área VIP</button>
     </nav>
 
-    <!-- PÁGINA 1: INÍCIO (COM A HISTÓRIA DA FAMÍLIA EM DESTAQUE) -->
+    <!-- PÁGINA 1: INÍCIO -->
     <main id="pagina-inicio" class="page-content active-page content-wrapper">
       <section class="banner-intro-grid" style="display:grid; grid-template-columns:1fr; gap:24px;">
         <div class="banner-container"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994339/BANNER_SITE_TURMINHA_DO_XEXEU.png" class="banner-img"></div>
+        
+        <!-- TEMPORIZADOR INTEGRADO (GRÁTIS ATE 2MIN | VIP ATE 30MIN) -->
+        <div class="interactive-card" style="border-color: #BAE6FD; background: #F0F9FF; text-align: left; padding: 18px 24px;">
+          <h4 style="color: var(--tea-blue); font-weight: 900; font-size: 16px; margin-bottom: 4px; display:flex; justify-content:space-between; align-items:center;">
+            <span>⏳ Temporizador de Uso</span>
+            <button class="btn-audio-mini" style="width:32px;height:32px;font-size:12px;" onclick="lerTexto('Defina um limite de tempo para uso do portal. Grátis até 2 minutos, VIP até 30 minutos.')">🔊</button>
+          </h4>
+          <p style="font-size: 12.5px; color: #475569; font-weight: 600; margin-bottom: 10px;">Grátis: até 2 min | VIP: até 30 min.</p>
+          <div id="botoesTemporizadorGeral" style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;"></div>
+          <div class="timer-bar-bg"><div id="barra-temporizador" class="timer-bar-fill" style="width: 100%;"></div></div>
+          <p id="texto-temporizador" style="font-weight: 900; color: #475569; font-size: 15px; margin:0; text-align:center;">0:00</p>
+        </div>
+
         <div class="intro-box hover-float">
           <h2>
             <span>✨ Educando com Alegria e Amor</span>
-            <button class="btn-audio-mini" onclick="lerTexto('Olá, Evelyn! Mais do que um nome divertido, a Turminha do Xexéu é o nosso jeito de honrar as raízes e a história da nossa família. O nome Xexéu é uma homenagem que atravessa gerações. Ele honra a memória de Mariano Xexéu e celebra a vida de seu filho, Pedro Mariano, grande inspiração para o nosso querido Vovô Beto. A Vovó Hilda é inspirada na inesquecível Astrogilda Grispym, representando o amor que não conhece o tempo.')">🔊</button>
+            <button class="btn-audio-mini" onclick="lerTexto('Mais do que um nome divertido, a Turminha do Xexéu é o nosso jeito de honrar as raízes e a história da nossa família. O nome Xexéu é uma homenagem que atravessa gerações. Ele honra a memória de Mariano Xexéu e celebra a vida de seu filho, Pedro Mariano, grande inspiração para o nosso querido Vovô Beto. A Vovó Hilda é inspirada na inesquecível Astrogilda Grispym, representando o amor que não conhece o tempo.')">🔊</button>
           </h2>
-          <p>Olá, <strong class="nome-usuario-dinamico">Evelyn</strong>! Mais do que um nome divertido, a <strong>Turminha do Xexéu</strong> é o nosso jeito de honrar as raízes e a história da nossa família.</p>
+          <p>Olá, <strong class="nome-usuario-dinamico">Visitante</strong>! Mais do que um nome divertido, a <strong>Turminha do Xexéu</strong> é o nosso jeito de honrar as raízes e a história da nossa família.</p>
           <p>O nome <strong>Xexéu</strong> é uma homenagem que atravessa gerações. Ele honra a memória de <em>Mariano Xexéu</em> e celebra a vida de seu filho, <em>Pedro Mariano</em>, grande inspiração para o nosso querido <strong>Vovô Beto</strong>.</p>
           <p>A <strong>Vovó Hilda</strong> é inspirada na inesquecível <em>Astrogilda Grispym</em>, representando o amor que não conhece o tempo.</p>
         </div>
@@ -354,7 +383,7 @@
       </div>
     </main>
 
-    <!-- PÁGINA 3: JOGOS (COMPLETA COM LOUSA, CONTAR, LETRAS, MEMÓRIA E QUIZ) -->
+    <!-- PÁGINA 3: JOGOS -->
     <main id="pagina-jogos" class="page-content content-wrapper">
       <div class="age-group-section">
         <h3 class="age-title">
@@ -370,7 +399,6 @@
           <button id="subtab-quiz" class="subnav-btn" onclick="mudarSubJogo('quiz')" style="padding:12px 18px; border:none; border-radius:10px; font-weight:800; cursor:pointer; background:#FFF; color:var(--primary-dark);">❓ Quiz</button>
         </nav>
 
-        <!-- LOUSA MÁGICA -->
         <div id="game-lousa" class="game-section-page active-game-page interactive-card">
           <h4 style="font-weight: 900; margin-bottom: 14px; font-size: 20px;">🎨 Lousa Mágica & Colorir</h4>
           <div id="coloringSelectGrid" style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:16px;"></div>
@@ -379,23 +407,17 @@
             <div class="color-dot" style="width:40px;height:40px;border-radius:50%;background:#3B82F6;cursor:pointer;" onclick="mudarCor('#3B82F6')"></div>
             <div class="color-dot" style="width:40px;height:40px;border-radius:50%;background:#EF4444;cursor:pointer;" onclick="mudarCor('#EF4444')"></div>
             <div class="color-dot" style="width:40px;height:40px;border-radius:50%;background:#10B981;cursor:pointer;" onclick="mudarCor('#10B981')"></div>
-            <div class="color-dot" style="width:40px;height:40px;border-radius:50%;background:#F59E0B;cursor:pointer;" onclick="mudarCor('#F59E0B')"></div>
-            <div class="color-dot" style="width:40px;height:40px;border-radius:50%;background:#8B5CF6;cursor:pointer;" onclick="mudarCor('#8B5CF6')"></div>
-            <div class="color-dot" style="width:40px;height:40px;border-radius:50%;background:#000000;cursor:pointer;" onclick="mudarCor('#000000')"></div>
             <button class="action-btn-pill" style="background:#FEE2E2; border-color:#EF4444; color:#991B1B;" onclick="limparCanvas()">Limpar 🗑️</button>
             <button class="action-btn-pill" style="background:#D1FAE5; border-color:#10B981; color:#065F46;" onclick="salvarFotoDesenho()">Salvar 📸</button>
           </div>
         </div>
 
-        <!-- CONTAR -->
         <div id="game-contar" class="game-section-page interactive-card">
           <h4 style="font-weight:900; font-size:22px; margin-bottom:10px;">🔢 Vamos Contar?</h4>
-          <p style="color:var(--text-muted); font-size:14px; margin-bottom:14px;">Quantos amiguinhos aparecem abaixo?</p>
           <div id="countDisplay" style="display:flex; justify-content:center; align-items:center; gap:16px; margin:24px 0; min-height:90px; flex-wrap:wrap;"></div>
           <div id="countOptions" class="game-btn-grid"></div>
         </div>
 
-        <!-- LETRAS -->
         <div id="game-letras" class="game-section-page interactive-card">
           <h4 style="font-weight:900; font-size:22px; margin-bottom:10px;">🔤 Qual é a Primeira Letra?</h4>
           <p style="font-size:16px; font-weight:700;">Nome: <strong id="nome-letra-personagem" style="color:var(--purple); font-size:20px;">Xexéu</strong></p>
@@ -403,14 +425,11 @@
           <div id="opcoes-letras" class="game-btn-grid"></div>
         </div>
 
-        <!-- MEMÓRIA -->
         <div id="game-memoria" class="game-section-page interactive-card">
           <h4 style="font-weight:900; font-size:22px; margin-bottom:10px;">🧠 Jogo da Memória</h4>
-          <p style="color:var(--text-muted); font-size:14px; margin-bottom:14px;">Encontre os pares dos amigos da Turminha!</p>
           <div id="memoryBoard" class="memory-board"></div>
         </div>
 
-        <!-- QUIZ -->
         <div id="game-quiz" class="game-section-page interactive-card">
           <h4 style="font-weight:900; font-size:22px; margin-bottom:10px;">❓ Desafios da Turminha</h4>
           <img id="quiz-img" src="" style="width:130px; height:130px; object-fit:contain; margin:16px 0;">
@@ -496,7 +515,7 @@
       </div>
     </main>
 
-    <!-- PÁGINA 8: ÁREA VIP (COMPLETA COM OS 10 BENEFÍCIOS) -->
+    <!-- PÁGINA 8: ÁREA VIP -->
     <main id="pagina-vip" class="page-content content-wrapper">
       <div class="age-group-section">
         <div class="vip-lock-container" style="background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%); border: 3px solid #FCD34D; border-radius: var(--radius-lg); padding: 32px; text-align: center;">
@@ -586,6 +605,7 @@
     
     let destinoAposGate = 'vip';
     let somAcalentoAtual = null;
+    let timerInterval = null;
 
     const PERSONAGENS = [
       { nome: 'Xexéu', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994886/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_XEXEU.png', lousa: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994876/DESENHOS_DA_LOUSA_XEXEU.png', letra: 'X', tag: 'Mascote Oficial', quem: 'Pássaro azul de boina amarela.', gosto: 'Cantar, voar e contar histórias.', frase: 'Educando com alegria!' },
@@ -687,6 +707,7 @@
 
     function fecharFichaPersonagem() { document.getElementById('modalFichaPersonagem').classList.remove('active'); }
 
+    /* SUPORTE E VIP VIA PLANILHA */
     function enviarSuporteReclamacao(local) {
       const email = document.getElementById('suporteEmail' + local).value.trim();
       const mensagem = document.getElementById('suporteMensagem' + local).value.trim();
@@ -730,6 +751,7 @@
         }).catch(() => alert("Erro ao verificar conexão."));
     }
 
+    /* ROTINAS */
     function renderizarRotinas() {
       const container = document.getElementById('lista-rotinas-dinamica'); if (!container) return; container.innerHTML = '';
       rotinasSalvas.forEach((r, idx) => {
@@ -758,6 +780,91 @@
     function toggleRotinaStatus(index) { rotinasSalvas[index].feito = !rotinasSalvas[index].feito; if(rotinasSalvas[index].feito) adicionarPontos(5); localStorage.setItem('turminha_rotina', JSON.stringify(rotinasSalvas)); renderizarRotinas(); }
     function removerRotina(index) { rotinasSalvas.splice(index, 1); localStorage.setItem('turminha_rotina', JSON.stringify(rotinasSalvas)); renderizarRotinas(); }
 
+    /* TEMPORIZADOR (GRATIS ATE 2MIN | VIP ATE 30MIN) */
+    function atualizarBotoesTemporizadorGeral() {
+      const container = document.getElementById('botoesTemporizadorGeral');
+      if (!container) return;
+      if (isUserVip) {
+        container.innerHTML = `
+          <button class="action-btn-pill" style="min-height:36px; font-size:12px;" onclick="iniciarTemporizador(1)">1 Min</button>
+          <button class="action-btn-pill" style="min-height:36px; font-size:12px;" onclick="iniciarTemporizador(5)">5 Min</button>
+          <button class="action-btn-pill" style="min-height:36px; font-size:12px;" onclick="iniciarTemporizador(10)">10 Min</button>
+          <button class="action-btn-pill" style="min-height:36px; font-size:12px;" onclick="iniciarTemporizador(15)">15 Min</button>
+          <button class="action-btn-pill" style="min-height:36px; font-size:12px;" onclick="iniciarTemporizador(30)">30 Min</button>
+        `;
+      } else {
+        container.innerHTML = `
+          <button class="action-btn-pill" style="min-height:36px; font-size:12px;" onclick="iniciarTemporizador(1)">1 Min</button>
+          <button class="action-btn-pill" style="min-height:36px; font-size:12px;" onclick="iniciarTemporizador(2)">2 Min (Máx Grátis)</button>
+        `;
+      }
+    }
+
+    function iniciarTemporizador(minutos) {
+      if (!isUserVip && minutos > 2) {
+        alert("🔒 No modo Grátis, o temporizador vai até 2 minutos. Torne-se VIP para liberar até 30 minutos!");
+        abrirAreaProtegida('vip');
+        return;
+      }
+      clearInterval(timerInterval);
+      let tempoRestante = minutos * 60;
+      const totalTempo = tempoRestante;
+      const barra = document.getElementById('barra-temporizador');
+      const txt = document.getElementById('texto-temporizador');
+      
+      if(barra) { barra.style.width = '100%'; barra.style.backgroundColor = '#10B981'; }
+      if(txt) txt.innerText = `${minutos}:00`;
+      lerTexto(`Temporizador iniciado para ${minutos} minutos.`);
+
+      timerInterval = setInterval(() => {
+        tempoRestante--;
+        const m = Math.floor(tempoRestante / 60);
+        const s = tempoRestante % 60;
+        if(txt) txt.innerText = `${m}:${s < 10 ? '0' : ''}${s}`;
+        
+        const pct = (tempoRestante / totalTempo) * 100;
+        if(barra) barra.style.width = `${pct}%`;
+        if (pct < 30 && barra) barra.style.backgroundColor = '#F59E0B'; 
+        if (pct < 10 && barra) barra.style.backgroundColor = '#EF4444'; 
+        
+        if (tempoRestante <= 0) {
+          clearInterval(timerInterval);
+          lerTexto("O tempo de uso acabou! Insira a senha parental.");
+          if(txt) txt.innerText = "Tempo Esgotado!";
+          document.getElementById('modalBloqueioTempo').classList.add('active');
+        }
+      }, 1000);
+    }
+
+    function tentarDesbloquearTelaTempo() {
+      const digitada = document.getElementById('senhaDesbloqueioTempo').value.trim();
+      const senhaSalva = localStorage.getItem('turminha_senha_parental');
+      if (digitada === senhaSalva || digitada === SENHA_MESTRA) {
+        document.getElementById('modalBloqueioTempo').classList.remove('active');
+        document.getElementById('senhaDesbloqueioTempo').value = '';
+        lerTexto("Desbloqueado com sucesso!");
+      } else { alert("❌ Senha incorreta!"); }
+    }
+
+    function esqueciMinhaSenha() {
+      const usarMestra = confirm("Deseja usar a Senha Mestra de emergência para entrar?");
+      if(usarMestra) {
+        fecharParentalGate();
+        mudarPagina(destinoAposGate);
+        lerTexto("Acesso liberado com senha mestra.");
+      }
+    }
+
+    function esqueciMinhaSenhaTempo() {
+      const usarMestra = confirm("Deseja usar a Senha Mestra de emergência para destravar a tela?");
+      if(usarMestra) {
+        document.getElementById('modalBloqueioTempo').classList.remove('active');
+        document.getElementById('senhaDesbloqueioTempo').value = '';
+        lerTexto("Tela destravada com senha mestra.");
+      }
+    }
+
+    /* PARENTAL GATE */
     function abrirAreaProtegida(destino) {
       destinoAposGate = destino;
       document.getElementById('respostaDesafio').value = '';
@@ -784,6 +891,7 @@
       const target = document.getElementById('pagina-' + p); const targetTab = document.getElementById('btn-tab-' + p);
       if (target) target.classList.add('active-page'); if (targetTab) targetTab.classList.add('active');
       
+      if (p === 'inicio') atualizarBotoesTemporizadorGeral();
       if (p === 'jogos') { renderizarLousaBtns(); setTimeout(redimensionarCanvas, 50); }
       if (p === 'perfil') criarSeletorAvatar();
       if (p === 'rotina') renderizarRotinas();
@@ -854,6 +962,7 @@
     }
 
     /* MINIGAMES */
+    let qContar = 0;
     function carregarJogoContar() {
       qContar = Math.floor(Math.random() * 4) + 1; const char = PERSONAGENS[Math.floor(Math.random() * PERSONAGENS.length)];
       const display = document.getElementById('countDisplay'); if(!display) return; display.innerHTML = '';
@@ -937,6 +1046,7 @@
       adicionarPontos(0); 
       carregarJogoContar(); carregarJogoLetra(); iniciarMemoria(); carregarQuiz();
       renderizarRotinas();
+      atualizarBotoesTemporizadorGeral();
       window.addEventListener('resize', redimensionarCanvas); setTimeout(redimensionarCanvas, 200);
     };
   </script>
