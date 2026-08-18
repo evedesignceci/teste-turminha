@@ -31,14 +31,10 @@
       --shadow-md: 0 10px 28px rgba(15, 23, 42, 0.1);
     }
 
-    /* MODO ADOLESCENTE / CLEAN (ESTILO DARK/NEUTRO SUAVE) */
     body.teen-mode {
       --bg-gradient: linear-gradient(180deg, #0F172A 0%, #1E293B 100%) !important;
-      --primary: #60A5FA !important;
-      --primary-dark: #3B82F6 !important;
-      --card-bg: #1E293B !important;
-      --text-main: #F8FAFC !important;
-      --text-muted: #94A3B8 !important;
+      --primary: #60A5FA !important; --primary-dark: #3B82F6 !important;
+      --card-bg: #1E293B !important; --text-main: #F8FAFC !important; --text-muted: #94A3B8 !important;
     }
     body.teen-mode .app-container { background: rgba(30, 41, 59, 0.95); border-color: #334155; }
     body.teen-mode header { background: linear-gradient(135deg, #1E293B 0%, #334155 100%) !important; }
@@ -68,14 +64,12 @@
     .content-wrapper { width: 100%; max-width: 1300px; margin-left: auto; margin-right: auto; }
     @media (max-width: 1340px) { .content-wrapper { width: calc(100% - 24px); } }
 
-    /* CABEÇALHO LÚDICO & BOTÕES APRIMORADOS */
     header { background: linear-gradient(135deg, #BAE6FD 0%, #E0F2FE 100%); display: flex; align-items: center; justify-content: space-between; border-radius: var(--radius-lg); padding: 16px 24px; margin-top: 16px; box-shadow: var(--shadow-sm); gap: 12px; flex-wrap: wrap; border: 2px solid #FFFFFF; }
     .logo-img { max-width: 160px; height: auto; object-fit: contain; }
     .header-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
     
     .action-btn-pill { background: #FFFFFF; border: 2.5px solid var(--primary); color: var(--primary-dark); font-weight: 800; font-size: 13.5px; padding: 10px 18px; border-radius: 50px; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15); transition: all 0.2s ease; }
     .action-btn-pill:hover { background: var(--primary); color: #FFF; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3); }
-    .action-btn-pill.muted { background: #FEE2E2; border-color: #EF4444; color: #991B1B; }
 
     .page-nav { display: flex; gap: 10px; background: #F0F9FF; padding: 10px; border-radius: var(--radius-lg); border: 2px solid #BAE6FD; overflow-x: auto; scrollbar-width: thin; flex-wrap: nowrap; box-shadow: var(--shadow-sm); }
     @media (min-width: 1024px) { .page-nav { flex-wrap: wrap; justify-content: center; } }
@@ -88,7 +82,6 @@
     .page-content { display: none; flex-direction: column; gap: 24px; animation: fadeIn 0.3s ease; }
     .page-content.active-page { display: flex; }
 
-    /* ESTILOS COMUNS */
     .banner-container { width: 100%; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); border: 3px solid #FFF; }
     .banner-img { width: 100%; height: 100%; min-height: 240px; display: block; object-fit: cover; }
     .intro-box { background: linear-gradient(135deg, #FEF3C7 0%, #FFFBEB 100%); border: 3px solid #FCD34D; border-radius: var(--radius-lg); padding: 24px; display: flex; flex-direction: column; justify-content: center; gap: 12px; box-shadow: var(--shadow-sm); }
@@ -131,7 +124,6 @@
     .btn-choice.acertou { background: #10B981 !important; transform: scale(1.1); }
     .btn-choice.errou { background: #EF4444 !important; transform: scale(0.95) rotate(-3deg); }
 
-    /* MODAIS */
     .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(6px); z-index: 99999; justify-content: center; align-items: center; padding: 20px; }
     .modal-overlay.active { display: flex; animation: fadeIn 0.3s; }
     .modal-box { background: #FFF; border-radius: var(--radius-lg); padding: 28px; max-width: 460px; width: 100%; text-align: center; border: 4px solid var(--primary); position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
@@ -153,7 +145,7 @@
 
   <div id="visualToast">Aviso</div>
 
-  <!-- MODAL: ONBOARDING INICIAL FLEXÍVEL (CRIANÇA, ADOLESCENTE OU PROFISSIONAL) -->
+  <!-- MODAL: ONBOARDING FLEXÍVEL (NOME DE EXIBIÇÃO + MODO + SENHA) -->
   <div id="modalOnboarding" class="modal-overlay">
     <div class="modal-box" style="max-width: 520px; text-align: left; border-color: #3B82F6;">
       <h3 style="color: var(--primary-dark); font-size: 22px; margin-bottom: 8px; font-weight: 900; text-align:center; display:flex; align-items:center; justify-content:center; gap:8px;">
@@ -162,8 +154,8 @@
       </h3>
       <p style="font-size: 13px; color: #475569; margin-bottom: 16px; font-weight: 600; text-align:center;">Para quem estamos configurando este acesso?</p>
 
-      <label style="font-size: 13.5px; font-weight: 800; color: var(--primary-dark); display: block; margin-bottom: 4px;">Nome ou Apelido de Exibição:</label>
-      <input type="text" id="onb-nome" class="vip-input" placeholder="Ex: Evelyn, Lucas, Turma do 3º Ano...">
+      <label style="font-size: 13.5px; font-weight: 800; color: var(--primary-dark); display: block; margin-bottom: 4px;">Seu Nome ou Apelido de Exibição:</label>
+      <input type="text" id="onb-nome" class="vip-input" placeholder="Digite seu nome ou apelido...">
 
       <label style="font-size: 13.5px; font-weight: 800; color: var(--primary-dark); display: block; margin-bottom: 4px; margin-top:8px;">Estilo de Experiência do Portal:</label>
       <select id="onb-modo" class="vip-input" style="background:#FFF;">
@@ -172,9 +164,9 @@
       </select>
 
       <label style="font-size: 13.5px; font-weight: 800; color: var(--primary-dark); display: block; margin-bottom: 4px; margin-top:8px;">
-        Senha Parental / Segurança (PIN):
+        Criar Senha Parental / Segurança (PIN):
       </label>
-      <input type="password" id="onb-senha" class="vip-input" placeholder="Ex: 1234">
+      <input type="password" id="onb-senha" class="vip-input" placeholder="Crie uma senha numérica ou texto">
 
       <div style="background:#F0F9FF; border:2px solid #BAE6FD; padding:10px 14px; border-radius:10px; margin: 12px 0; font-size:12px; color:#0369A1; font-weight:700; line-height: 1.5;">
         • <strong>Grátis:</strong> Conteúdos essenciais liberados.<br>
@@ -247,14 +239,18 @@
       <button id="btn-tab-vip" class="nav-tab-btn vip-tab" onclick="abrirAreaProtegida('vip')">⭐ Área VIP</button>
     </nav>
 
-    <!-- PÁGINA 1: INÍCIO -->
+    <!-- PÁGINA 1: INÍCIO (COM A HISTÓRIA COMPLETA DA FAMÍLIA) -->
     <main id="pagina-inicio" class="page-content active-page content-wrapper">
-      <section class="banner-intro-grid" style="display:grid; grid-template-columns:1fr; gap:20px;">
+      <section class="banner-intro-grid">
         <div class="banner-container"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994339/BANNER_SITE_TURMINHA_DO_XEXEU.png" class="banner-img"></div>
         <div class="intro-box hover-float">
-          <h2><span>✨ Educando com Alegria e Amor</span><button class="btn-audio-mini" onclick="lerTexto('Mais do que um nome divertido, a Turminha do Xexéu é o nosso jeito de honrar as raízes e a história da nossa família.')">🔊</button></h2>
-          <p>Olá, <strong class="nome-usuario-dinamico">Visitante</strong>! Bem-vindo(a) à <strong>Turminha do Xexéu</strong>.</p>
-          <p>O nome <strong>Xexéu</strong> honra a memória de Mariano Xexéu e celebra a vida de seu filho, Pedro Mariano, inspiração do querido Vovô Beto.</p>
+          <h2>
+            <span>✨ Educando com Alegria e Amor</span>
+            <button class="btn-audio-mini" onclick="lerTexto('Mais do que um nome divertido, a Turminha do Xexéu é o nosso jeito de honrar as raízes e a história da nossa família. O nome Xexéu é uma homenagem que atravessa gerações. Ele honra a memória de Mariano Xexéu e celebra a vida de seu filho, Pedro Mariano, grande inspiração para o nosso querido Vovô Beto. A Vovó Hilda é inspirada na inesquecível Astrogilda Grispym, representando o amor que não conhece o tempo.')">🔊</button>
+          </h2>
+          <p>Olá, <strong class="nome-usuario-dinamico">Visitante</strong>! Mais do que um nome divertido, a <strong>Turminha do Xexéu</strong> é o nosso jeito de honrar as raízes e a história da nossa família.</p>
+          <p>O nome <strong>Xexéu</strong> é uma homenagem que atravessa gerações. Ele honra a memória de <em>Mariano Xexéu</em> e celebra a vida de seu filho, <em>Pedro Mariano</em>, grande inspiração para o nosso querido <strong>Vovô Beto</strong>.</p>
+          <p>A <strong>Vovó Hilda</strong> é inspirada na inesquecível <em>Astrogilda Grispym</em>, representando o amor que não conhece o tempo.</p>
         </div>
       </section>
 
@@ -269,13 +265,50 @@
             <div class="floating-char-card card-especial" onclick="abrirFichaPersonagem('Capilé')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994882/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_CAPILE.png" class="floating-char-img"><span class="floating-char-name">Capilé</span><span class="floating-char-tag">O Companheiro</span></div>
           </div>
         </div>
+
+        <div>
+          <h3 class="family-group-title" style="font-size:18px; font-weight:900; color:var(--primary-dark); margin-bottom:10px; display:flex; justify-content:space-between; align-items:center;">
+            <span>💖 Casa da Maya e do Theo</span>
+            <button class="btn-audio-mini" style="width:36px;height:36px;font-size:14px;" onclick="lerTexto('Casa da Maya e do Theo.')">🔊</button>
+          </h3>
+          <div class="floating-cards-grid">
+            <div class="floating-char-card card-f1" onclick="abrirFichaPersonagem('Maya')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994884/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_MAYA.png" class="floating-char-img"><span class="floating-char-name">Maya</span></div>
+            <div class="floating-char-card card-f1" onclick="abrirFichaPersonagem('Theo')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994885/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_THEO.png" class="floating-char-img"><span class="floating-char-name">Theo</span></div>
+            <div class="floating-char-card card-f1" onclick="abrirFichaPersonagem('Nina')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994885/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_NINA.png" class="floating-char-img"><span class="floating-char-name">Nina</span></div>
+            <div class="floating-char-card card-f1" onclick="abrirFichaPersonagem('Iza')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994883/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_IZA.png" class="floating-char-img"><span class="floating-char-name">Iza</span></div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="family-group-title" style="font-size:18px; font-weight:900; color:var(--primary-dark); margin-bottom:10px; display:flex; justify-content:space-between; align-items:center;">
+            <span>⚡ Casa do Sam e da Lia</span>
+            <button class="btn-audio-mini" style="width:36px;height:36px;font-size:14px;" onclick="lerTexto('Casa do Sam e da Lia.')">🔊</button>
+          </h3>
+          <div class="floating-cards-grid">
+            <div class="floating-char-card card-f2" onclick="abrirFichaPersonagem('Sam')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994885/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_SAM.png" class="floating-char-img"><span class="floating-char-name">Sam</span></div>
+            <div class="floating-char-card card-f2" onclick="abrirFichaPersonagem('Lia')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994884/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_LIA.png" class="floating-char-img"><span class="floating-char-name">Lia</span></div>
+            <div class="floating-char-card card-f2" onclick="abrirFichaPersonagem('Joca')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994883/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_JOCA.png" class="floating-char-img"><span class="floating-char-name">Joca</span></div>
+            <div class="floating-char-card card-f2" onclick="abrirFichaPersonagem('Leo')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994883/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_LEO.png" class="floating-char-img"><span class="floating-char-name">Leo</span></div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="family-group-title" style="font-size:18px; font-weight:900; color:var(--primary-dark); margin-bottom:10px; display:flex; justify-content:space-between; align-items:center;">
+            <span>👵👴 Os Avós</span>
+            <button class="btn-audio-mini" style="width:36px;height:36px;font-size:14px;" onclick="lerTexto('Os queridos Avós.')">🔊</button>
+          </h3>
+          <div class="floating-cards-grid">
+            <div class="floating-char-card card-avos" onclick="abrirFichaPersonagem('Beto')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994886/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_VOVO_BETO.png" class="floating-char-img"><span class="floating-char-name">Vovô Beto</span></div>
+            <div class="floating-char-card card-avos" onclick="abrirFichaPersonagem('Hilda')"><img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994886/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_VOVO_HILDA.png" class="floating-char-img"><span class="floating-char-name">Vovó Hilda</span></div>
+          </div>
+        </div>
       </section>
 
       <!-- SUPORTE INÍCIO -->
       <section class="interactive-card" style="background:#F0F9FF; border:3px solid #BAE6FD; text-align:left; margin-top:24px;">
         <h3 style="color:var(--tea-blue); font-size:20px; font-weight:900; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center;">
           📬 Dúvidas ou Sugestões?
-          <button class="btn-audio-mini" onclick="lerTexto('Precisa de ajuda ou quer enviar uma sugestão?')">🔊</button>
+          <button class="btn-audio-mini" onclick="lerTexto('Precisa de ajuda ou quer enviar uma sugestão? Escreva para nós!')">🔊</button>
         </h3>
         <p style="font-size:14px; font-weight:600; color:#475569; margin-bottom:16px;">Sua mensagem vai direto para nossa equipe (turminhaxexeu@gmail.com).</p>
         <input type="email" id="suporteEmailInicio" class="vip-input" placeholder="Seu e-mail de contato">
@@ -284,7 +317,7 @@
       </section>
     </main>
 
-    <!-- PÁGINA 2: VÍDEOS E MÚSICAS -->
+    <!-- PÁGINA 2: VÍDEOS, MÚSICAS & SONS -->
     <main id="pagina-videos" class="page-content content-wrapper">
       <div class="media-section-grid">
         <div class="video-card hover-float">
@@ -321,7 +354,7 @@
       <div class="age-group-section">
         <h3 class="age-title">
           <span>🎮 Central de Jogos</span>
-          <button class="btn-audio-mini" onclick="lerTexto('Central de jogos educativos.')">🔊</button>
+          <button class="btn-audio-mini" onclick="lerTexto('Bem-vindo aos jogos educativos!')">🔊</button>
         </h3>
         <nav class="games-subnav" style="display:flex; gap:10px; background:#E0F2FE; padding:10px; border-radius:12px; margin-bottom:16px; overflow-x:auto;">
           <button id="subtab-lousa" class="subnav-btn active" onclick="mudarSubJogo('lousa')" style="padding:10px 16px; border:none; border-radius:10px; font-weight:800; cursor:pointer;">🎨 Lousa Mágica</button>
@@ -354,10 +387,21 @@
       <div class="age-group-section">
         <div class="tea-box hover-float">
           <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
-            <h3 style="margin:0; font-size:22px; color:var(--tea-blue);">🧩 Espaço TEA com o Leo</h3>
+            <div style="display:flex; align-items:center; gap:12px;">
+              <img src="https://res.cloudinary.com/oactqmgs/image/upload/v1786994883/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_LEO.png" style="width:60px; height:60px; object-fit:contain;">
+              <h3 style="margin:0; font-size:24px;">🧩 Espaço TEA com o Leo</h3>
+            </div>
             <button class="btn-audio-mini" onclick="lerTexto('Espaço TEA com o Leo. Vamos fazer tudo com calma?')">🔊</button>
           </div>
-          <p style="font-size: 14px; color: #475569; font-weight: 600;">"Oi! Eu sou o Leo. Vamos fazer tudo com calma?"</p>
+          <p style="font-size: 15px; color: #475569; font-weight: 600;">"Oi! Eu sou o Leo. Vamos fazer tudo com calma?"</p>
+        </div>
+
+        <div class="interactive-card" style="border-color: #BAE6FD; margin-bottom: 20px;">
+          <h4 style="color: var(--tea-blue); font-weight: 900; font-size: 18px; margin-bottom: 12px;">🗣️ Cartões de Fala (CAA)</h4>
+          <div class="caa-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(130px,1fr)); gap:12px;">
+            <div class="caa-btn hover-float" style="background:#FFF; border:2px solid #BAE6FD; border-radius:14px; padding:16px 8px; text-align:center; cursor:pointer;" onclick="lerTexto('Eu quero água, por favor.')"><span style="font-size:34px;">💧</span><p style="font-weight:800; color:var(--tea-blue); margin-top:6px;">Água</p></div>
+            <div class="caa-btn hover-float" style="background:#FFF; border:2px solid #BAE6FD; border-radius:14px; padding:16px 8px; text-align:center; cursor:pointer;" onclick="lerTexto('Estou com fome.')"><span style="font-size:34px;">🍎</span><p style="font-weight:800; color:var(--tea-blue); margin-top:6px;">Comer</p></div>
+          </div>
         </div>
       </div>
     </main>
@@ -365,18 +409,25 @@
     <!-- PÁGINA 5: LIVROS -->
     <main id="pagina-livros" class="page-content content-wrapper">
       <div class="age-group-section">
-        <h3 class="age-title"><span>📚 Biblioteca</span><button class="btn-audio-mini" onclick="lerTexto('Histórias em breve!')">🔊</button></h3>
-        <p style="text-align:center; color:#475569;">Histórias em breve!</p>
+        <h3 class="age-title">
+          <span>📚 Biblioteca da Turminha</span>
+          <button class="btn-audio-mini" onclick="lerTexto('As histórias mágicas estão sendo preparadas!')">🔊</button>
+        </h3>
+        <p style="font-size:15px; font-weight:600; color:#475569; text-align:center;">As histórias mágicas da Turminha estão sendo escritas e ilustradas com muito amor!</p>
       </div>
     </main>
 
     <!-- PÁGINA 6: ROTINA -->
     <main id="pagina-rotina" class="page-content content-wrapper">
       <div class="age-group-section">
-        <h3 class="age-title"><span>📅 Rotina & Cuidados</span><button class="btn-audio-mini" onclick="lerTexto('Crie a sua rotina diária.')">🔊</button></h3>
-        <div class="interactive-card" style="text-align:left;">
-          <div style="display:flex; gap:8px; margin-bottom:16px;">
-            <input type="text" id="rotina-nova-texto" class="vip-input" style="flex:1; margin-bottom:0;" placeholder="Nova tarefa...">
+        <h3 class="age-title">
+          <span>📅 Rotina & Cuidados</span>
+          <button class="btn-audio-mini" onclick="lerTexto('Crie a sua rotina diária.')">🔊</button>
+        </h3>
+        <div class="interactive-card" style="text-align:left; margin-bottom:24px;">
+          <h4 style="font-size:18px; font-weight:900; margin-bottom:12px;">Adicionar Tarefa na Rotina:</h4>
+          <div class="rotina-add-box" style="display:flex; gap:8px; margin-bottom:20px; flex-wrap:wrap;">
+            <input type="text" id="rotina-nova-texto" class="vip-input" style="flex:1; margin-bottom:0;" placeholder="Ex: Hora do banho 🛁">
             <button class="action-btn-pill" style="background:var(--primary); color:#FFF;" onclick="adicionarRotinaPersonalizada()">Adicionar</button>
           </div>
           <div id="lista-rotinas-dinamica"></div>
@@ -387,22 +438,35 @@
     <!-- PÁGINA 7: CONQUISTAS -->
     <main id="pagina-conquistas" class="page-content content-wrapper">
       <div class="age-group-section">
-        <h3 class="age-title"><span>🏆 Conquistas</span><button class="btn-audio-mini" onclick="lerTexto('Seus pontos e certificado.')">🔊</button></h3>
-        <div style="font-weight:800; color:#92400E; margin-bottom:16px;">⭐ Pontos: <strong id="placar-pontos">0</strong></div>
-        <input type="text" id="nome-certificado-input" placeholder="Seu nome" class="vip-input" style="max-width:300px;">
-        <button onclick="gerarCertificadoGeral()" class="action-btn-pill" style="background:#D97706; color:#FFF;">Gerar Certificado</button>
-        <div id="boxCertificadoResultado" style="display:none; margin-top:16px; padding:16px; background:#FFF; border-radius:10px; border:2px solid #FCD34D;">
-          <h3 id="txtNomeCertificado" style="color:#1D4ED8; text-transform:uppercase;"></h3>
-          <p>Super Fã da Turminha! 🌟</p>
+        <h3 class="age-title">
+          <span>🏆 Minhas Conquistas</span>
+          <button class="btn-audio-mini" onclick="lerTexto('Minhas conquistas e certificado de Super Fã!')">🔊</button>
+        </h3>
+        <div class="conquistas-box" style="background: linear-gradient(135deg, #FEF3C7 0%, #FFFBEB 100%); border: 2px solid #FCD34D; border-radius: 12px; padding: 14px 20px; margin-bottom: 16px; display: flex; justify-content: space-between; font-weight: 800; color: #92400E;">
+          <span>⭐ Pontos: <strong id="placar-pontos">0</strong></span>
+          <span id="medalha-status">Iniciante</span>
+        </div>
+
+        <div class="interactive-card hover-float" style="border: 3px double #F59E0B; background: #FFFBEB;">
+          <h4 style="color:#92400E; font-size:22px; font-weight:900; margin-bottom:12px;">🎓 Certificado de Super Fã</h4>
+          <input type="text" id="nome-certificado-input" placeholder="Seu nome" class="vip-input" style="border-color:#FCD34D; max-width:360px; margin:0 auto 12px; display:block;">
+          <button onclick="gerarCertificadoGeral()" class="action-btn-pill" style="background:#D97706; color:#FFF; border:none; margin:0 auto;">Gerar Certificado ⭐</button>
+          <div id="boxCertificadoResultado" style="display:none; margin-top:24px; padding:20px; background:#FFF; border-radius:12px; border:2px solid #FCD34D;">
+            <h3 style="color:#1D4ED8; font-size:28px; text-transform:uppercase;" id="txtNomeCertificado"></h3>
+            <p style="font-weight:800; color:#B45309; font-size:16px;">É oficialmente Super Fã da Turminha do Xexéu! 🌟</p>
+          </div>
         </div>
       </div>
     </main>
 
-    <!-- PÁGINA 8: ÁREA VIP (COM A LISTA COMPLETA DOS 10 BENEFÍCIOS) -->
+    <!-- PÁGINA 8: ÁREA VIP -->
     <main id="pagina-vip" class="page-content content-wrapper">
       <div class="age-group-section">
         <div class="vip-lock-container" style="background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%); border: 3px solid #FCD34D; border-radius: var(--radius-lg); padding: 28px; text-align: center;">
-          <h3 style="font-size:26px; color:#92400E; font-weight:900;">⭐ Clube VIP da Turminha</h3>
+          <h3 style="font-size:26px; color:#92400E; font-weight:900; display:flex; justify-content:center; align-items:center; gap:10px;">
+            ⭐ Clube VIP da Turminha
+            <button class="btn-audio-mini" onclick="lerTexto('Assine o Clube VIP e desbloqueie todas as ferramentas exclusivas!')">🔊</button>
+          </h3>
           <div class="vip-price-tag" style="display:inline-block; background:#F59E0B; color:#FFF; font-weight:900; font-size:16px; padding:10px 24px; border-radius:30px; margin:14px 0;">Apenas R$ 6,00 / mês</div>
           
           <div style="background:#FFF; padding:24px; border-radius:16px; border:2px dashed #F59E0B; text-align:left; font-size:15px; margin:20px auto; color:#78350F; max-width: 850px;">
@@ -436,6 +500,14 @@
               <button onclick="fazerLogin()" id="btnLoginVip" class="action-btn-pill" style="width:100%; justify-content:center; background:#3B82F6; color:#FFF; border:none; min-height:48px;">Entrar no Clube VIP</button>
             </div>
           </div>
+        </div>
+
+        <div class="interactive-card" style="background:#F0F9FF; border:3px solid #BAE6FD; text-align:left; margin-top:24px;">
+          <h3 style="color:var(--tea-blue); font-size:20px; font-weight:900; margin-bottom:8px;">📬 Precisa de Ajuda ou quer enviar uma Sugestão?</h3>
+          <p style="font-size:14px; font-weight:600; color:#475569; margin-bottom:16px;">Sua mensagem será enviada diretamente para <strong>turminhaxexeu@gmail.com</strong>.</p>
+          <input type="email" id="suporteEmailVip" class="vip-input" placeholder="Seu e-mail de contato">
+          <textarea id="suporteMensagemVip" class="vip-input" placeholder="Escreva aqui..." style="resize:vertical; min-height:100px;"></textarea>
+          <button onclick="enviarSuporteReclamacao('Vip')" id="btnEnviarSuporteVip" style="background:var(--tea-blue); color:#FFF; border:none; padding:14px 24px; border-radius:12px; font-size:16px; font-weight:900; cursor:pointer; width:100%;">Enviar Mensagem ✉️</button>
         </div>
       </div>
     </main>
@@ -481,7 +553,16 @@
     const PERSONAGENS = [
       { nome: 'Xexéu', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994886/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_XEXEU.png', lousa: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994876/DESENHOS_DA_LOUSA_XEXEU.png', letra: 'X', tag: 'Mascote Oficial', quem: 'Pássaro azul de boina amarela.', gosto: 'Cantar, voar e contar histórias.', frase: 'Educando com alegria!' },
       { nome: 'Capilé', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994882/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_CAPILE.png', lousa: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994874/DESENHOS_DA_LOUSA_CAPILE.png', letra: 'C', tag: 'O Companheiro', quem: 'Cachorrinho fiel de orelhas grandes.', gosto: 'Correr e brincar pelo jardim.', frase: 'Sempre pronto para a brincadeira!' },
-      { nome: 'Maya', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994884/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_MAYA.png', lousa: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994875/DESENHOS_DA_LOUSA_MAYA.png', letra: 'M', tag: 'Mãe & Guia', quem: 'Mãe dedicada e porto seguro da família.', gosto: 'Ler histórias e passeios em família.', frase: 'O amor transforma tudo.' }
+      { nome: 'Maya', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994884/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_MAYA.png', lousa: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994875/DESENHOS_DA_LOUSA_MAYA.png', letra: 'M', tag: 'Mãe & Guia', quem: 'Mãe dedicada e porto seguro da família.', gosto: 'Ler histórias e passeios em família.', frase: 'O amor transforma tudo.' },
+      { nome: 'Theo', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994885/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_THEO.png', lousa: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994877/DESENHOS_DA_LOUSA_THEO.png', letra: 'T', tag: 'Pai Protetor', quem: 'Pai paciente e sempre atencioso.', gosto: 'Ensinar coisas novas e dar abraços.', frase: 'Com calma aprendemos melhor.' },
+      { nome: 'Nina', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994885/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_NINA.png', lousa: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994876/DESENHOS_DA_LOUSA_NINA.png', letra: 'N', tag: 'Super Esperta', quem: 'Menina de cabelos cacheados.', gosto: 'Descobrir segredos da natureza.', frase: 'Aprender é super divertido!' },
+      { nome: 'Iza', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994883/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_IZA.png', lousa: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994873/DESENHOS_DA_LOUSA_IZA.png', letra: 'I', tag: 'A Vaidosa', quem: 'Menina charmosa de vestido rosa.', gosto: 'Cantar e usar laços bonitos.', frase: 'Ser gentil é lindo!' },
+      { nome: 'Sam', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994885/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_SAM.png', lousa: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994876/DESENHOS_DA_LOUSA_SAM.png', letra: 'S', tag: 'Pai Inventor', quem: 'Paizão ruivo apaixonado por criar.', gosto: 'Montar máquinas e brinquedos.', frase: 'Toda ideia é uma invenção!' },
+      { nome: 'Lia', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994884/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_LIA.png', lousa: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994875/DESENHOS_DA_LOUSA_LIA.png', letra: 'L', tag: 'Mãe Alegria', quem: 'Mãe cheia de energia positiva.', gosto: 'Dançar e cozinhar.', frase: 'A alegria é nosso superpoder!' },
+      { nome: 'Joca', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994883/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_JOCA.png', lousa: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994874/DESENHOS_DA_LOUSA_JOCA.png', letra: 'J', tag: 'O Divertido', quem: 'Menino engraçado de camiseta verde.', gosto: 'Fazer piadas e correr.', frase: 'O importante é se divertir!' },
+      { nome: 'Leo', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994883/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_LEO.png', lousa: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994875/DESENHOS_DA_LOUSA_LEO.png', letra: 'L', tag: 'Explorador Focado', quem: 'Observador detalhista e guia TEA.', gosto: 'Organizar blocos e rotinas.', frase: 'Tudo no nosso próprio tempo.' },
+      { nome: 'Beto', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994886/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_VOVO_BETO.png', lousa: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994876/DESENHOS_DA_LOUSA_VOVO_BETO.png', letra: 'B', tag: 'Vovô Coruja', quem: 'Vovô de risada boa e óculos.', gosto: 'Passear ao ar livre.', frase: 'A família é a maior riqueza.' },
+      { nome: 'Hilda', img: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994886/FOTO_DE_PERFIL_JOGOS_E_ECOLHAS_DE_ICONES_DE_PERFIL_ETC_-_VOVO_HILDA.png', lousa: 'https://res.cloudinary.com/oactqmgs/image/upload/v1786994877/DESENHOS_DA_LOUSA_VOVO_HILDA.png', letra: 'H', tag: 'Vovó Acolhedora', quem: 'Vovó de abraços doces.', gosto: 'Fazer bolos.', frase: 'O amor não envelhece.' }
     ];
 
     function verificarOnboarding() {
@@ -573,7 +654,6 @@
 
     function fecharFichaPersonagem() { document.getElementById('modalFichaPersonagem').classList.remove('active'); }
 
-    /* SUPORTE E VIP VIA PLANILHA */
     function enviarSuporteReclamacao(local) {
       const email = document.getElementById('suporteEmail' + local).value.trim();
       const mensagem = document.getElementById('suporteMensagem' + local).value.trim();
@@ -617,7 +697,6 @@
         }).catch(() => alert("Erro ao verificar conexão."));
     }
 
-    /* ROTINAS */
     function renderizarRotinas() {
       const container = document.getElementById('lista-rotinas-dinamica'); if (!container) return; container.innerHTML = '';
       rotinasSalvas.forEach((r, idx) => {
@@ -646,7 +725,6 @@
     function toggleRotinaStatus(index) { rotinasSalvas[index].feito = !rotinasSalvas[index].feito; if(rotinasSalvas[index].feito) adicionarPontos(5); localStorage.setItem('turminha_rotina', JSON.stringify(rotinasSalvas)); renderizarRotinas(); }
     function removerRotina(index) { rotinasSalvas.splice(index, 1); localStorage.setItem('turminha_rotina', JSON.stringify(rotinasSalvas)); renderizarRotinas(); }
 
-    /* PARENTAL GATE CORRIGIDO */
     function abrirAreaProtegida(destino) {
       destinoAposGate = destino;
       document.getElementById('respostaDesafio').value = '';
@@ -695,7 +773,6 @@
       }
     }
 
-    /* LOUSA */
     const canvas = document.getElementById('paintCanvas'); const ctx = canvas ? canvas.getContext('2d') : null;
     let desenhando = false, corAtual = '#3B82F6', tamanhoPincel = 4, imgContornoAtual = null;
 
@@ -724,7 +801,6 @@
       canvas.addEventListener('touchstart', iniciar, { passive: false }); canvas.addEventListener('touchmove', mover, { passive: false }); canvas.addEventListener('touchend', parar);
     }
 
-    /* MINIGAMES */
     function carregarJogoContar() {
       const display = document.getElementById('countDisplay'); if(!display) return; display.innerHTML = '<span>🐶 🐶 🐶</span>';
       const opts = document.getElementById('countOptions'); opts.innerHTML = '<button class="btn-choice" onclick="lerTexto(\'Acertou!\'); adicionarPontos(5);">3</button>';
